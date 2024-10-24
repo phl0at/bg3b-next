@@ -5,9 +5,9 @@ import Link from "next/link";
 const MainMenu = () => {
   const { showMenu, toggleMenu } = useMenuContext();
   const list = [
-    { type: "New Build", href: "/create" },
-    { type: "Browse Builds", href: "/browse" },
-    { type: "Log Out", href: "/login" },
+    { type: "New Build", href: "/build/create" },
+    { type: "Browse Builds", href: "/build/browse" },
+    { type: "Log Out", href: "/auth/login" },
   ];
   return (
     <div

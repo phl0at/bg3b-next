@@ -12,20 +12,74 @@ datasource db {
 model User {
   id Int @id @default(autoincrement())
   builds Build[]
+  favorites Favorite[]
 }
 
 model Build {
   id Int @id @default(autoincrement())
-  author User @relation(fields: [authorId], references: [id])
-  authorId Int @unique
-  characterName String
-  origin Origin?
+  author User @relation(fields: [author_id], references: [id])
+  author_id Int @unique
+  character_name String
+  origin Int
+  race Int
+  sub_race String?
+  background Int
+  strength Int
+  dexterity Int
+  constitution Int
+  wisdom Int
+  charisma Int
+  plus_2 String
+  plus_1 String
+  helmet Int
+  cloak Int
+  armour Int
+  glove Int
+  boot Int
+  amulet Int
+  ring_1 Int
+  ring_2 Int
+  melee_mh Int
+  melee_oh Int
+  ranged_mh Int
+  ranged_oh Int
+  armour_class Int?
+  classes BuildClass[]
+  cantrips BuildCantrip[]
+  spells BuildSpell[]
+  favorites Favorite[]
 }
 
-model Origin {
+model BuildClass {
   id Int @id @default(autoincrement())
+  build Build @relation(fields: [build_id], references: [id])
+  build_id Int
+  class_id Int
   name String
-  description String
-  build Build @relation(fields: [buildId], references: [id])
-  buildId Int @unique
+  level Int
+  sub_class String?
+  order Int
+  modifier String
+}
+
+model BuildCantrip {
+  id Int @id @default(autoincrement())
+  build Build @relation(fields: [build_id], references: [id])
+  build_id Int
+  cantrip_id Int
+}
+
+model BuildSpell {
+  id Int @id @default(autoincrement())
+  build Build @relation(fields: [build_id], references: [id])
+  build_id Int
+  spell_id Int
+}
+
+model Favorite {
+  id Int @id @default(autoincrement())
+  user User @relation(fields: [user_id], references: [id])
+  user_id Int
+  build Build @relation(fields: [build_id], references: [id])
+  build_id Int
 }
