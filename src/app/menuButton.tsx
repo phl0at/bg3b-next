@@ -2,7 +2,7 @@
 import React from "react";
 import { FiAlignJustify } from "react-icons/fi";
 import { useMenuContext } from "@/context/menu";
-import MainMenu from "./mainMenu";
+import MenuLayer from "./menuLayer";
 
 const MenuButton = () => {
   const { toggleMenu } = useMenuContext();
@@ -16,7 +16,7 @@ const MenuButton = () => {
           size="45"
         />
       </div>
-      <MainMenu />
+      <MenuLayer />
     </>
   );
 };

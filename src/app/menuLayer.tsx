@@ -1,14 +1,10 @@
 import React from "react";
 import { useMenuContext } from "@/context/menu";
-import Link from "next/link";
+import MenuList from "./menuList";
 
-const MainMenu = () => {
+const MenuLayer = () => {
   const { showMenu, toggleMenu } = useMenuContext();
-  const list = [
-    { type: "New Build", href: "/build/create" },
-    { type: "Browse Builds", href: "/build/browse" },
-    { type: "Log Out", href: "/auth/login" },
-  ];
+
   return (
     <div
       onClick={toggleMenu}
@@ -23,20 +19,10 @@ const MainMenu = () => {
           showMenu ? "translate-x-60" : ""
         } transition-transform ease-in-out delay-300 duration-300 `}
       >
-        {list.map((option) => (
-          <Link
-            className="text-blue-300 hover:text-blue-500
-            transition-colors
-            ease-in-out"
-            href={option.href}
-            key={option.type}
-          >
-            {option.type}
-          </Link>
-        ))}
+        <MenuList />
       </ul>
     </div>
   );
 };
 
-export default MainMenu;
+export default MenuLayer;
