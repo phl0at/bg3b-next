@@ -18,14 +18,14 @@ const BuildMenuList = () => {
       menu: "backgrounds",
     },
     {
-      title: "Abilities",
-      translate: "group-hover:-translate-x-32",
-      menu: "abilities",
-    },
-    {
       title: "Classes",
       translate: "group-hover:-translate-x-28",
       menu: "classes",
+    },
+    {
+      title: "Abilities",
+      translate: "group-hover:-translate-x-32",
+      menu: "abilities",
     },
   ];
 

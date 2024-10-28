@@ -10,7 +10,7 @@ const Origin = ({ origins }: { origins: Origin[] }) => {
           <div
             className="flex flex-col justify-center items-center cursor-pointer"
             key={origin.id}
-            onClick={() => setSelectedOrigin(origin.id - 1)}
+            onClick={() => setSelectedOrigin(origin.id)}
           >
             <img
               className="w-[60px] h-[90px] object-cover rounded-md"
@@ -20,7 +20,9 @@ const Origin = ({ origins }: { origins: Origin[] }) => {
           </div>
         ))}
       </div>
-      <div className="text-center">{origins[selectedOrigin].description}</div>
+      <div className="text-center">
+        {origins[selectedOrigin - 1].description}
+      </div>
     </main>
   );
 };

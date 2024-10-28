@@ -48,7 +48,6 @@ type StaticData = {
   races: Race[];
   backgrounds: Background[];
   classes: Class[];
-  abilities: [];
   cantrips: Cantrip[];
 };
 

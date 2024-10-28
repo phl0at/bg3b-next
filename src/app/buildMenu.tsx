@@ -15,7 +15,7 @@ const BuildMenu = ({ data }: { data: StaticData }) => {
       {display === "origins" && <Origin origins={data.origins} />}
       {display === "races" && <Race races={data.races} />}
       {display === "backgrounds" && <Backgrounds backgrounds={data.backgrounds} />}
-      {display === "abilities" && <Abilities abilities={data.abilities} />}
+      {display === "abilities" && <Abilities />}
       {display === "classes" && <Classes classes={data.classes} />}
       <GiVibratingShield className="text-blue-300 hover:text-blue-500 cursor-pointer fixed right-1 bottom-1 size-36 hover:-translate-y-1 transition ease-in-out delay-250 duration-300" />
     </>
