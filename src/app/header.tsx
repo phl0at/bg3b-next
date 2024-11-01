@@ -1,4 +1,4 @@
-import MenuButton from "./menuButton";
+import MenuButton from "@/components/menuButton";
 
 const Header = () => {
   return (

@@ -2,7 +2,7 @@
 import React from "react";
 import { FiAlignJustify } from "react-icons/fi";
 import { useMenuContext } from "@/context/menu";
-import MenuLayer from "./menuLayer";
+import MenuLayer from "@/components/menuLayer";
 
 const MenuButton = () => {
   const { toggleMenu } = useMenuContext();

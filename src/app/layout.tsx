@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Header from "@/app/header";
 import Footer from "@/app/footer";
 import { MenuProvider } from "@/context/menu";
+import { BuildProvider } from "@/context/build";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -19,11 +20,13 @@ export default function RootLayout({
       <body
         className={`antialiased bg-zinc-900 flex flex-col justify-between h-screen`}
       >
-        <MenuProvider>
-          <Header />
-          {children}
-          <Footer />
-        </MenuProvider>
+        <BuildProvider>
+          <MenuProvider>
+            <Header />
+            {children}
+            <Footer />
+          </MenuProvider>
+        </BuildProvider>
       </body>
     </html>
   );

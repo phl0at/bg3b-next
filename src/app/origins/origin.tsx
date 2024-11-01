@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+"use client";
+import { useBuildContext } from "@/context/build";
+import Image from "next/image";
+import React from "react";
 
-const Origin = ({ origins }: { origins: Origin[] }) => {
-  const [selectedOrigin, setSelectedOrigin] = useState(1);
+const Origins = ({ origins }: { origins: Origin[] }) => {
+  const { selectedOrigin, setSelectedOrigin } = useBuildContext();
 
   return (
     <main className="bg-zinc-800 shadow-xl min-w-96 w-2/5 h-full rounded-3xl flex flex-col justify-start items-center py-8">
@@ -12,9 +15,12 @@ const Origin = ({ origins }: { origins: Origin[] }) => {
             key={origin.id}
             onClick={() => setSelectedOrigin(origin.id)}
           >
-            <img
-              className="w-[60px] h-[90px] object-cover rounded-md"
+            <Image
+              className="h-[140px] object-cover rounded-md"
+              width={105}
+              height={140}
               src={`https://ik.imagekit.io/phl0at/images/char_icons/${origin.name}.png`}
+              alt=""
             />
             {origin.name}
           </div>
@@ -27,4 +33,4 @@ const Origin = ({ origins }: { origins: Origin[] }) => {
   );
 };
 
-export default Origin;
+export default Origins;
