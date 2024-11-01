@@ -16,9 +16,9 @@ const Origins = ({ origins }: { origins: Origin[] }) => {
             onClick={() => setSelectedOrigin(origin.id)}
           >
             <Image
-              className="h-[140px] object-cover rounded-md"
+              className="h-[130px] object-cover rounded-md"
               width={105}
-              height={140}
+              height={130}
               src={`https://ik.imagekit.io/phl0at/images/char_icons/${origin.name}.png`}
               alt=""
             />

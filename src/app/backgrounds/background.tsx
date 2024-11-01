@@ -19,8 +19,8 @@ export function Backgrounds({ backgrounds }: { backgrounds: Background[] }) {
               >
                 <Image
                   className="object-cover"
-                  width={60}
-                  height={60}
+                  width={90}
+                  height={90}
                   src={`https://ik.imagekit.io/phl0at/images/bg_icons/${bg.name}.png`}
                   alt=""
                 />

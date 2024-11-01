@@ -16,8 +16,8 @@ const Classes = ({ classes }: { classes: Class[] }) => {
             onClick={() => setSelectedClass(_class.id)}
           >
             <Image
-              width={60}
-              height={60}
+              width={90}
+              height={90}
               src={`https://ik.imagekit.io/phl0at/images/class_icons/${_class.name}.png`}
               alt=""
             />

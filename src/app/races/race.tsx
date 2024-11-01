@@ -17,8 +17,8 @@ const Races = ({ races }: { races: Race[] }) => {
           >
             <Image
               className="object-cover"
-              width={60}
-              height={60}
+              width={90}
+              height={90}
               src={`https://ik.imagekit.io/phl0at/images/race_icons/${race.name}.png`}
               alt=""
             />
