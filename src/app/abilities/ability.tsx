@@ -8,10 +8,11 @@ export const Ability = ({ ability }: { ability: string }) => {
     <main className="flex flex-row justify-between">
       <div className="flex items-center">
         <Image
+          priority={true}
           src={`https://ik.imagekit.io/phl0at/images/stat_icons/${titleCaseStat}.png`}
           alt=""
-          width={80}
-          height={50}
+          width={85}
+          height={85}
         />
         <div>{titleCaseStat}</div>
       </div>

@@ -29,15 +29,16 @@ const MenuList = () => {
 
   return (
     <>
-      {pathname === "/build" ? (
+      {pathname === "/browse" && (
+        <Link className={className} href="/origins">
+          <FaCirclePlus />
+          New
+        </Link>
+      )}
+      {pathname !== "/browse" && pathname !== "/" ? (
         <Link className={className} href="/browse">
           <FaTableList />
           Browse
-        </Link>
-      ) : pathname === "/browse" ? (
-        <Link className={className} href="/build">
-          <FaCirclePlus />
-          New
         </Link>
       ) : (
         ""

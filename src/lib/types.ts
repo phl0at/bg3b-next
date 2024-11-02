@@ -4,8 +4,26 @@ type User = {
   username: string;
 };
 type Build = {
-  id: number;
-  name: string;
+  id?: number;
+  abilityPoints: number;
+  armour_class: number;
+  availableCantrips?: Set<Cantrip>;
+  background: number;
+  build_classes?: Class[];
+  cantripPoints?: number;
+  cantrips?: Cantrip[];
+  character_name: string;
+  charisma: number;
+  constitution: number;
+  dexterity: number;
+  intelligence: number;
+  level: number;
+  origin: number;
+  plus_1: string;
+  plus_2: string;
+  race: number;
+  strength: number;
+  wisdom: number;
 };
 
 type Origin = {
@@ -28,6 +46,11 @@ type Class = {
   name: string;
   description: string;
   modifier: string;
+  sub_class?: string;
+};
+type SubClass = {
+  name: string;
+  description: string;
 };
 type Cantrip = {
   id: number;

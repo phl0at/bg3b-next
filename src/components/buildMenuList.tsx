@@ -6,55 +6,65 @@ import { usePathname } from "next/navigation";
 
 const BuildMenuList = () => {
   const pathname = usePathname();
-
-  const menus = [
+  const menuOptions = [
     {
       title: "Origins",
-      translate: "group-hover:-translate-x-28",
+      translateHover: "group-hover:-translate-x-[113px]",
+      translate: "-translate-x-[113px]",
       menu: "/origins",
     },
     {
       title: "Races",
-      translate: "group-hover:-translate-x-28",
+      translateHover: "group-hover:-translate-x-[100px]",
+      translate: "-translate-x-[100px]",
       menu: "/races",
     },
     {
       title: "Backgrounds",
-      translate: "group-hover:-translate-x-44",
+      translateHover: "group-hover:-translate-x-[164px]",
+      translate: "-translate-x-[164px]",
       menu: "/backgrounds",
     },
     {
       title: "Classes",
-      translate: "group-hover:-translate-x-28",
+      translateHover: "group-hover:-translate-x-[113px]",
+      translate: "-translate-x-[113px]",
       menu: "/classes",
     },
     {
       title: "Abilities",
-      translate: "group-hover:-translate-x-32",
+      translateHover: "group-hover:-translate-x-[119px]",
+      translate: "-translate-x-[119px]",
       menu: "/abilities",
     },
   ];
 
   return (
     <ul className="flex flex-col gap-7 text-xl font-sans">
-      {menus.map((d) => (
+      {menuOptions.map((option) => (
         <Link
-          className="flex justify-end items-center text-blue-300 hover:text-blue-500 group"
-          href={`${d.menu}`}
-          key={d.menu}
+          className="flex justify-end items-center text-blue-300 group"
+          href={`${option.menu}`}
+          key={option.menu}
         >
-          <div className="group-hover:text-blue-500 text-zinc-900 transition-colors ease-in-out">
-            {d.title}
+          <div
+            className={
+              option.menu === pathname
+                ? "text-blue-500"
+                : "group-hover:text-blue-300 text-zinc-900 transition-colors ease-in-out"
+            }
+          >
+            {option.title}
           </div>
-          {d.menu === pathname ? (
+          {option.menu === pathname ? (
             <FaRegDotCircle
               size="45"
-              className={`${d.translate} transition ease-in-out`}
+              className={`${option.translate} text-blue-500`}
             />
           ) : (
             <FaRegCircle
               size="45"
-              className={`${d.translate} transition ease-in-out`}
+              className={`${option.translateHover} transition ease-in-out`}
             />
           )}
         </Link>
