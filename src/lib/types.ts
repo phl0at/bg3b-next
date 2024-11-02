@@ -43,12 +43,4 @@ type Cantrip = {
   school: string;
 };
 
-type StaticData = {
-  origins: Origin[];
-  races: Race[];
-  backgrounds: Background[];
-  classes: Class[];
-  cantrips: Cantrip[];
-};
-
 /* eslint-disable */

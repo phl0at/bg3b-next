@@ -9,7 +9,7 @@ const Classes = ({ classes }: { classes: Class[] }) => {
   return (
     <main className="bg-zinc-800 shadow-xl min-w-96 w-2/5 h-full rounded-3xl flex flex-col justify-start items-center py-8">
       <div className="grid grid-cols-4 gap-y-5 w-5/6">
-        {classes.map((_class) => (
+        {classes.map((_class: Class) => (
           <div
             className="flex flex-col justify-center items-center cursor-pointer"
             key={_class.id}

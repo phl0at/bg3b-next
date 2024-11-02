@@ -1,6 +1,6 @@
 import React from "react";
 import BuildMenuList from "@/components/buildMenuList";
-import Abilities from "./abilities";
+import { Abilities } from "./abilities";
 
 const AbilitiesPage = async () => {
   return (
