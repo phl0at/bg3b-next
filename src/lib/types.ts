@@ -24,6 +24,7 @@ type Build = {
   race: number;
   strength: number;
   wisdom: number;
+  magSec?: number;
 };
 
 type Origin = {
@@ -46,7 +47,8 @@ type Class = {
   name: string;
   description: string;
   modifier: string;
-  sub_class?: string;
+  sub_class: string | null;
+  mustPickSC?: boolean;
 };
 type SubClass = {
   name: string;
@@ -65,5 +67,19 @@ type Cantrip = {
   range?: number;
   school: string;
 };
-
+type State = {
+  current: Build;
+  builds: Set<Build>;
+  dispatch: () => void;
+};
+type Args = {
+  type: string;
+  payload: {
+    id?: number;
+    name?: string;
+    val?: number;
+    amount?: string;
+    ability?: string;
+  };
+};
 /* eslint-disable */

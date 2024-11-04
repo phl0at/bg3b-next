@@ -1,10 +1,10 @@
 "use client";
-import { useBuildContext } from "@/context/build";
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 
 const Classes = ({ classes }: { classes: Class[] }) => {
-  const { selectedClass, setSelectedClass } = useBuildContext();
+  const [selectedClass, setSelectedClass] = useState(1)
+
 
   return (
     <main className="bg-zinc-800 shadow-xl min-w-96 w-2/5 h-full rounded-3xl flex flex-col justify-start items-center py-8">

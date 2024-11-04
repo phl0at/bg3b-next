@@ -49,7 +49,7 @@ const types = {
   removeItem: "REMOVE ITEM",
 };
 
-const reducer = (state, { type, payload }) => {
+const reducer = (state: State, { type, payload }: Args) => {
   switch (type) {
     case types.setDefault: {
       const newState = {
@@ -73,38 +73,40 @@ const reducer = (state, { type, payload }) => {
     //!-------------------------------------------------------------------
     case types.setOrigin: {
       const newState = { ...state, current: { ...state.current } };
-      newState.current.origin = payload.id;
-      payload.id != 8
-        ? (newState.current.character_name = payload.name)
-        : (newState.current.character_name = "Tav");
+      if (payload.id && payload.name) {
+        newState.current.origin = payload.id;
+        payload.id != 8
+          ? (newState.current.character_name = payload.name)
+          : (newState.current.character_name = "Tav");
+      }
       return newState;
     }
     //!-------------------------------------------------------------------
     //!-------------------------------------------------------------------
     case types.setRace: {
       const newState = { ...state, current: { ...state.current } };
-      newState.current.race = payload;
+      if (payload.val) newState.current.race = payload.val;
       return newState;
     }
     //!-------------------------------------------------------------------
     //!-------------------------------------------------------------------
     case types.setBackground: {
       const newState = { ...state, current: { ...state.current } };
-      newState.current.background = payload;
+      if (payload.val) newState.current.background = payload.val;
       return newState;
     }
     //!-------------------------------------------------------------------
     //!-------------------------------------------------------------------
     case types.raiseAbilityPoints: {
       const newState = { ...state, current: { ...state.current } };
-      newState.current.abilityPoints += payload;
+      if (payload.val) newState.current.abilityPoints += payload.val;
       return newState;
     }
     //!-------------------------------------------------------------------
     //!-------------------------------------------------------------------
     case types.lowerAbilityPoints: {
       const newState = { ...state, current: { ...state.current } };
-      newState.current.abilityPoints -= payload;
+      if (payload.val) newState.current.abilityPoints -= payload.val;
       return newState;
     }
     //!-------------------------------------------------------------------
@@ -126,28 +128,32 @@ const reducer = (state, { type, payload }) => {
     //!-------------------------------------------------------------------
     case types.increaseAbility: {
       const newState = { ...state, current: { ...state.current } };
-      newState.current[payload]++;
+      if (payload.ability) newState.current[payload.ability as keyof Build]++;
       return newState;
     }
     //!-------------------------------------------------------------------
     //!-------------------------------------------------------------------
     case types.decreaseAbility: {
       const newState = { ...state, current: { ...state.current } };
-      newState.current[payload]--;
+      if (payload.ability) newState.current[payload.ability as keyof Build]--;
       return newState;
     }
     //!-------------------------------------------------------------------
     //!-------------------------------------------------------------------
     case types.setBonus: {
       const newState = { ...state, current: { ...state.current } };
-      const existingBonus = newState.current[payload.amount];
-      const bonusAmount = Number(payload.amount.split("_")[1]);
+      const existingBonus = newState.current[payload.amount as keyof Build];
+      const bonusAmount = payload.amount
+        ? Number(payload.amount.split("_")[1])
+        : 0;
 
-      if (existingBonus) {
-        newState.current[existingBonus] -= bonusAmount;
+      if (existingBonus && payload.ability) {
+        newState.current[payload.ability as keyof Build] -= bonusAmount;
       }
-      newState.current[payload.amount] = payload.ability;
-      newState.current[payload.ability] += bonusAmount;
+      if (payload.ability && payload.amount) {
+        newState.current[payload.amount as keyof Build] = payload.ability;
+        newState.current[payload.ability as keyof Build] += bonusAmount;
+      }
       return newState;
     }
     //!-------------------------------------------------------------------
@@ -214,8 +220,8 @@ const reducer = (state, { type, payload }) => {
     case types.clearClasses: {
       const newState = { ...state };
       newState.current.level = 0;
-      newState.current.build_classes = {};
-      newState.current.cantrips = {};
+      newState.current.build_classes = [];
+      newState.current.cantrips = [];
       newState.current.availableCantrips = new Set();
       newState.current.cantripPoints = 0;
       newState.current.magSec = 0;
@@ -269,5 +275,5 @@ export const useStore = create((set) => ({
     ...defaultBuild,
   },
   builds: new Set(),
-  dispatch: (args) => set((state) => reducer(state, args)),
+  dispatch: (args: Args) => set((state: State) => reducer(state, args)),
 }));

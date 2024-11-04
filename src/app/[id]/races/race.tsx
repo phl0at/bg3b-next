@@ -1,10 +1,11 @@
-"use client"
-import { useBuildContext } from "@/context/build";
+"use client";
+import { useStore } from "@/store/store";
 import Image from "next/image";
 import React from "react";
 
 const Races = ({ races }: { races: Race[] }) => {
-  const { selectedRace, setSelectedRace } = useBuildContext();
+  const race = useStore((state) => state.current.race);
+  const dispatch = useStore((state) => state.dispatch);
 
   return (
     <main className="bg-zinc-800 shadow-xl min-w-96 w-2/5 h-full rounded-3xl flex flex-col justify-start items-center py-8">
@@ -13,7 +14,7 @@ const Races = ({ races }: { races: Race[] }) => {
           <div
             className="flex flex-col justify-center items-center cursor-pointer"
             key={race.id}
-            onClick={() => setSelectedRace(race.id)}
+            onClick={() => dispatch({ type: "SET RACE", payload: race.id })}
           >
             <Image
               className="object-cover"
@@ -26,7 +27,7 @@ const Races = ({ races }: { races: Race[] }) => {
           </div>
         ))}
       </div>
-      <div className="text-center">{races[selectedRace - 1].description}</div>
+      <div className="text-center">{races[race - 1].description}</div>
     </main>
   );
 };

@@ -1,10 +1,11 @@
 "use client";
-import { useBuildContext } from "@/context/build";
+import { useStore } from "@/store/store";
 import Image from "next/image";
 import React from "react";
 
 export function Backgrounds({ backgrounds }: { backgrounds: Background[] }) {
-  const { selectedBackground, setSelectedBackground } = useBuildContext();
+  const background = useStore((state) => state.current.background);
+  const dispatch = useStore((state) => state.dispatch);
 
   return (
     <div className="bg-zinc-800 shadow-xl min-w-96 w-2/5 h-full rounded-3xl flex flex-col justify-start items-center py-8">
@@ -15,7 +16,7 @@ export function Backgrounds({ backgrounds }: { backgrounds: Background[] }) {
               <div
                 className="flex flex-col justify-center items-center cursor-pointer"
                 key={bg.id}
-                onClick={() => setSelectedBackground(bg.id)}
+                onClick={() => dispatch({type: "SET BACKGROUND", payload: bg.id})}
               >
                 <Image
                   className="object-cover"
@@ -30,7 +31,7 @@ export function Backgrounds({ backgrounds }: { backgrounds: Background[] }) {
         })}
       </div>
       <div className="text-center">
-        {backgrounds[selectedBackground - 1].description}
+        {backgrounds[background - 1].description}
       </div>
     </div>
   );
