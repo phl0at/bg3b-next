@@ -1,6 +1,29 @@
 /* eslint-disable */
 import { create } from "zustand";
 
+const defaultBuild = {
+  id: "new",
+  character_name: "Tav",
+  origin: 8,
+  race: 1,
+  background: 1,
+  strength: 8,
+  dexterity: 8,
+  constitution: 8,
+  intelligence: 8,
+  wisdom: 8,
+  charisma: 8,
+  abilityPoints: 27,
+  cantrips: {},
+  availableCantrips: new Set(),
+  cantripPoints: 0,
+  plus_1: "",
+  plus_2: "",
+  level: 0,
+  armour_class: 10,
+  build_classes: {},
+};
+
 const types = {
   getBuild: "GET BUILD",
   getAllBuilds: "GET ALL BUILDS",
@@ -32,25 +55,7 @@ const reducer = (state, { type, payload }) => {
       const newState = {
         ...state,
         current: {
-          character_name: "Tav",
-          origin: 8,
-          race: 1,
-          background: 1,
-          strength: 8,
-          dexterity: 8,
-          constitution: 8,
-          intelligence: 8,
-          wisdom: 8,
-          charisma: 8,
-          abilityPoints: 27,
-          cantrips: {},
-          availableCantrips: new Set(),
-          cantripPoints: 0,
-          plus_1: "",
-          plus_2: "",
-          level: 0,
-          armour_class: 10,
-          build_classes: {},
+          ...defaultBuild,
         },
       };
       return newState;
@@ -260,7 +265,9 @@ const reducer = (state, { type, payload }) => {
 };
 
 export const useStore = create((set) => ({
-  current: {},
+  current: {
+    ...defaultBuild,
+  },
   builds: new Set(),
   dispatch: (args) => set((state) => reducer(state, args)),
 }));

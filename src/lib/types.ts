@@ -4,14 +4,14 @@ type User = {
   username: string;
 };
 type Build = {
-  id?: number;
+  id: number | string;
   abilityPoints: number;
   armour_class: number;
   availableCantrips?: Set<Cantrip>;
   background: number;
-  build_classes?: Class[];
-  cantripPoints?: number;
-  cantrips?: Cantrip[];
+  build_classes: Class[];
+  cantripPoints: number;
+  cantrips: Cantrip[];
   character_name: string;
   charisma: number;
   constitution: number;

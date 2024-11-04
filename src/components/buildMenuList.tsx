@@ -3,39 +3,42 @@ import React from "react";
 import Link from "next/link";
 import { FaRegCircle, FaRegDotCircle } from "react-icons/fa";
 import { usePathname } from "next/navigation";
+import { useStore } from "@/store/store";
 
 const BuildMenuList = () => {
   const pathname = usePathname();
+  const buildId = useStore((state) => state.current.id);
+
   const menuOptions = [
     {
       title: "Origins",
       translateHover: "group-hover:-translate-x-[113px]",
       translate: "-translate-x-[113px]",
-      menu: "/origins",
+      menu: `/${buildId}/origins`,
     },
     {
       title: "Races",
       translateHover: "group-hover:-translate-x-[100px]",
       translate: "-translate-x-[100px]",
-      menu: "/races",
+      menu: `/${buildId}/races`,
     },
     {
       title: "Backgrounds",
       translateHover: "group-hover:-translate-x-[164px]",
       translate: "-translate-x-[164px]",
-      menu: "/backgrounds",
+      menu: `/${buildId}/backgrounds`,
     },
     {
       title: "Classes",
       translateHover: "group-hover:-translate-x-[113px]",
       translate: "-translate-x-[113px]",
-      menu: "/classes",
+      menu: `/${buildId}/classes`,
     },
     {
       title: "Abilities",
       translateHover: "group-hover:-translate-x-[119px]",
       translate: "-translate-x-[119px]",
-      menu: "/abilities",
+      menu: `/${buildId}/abilities`,
     },
   ];
 

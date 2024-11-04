@@ -1,10 +1,12 @@
 "use client";
-import { useBuildContext } from "@/context/build";
+import { useStore } from "@/store/store";
 import Image from "next/image";
 import React from "react";
 
+
 const Origins = ({ origins }: { origins: Origin[] }) => {
-  const { selectedOrigin, setSelectedOrigin } = useBuildContext();
+  const origin = useStore((state) => state.current.origin);
+  const dispatch = useStore((state) => state.dispatch);
 
   return (
     <main className="bg-zinc-800 shadow-xl min-w-96 w-2/5 h-full rounded-3xl flex flex-col justify-start items-center py-8">
@@ -13,7 +15,7 @@ const Origins = ({ origins }: { origins: Origin[] }) => {
           <div
             className="flex flex-col justify-center items-center cursor-pointer"
             key={origin.id}
-            onClick={() => setSelectedOrigin(origin.id)}
+            onClick={() => dispatch({ type: "SET ORIGIN", payload: origin })}
           >
             <Image
               className="h-[130px] object-cover rounded-md"
@@ -26,9 +28,7 @@ const Origins = ({ origins }: { origins: Origin[] }) => {
           </div>
         ))}
       </div>
-      <div className="text-center">
-        {origins[selectedOrigin - 1].description}
-      </div>
+      <div className="text-center">{origins[origin - 1].description}</div>
     </main>
   );
 };
