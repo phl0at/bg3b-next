@@ -7,9 +7,9 @@ export const Ability = ({ ability }: { ability: string }) => {
   const titleCaseStat = ability[0].toUpperCase() + ability.slice(1);
   const val = useStore((state) => state.current[ability]);
   const [clicks, setClicks] = useState(val - 8);
-  const { plus_1, plus_2, abilityPoints, dispatch } = useStore(
-    (state) => state.current
-  );
+  const { plus_1, plus_2, abilityPoints } = useStore((state) => state.current);
+  const { dispatch } = useStore((state) => state);
+  
   // An ability can only be clicked/increased 7 times.
   // This will track the number of increases by setting the # of clicks
   // to the ability's current value, minus its base value.
@@ -28,17 +28,6 @@ export const Ability = ({ ability }: { ability: string }) => {
   // These two functions ensure the correct amount of ability
   // points are added or subtracted based on how many times
   // an ability has been clicked/increased.
-  const clickLower = (e: MouseEvent<HTMLButtonElement>, type: string) => {
-    e.preventDefault();
-    if (clicks < 6) {
-      dispatch({ type: "RAISE ABILITY POINTS", payload: 1 });
-      dispatch({ type: "DECREASE ABILITY", payload: type });
-    } else {
-      dispatch({ type: "RAISE ABILITY POINTS", payload: 2 });
-      dispatch({ type: "DECREASE ABILITY", payload: type });
-    }
-  };
-
   const clickRaise = (e: MouseEvent<HTMLButtonElement>, type: string) => {
     e.preventDefault();
     if (clicks < 5) {
@@ -57,6 +46,55 @@ export const Ability = ({ ability }: { ability: string }) => {
       //     }}
       //   />
       // );
+    }
+  };
+  const clickLower = (e: MouseEvent<HTMLButtonElement>, type: string) => {
+    e.preventDefault();
+    if (clicks < 6) {
+      dispatch({ type: "RAISE ABILITY POINTS", payload: 1 });
+      dispatch({ type: "DECREASE ABILITY", payload: type });
+    } else {
+      dispatch({ type: "RAISE ABILITY POINTS", payload: 2 });
+      dispatch({ type: "DECREASE ABILITY", payload: type });
+    }
+  };
+
+  // A user cannot set the +1 and +2 bonuses to the same ability.
+  // These functions will clear any existing bonuses
+  // to the chosen ability before applying new ones
+  const clickPlusTwo = (e: MouseEvent<HTMLButtonElement>, ability: string) => {
+    e.preventDefault();
+    if (plus_2 === ability) {
+      dispatch({
+        type: "REMOVE BONUS",
+        payload: { amount: "plus_2", ability },
+      });
+    } else {
+      if (plus_1 === ability) {
+        dispatch({
+          type: "REMOVE BONUS",
+          payload: { amount: "plus_1", ability },
+        });
+      }
+      dispatch({ type: "SET BONUS", payload: { amount: "plus_2", ability } });
+    }
+  };
+
+  const clickPlusOne = (e: MouseEvent<HTMLButtonElement>, ability: string) => {
+    e.preventDefault();
+    if (plus_1 === ability) {
+      dispatch({
+        type: "REMOVE BONUS",
+        payload: { amount: "plus_1", ability },
+      });
+    } else {
+      if (plus_2 === ability) {
+        dispatch({
+          type: "REMOVE BONUS",
+          payload: { amount: "plus_2", ability },
+        });
+      }
+      dispatch({ type: "SET BONUS", payload: { amount: "plus_1", ability } });
     }
   };
 
@@ -93,23 +131,20 @@ export const Ability = ({ ability }: { ability: string }) => {
                 ? "text-gray-600 cursor-default"
                 : ""
             }
-            onClick={(e) => {
-              e.preventDefault();
-              if (clicks < 6) {
-                dispatch({ type: "RAISE ABILITY POINTS", payload: 1 });
-                dispatch({ type: "DECREASE ABILITY", payload: ability });
-              } else {
-                dispatch({ type: "RAISE ABILITY POINTS", payload: 2 });
-                dispatch({ type: "DECREASE ABILITY", payload: ability });
-              }
-            }}
+            onClick={(e) => clickRaise(e, ability)}
           >
             <CiCirclePlus size="35" />
           </button>
         </div>
         <div className="flex items-center justify-between gap-x-[6px]">
-          <button className="w-[16px] h-[16px] border-solid border-[2px]" />
-          <button className="w-[16px] h-[16px] border-solid border-[2px]" />
+          <button
+            className="w-[16px] h-[16px] border-solid border-[2px]"
+            onClick={(e) => clickPlusTwo(e, ability)}
+          />
+          <button
+            className="w-[16px] h-[16px] border-solid border-[2px]"
+            onClick={(e) => clickPlusOne(e, ability)}
+          />
         </div>
       </div>
     </main>

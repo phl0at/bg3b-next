@@ -34,7 +34,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "script.mjs"
-, "next.config.mjs", "src/store/store.ts"  ],
+, "next.config.mjs", "src/store/store.js"  ],
   "exclude": [
     "node_modules"
   ]

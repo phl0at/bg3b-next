@@ -49,7 +49,7 @@ const types = {
   removeItem: "REMOVE ITEM",
 };
 
-const reducer = (state: State, { type, payload }: Args) => {
+const reducer = (state, { type, payload }) => {
   switch (type) {
     case types.setDefault: {
       const newState = {
@@ -85,28 +85,29 @@ const reducer = (state: State, { type, payload }: Args) => {
     //!-------------------------------------------------------------------
     case types.setRace: {
       const newState = { ...state, current: { ...state.current } };
-      if (payload.val) newState.current.race = payload.val;
+      newState.current.race = payload;
       return newState;
     }
     //!-------------------------------------------------------------------
     //!-------------------------------------------------------------------
     case types.setBackground: {
       const newState = { ...state, current: { ...state.current } };
-      if (payload.val) newState.current.background = payload.val;
+      newState.current.background = payload;
       return newState;
     }
     //!-------------------------------------------------------------------
     //!-------------------------------------------------------------------
     case types.raiseAbilityPoints: {
       const newState = { ...state, current: { ...state.current } };
-      if (payload.val) newState.current.abilityPoints += payload.val;
+      newState.current.abilityPoints += payload;
       return newState;
     }
     //!-------------------------------------------------------------------
     //!-------------------------------------------------------------------
     case types.lowerAbilityPoints: {
       const newState = { ...state, current: { ...state.current } };
-      if (payload.val) newState.current.abilityPoints -= payload.val;
+      newState.current.abilityPoints -= payload;
+      console.log(payload);
       return newState;
     }
     //!-------------------------------------------------------------------
@@ -128,32 +129,28 @@ const reducer = (state: State, { type, payload }: Args) => {
     //!-------------------------------------------------------------------
     case types.increaseAbility: {
       const newState = { ...state, current: { ...state.current } };
-      if (payload.ability) newState.current[payload.ability as keyof Build]++;
+      newState.current[payload]++;
       return newState;
     }
     //!-------------------------------------------------------------------
     //!-------------------------------------------------------------------
     case types.decreaseAbility: {
       const newState = { ...state, current: { ...state.current } };
-      if (payload.ability) newState.current[payload.ability as keyof Build]--;
+      newState.current[payload]--;
       return newState;
     }
     //!-------------------------------------------------------------------
     //!-------------------------------------------------------------------
     case types.setBonus: {
       const newState = { ...state, current: { ...state.current } };
-      const existingBonus = newState.current[payload.amount as keyof Build];
-      const bonusAmount = payload.amount
-        ? Number(payload.amount.split("_")[1])
-        : 0;
+      const existingBonus = newState.current[payload.amount];
+      const bonusAmount = Number(payload.amount.split("_")[1]);
 
-      if (existingBonus && payload.ability) {
-        newState.current[payload.ability as keyof Build] -= bonusAmount;
+      if (existingBonus) {
+        newState.current[existingBonus] -= bonusAmount;
       }
-      if (payload.ability && payload.amount) {
-        newState.current[payload.amount as keyof Build] = payload.ability;
-        newState.current[payload.ability as keyof Build] += bonusAmount;
-      }
+      newState.current[payload.amount] = payload.ability;
+      newState.current[payload.ability] += bonusAmount;
       return newState;
     }
     //!-------------------------------------------------------------------
@@ -275,5 +272,5 @@ export const useStore = create((set) => ({
     ...defaultBuild,
   },
   builds: new Set(),
-  dispatch: (args: Args) => set((state: State) => reducer(state, args)),
+  dispatch: (args) => set((state) => reducer(state, args)),
 }));

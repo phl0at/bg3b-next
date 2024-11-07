@@ -67,19 +67,4 @@ type Cantrip = {
   range?: number;
   school: string;
 };
-type State = {
-  current: Build;
-  builds: Set<Build>;
-  dispatch: () => void;
-};
-type Args = {
-  type: string;
-  payload: {
-    id?: number;
-    name?: string;
-    val?: number;
-    amount?: string;
-    ability?: string;
-  };
-};
 /* eslint-disable */
