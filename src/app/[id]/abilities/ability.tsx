@@ -9,7 +9,7 @@ export const Ability = ({ ability }: { ability: string }) => {
   const [clicks, setClicks] = useState(val - 8);
   const { plus_1, plus_2, abilityPoints } = useStore((state) => state.current);
   const { dispatch } = useStore((state) => state);
-  
+
   // An ability can only be clicked/increased 7 times.
   // This will track the number of increases by setting the # of clicks
   // to the ability's current value, minus its base value.
@@ -110,8 +110,8 @@ export const Ability = ({ ability }: { ability: string }) => {
         />
         <div>{titleCaseStat}</div>
       </div>
-      <div className="flex flex-row items-center justify-evenly">
-        <div className="flex items-center justify-center gap-x-[4px]">
+      <div className="flex flex-row items-center justify-evenly gap-x-5">
+        <div className="flex items-center justify-center">
           <button
             disabled={clicks < 1 || abilityPoints > 26}
             className={
@@ -123,7 +123,7 @@ export const Ability = ({ ability }: { ability: string }) => {
           >
             <CiCircleMinus size="35" />
           </button>
-          <div>{val}</div>
+          <div className="w-[18px] flex justify-center">{val}</div>
           <button
             disabled={clicks > 6 || abilityPoints < 1}
             className={
@@ -138,11 +138,15 @@ export const Ability = ({ ability }: { ability: string }) => {
         </div>
         <div className="flex items-center justify-between gap-x-[6px]">
           <button
-            className="w-[16px] h-[16px] border-solid border-[2px]"
+            className={`${
+              plus_2 === ability && "bg-slate-600"
+            } w-[16px] h-[16px] border-solid border-[2px] hover:border-white`}
             onClick={(e) => clickPlusTwo(e, ability)}
           />
           <button
-            className="w-[16px] h-[16px] border-solid border-[2px]"
+            className={`${
+              plus_1 === ability && "bg-slate-600"
+            } w-[16px] h-[16px] border-solid border-[2px] hover:border-white`}
             onClick={(e) => clickPlusOne(e, ability)}
           />
         </div>
