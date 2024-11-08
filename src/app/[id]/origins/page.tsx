@@ -7,7 +7,7 @@ const OriginPage = async () => {
   const origins = await getData("origins");
 
   return (
-    <main className="w-screen h-screen absolute top-0 py-3 gap-4 flex justify-center items-center">
+    <main className="w-screen h-screen top-0 py-3 gap-4 flex fixed left-[21%] items-center">
       <BuildMenuList />
       <Origins origins={origins} />
     </main>

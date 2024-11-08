@@ -17,7 +17,7 @@ const MenuLayer = () => {
       <ul
         className={`fixed flex flex-col gap-6  text-3xl top-24 -left-52 ${
           showMenu ? "translate-x-60" : ""
-        } transition-transform ease-in-out delay-300 duration-300 `}
+        } transition-transform ease-in-out delay-150 duration-200 `}
       >
         <MenuList />
       </ul>

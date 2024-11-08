@@ -15,7 +15,7 @@ export const Abilities = () => {
   ];
 
   return (
-    <main className="bg-zinc-800 shadow-xl min-w-96 w-2/5 h-full rounded-3xl flex flex-col justify-start items-center py-8">
+    <div className="bg-zinc-800 shadow-xl w-2/5 h-full rounded-3xl flex flex-col justify-start items-center py-8">
       <div>{`Ability Points: ${abilityPoints}`}</div>
       <div className="w-[85%] flex flex-col gap-y-[5px]">
         <div className="relative top-8 text-sm flex flex-row items-end justify-end gap-x-[7px]">
@@ -26,6 +26,6 @@ export const Abilities = () => {
           <Ability key={ability} ability={ability} />
         ))}
       </div>
-    </main>
+    </div>
   );
 };

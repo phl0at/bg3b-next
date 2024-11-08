@@ -8,7 +8,7 @@ export function Backgrounds({ backgrounds }: { backgrounds: Background[] }) {
   const dispatch = useStore((state) => state.dispatch);
 
   return (
-    <div className="bg-zinc-800 shadow-xl min-w-96 w-2/5 h-full rounded-3xl flex flex-col justify-start items-center py-8">
+    <div className="bg-zinc-800 shadow-xl w-2/5 h-full rounded-3xl flex flex-col justify-start items-center py-8">
       <div className="grid grid-cols-4 gap-y-5 w-5/6">
         {backgrounds.map((bg) => {
           if (bg.id < 12)
