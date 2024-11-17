@@ -8,42 +8,41 @@ import { useStore } from "@/store/store";
 const BuildMenuList = () => {
   const pathname = usePathname();
   const buildId = useStore((state) => state.current.id);
-
   const menuOptions = [
     {
       title: "Origins",
       translateHover: "group-hover:-translate-x-[113px]",
       translate: "-translate-x-[113px]",
-      menu: `/${buildId}/origins`,
+      menu: `/build/${buildId}/origins`,
     },
     {
       title: "Races",
       translateHover: "group-hover:-translate-x-[100px]",
       translate: "-translate-x-[100px]",
-      menu: `/${buildId}/races`,
+      menu: `/build/${buildId}/races`,
     },
     {
       title: "Backgrounds",
       translateHover: "group-hover:-translate-x-[164px]",
       translate: "-translate-x-[164px]",
-      menu: `/${buildId}/backgrounds`,
+      menu: `/build/${buildId}/backgrounds`,
     },
     {
       title: "Classes",
       translateHover: "group-hover:-translate-x-[113px]",
       translate: "-translate-x-[113px]",
-      menu: `/${buildId}/classes`,
+      menu: `/build/${buildId}/classes`,
     },
     {
       title: "Abilities",
       translateHover: "group-hover:-translate-x-[119px]",
       translate: "-translate-x-[119px]",
-      menu: `/${buildId}/abilities`,
+      menu: `/build/${buildId}/abilities`,
     },
   ];
 
   return (
-    <ul className="flex flex-col gap-7 text-xl font-sans">
+    <div className="flex flex-col gap-7 text-xl font-sans">
       {menuOptions.map((option) => (
         <Link
           className="flex justify-end items-center text-blue-300 group"
@@ -67,12 +66,12 @@ const BuildMenuList = () => {
           ) : (
             <FaRegCircle
               size="45"
-              className={`${option.translateHover} transition ease-in-out`}
+              className={`${option.translateHover} transition eas-in-out`}
             />
           )}
         </Link>
       ))}
-    </ul>
+    </div>
   );
 };
 

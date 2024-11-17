@@ -1,16 +1,15 @@
 import React from "react";
-import BuildMenuList from "@/components/buildMenuList";
 import Races from "./race";
 import { getData } from "@/lib/utils";
+import BuildLayout from "../../layout";
 
 const RacePage = async () => {
   const races = await getData("races");
 
   return (
-    <main className="w-screen h-screen fixed left-[21%] top-0 py-3 gap-4 flex items-center">
-      <BuildMenuList />
+    <BuildLayout>
       <Races races={races} />
-    </main>
+    </BuildLayout>
   );
 };
 
