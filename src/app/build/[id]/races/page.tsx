@@ -1,6 +1,7 @@
 import React from "react";
 import Races from "./race";
 import { getData } from "@/lib/utils";
+import BuildMenuList from "@/components/buildMenuList";
 import BuildLayout from "../../layout";
 
 const RacePage = async () => {
@@ -8,6 +9,7 @@ const RacePage = async () => {
 
   return (
     <BuildLayout>
+      <BuildMenuList />
       <Races races={races} />
     </BuildLayout>
   );
