@@ -9,7 +9,7 @@ const BGPage = async () => {
 
   return (
     <BuildLayout>
-            <BuildMenuList />
+      <BuildMenuList />
       <Backgrounds backgrounds={backgrounds} />
     </BuildLayout>
   );

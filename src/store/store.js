@@ -107,7 +107,6 @@ const reducer = (state, { type, payload }) => {
     case types.lowerAbilityPoints: {
       const newState = { ...state, current: { ...state.current } };
       newState.current.abilityPoints -= payload;
-      console.log(payload);
       return newState;
     }
     //!-------------------------------------------------------------------

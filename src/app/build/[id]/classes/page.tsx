@@ -9,7 +9,7 @@ const ClassPage = async () => {
 
   return (
     <BuildLayout>
-            <BuildMenuList />
+      <BuildMenuList />
       <Classes classes={classes} />
     </BuildLayout>
   );

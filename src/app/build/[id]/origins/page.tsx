@@ -9,7 +9,7 @@ const OriginPage = async () => {
 
   return (
     <BuildLayout>
-            <BuildMenuList />
+      <BuildMenuList />
       <Origins origins={origins} />
     </BuildLayout>
   );
