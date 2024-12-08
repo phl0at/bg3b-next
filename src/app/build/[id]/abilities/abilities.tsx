@@ -1,10 +1,10 @@
 "use client";
 import React, { MouseEvent } from "react";
-import { Ability } from "./ability";
+import Ability from "./ability";
 import { useStore } from "@/store/store";
 import { CiUndo } from "react-icons/ci";
 
-export const Abilities = () => {
+const Abilities = () => {
   const { abilityPoints, plus_1, plus_2 } = useStore((state) => state.current);
   const { dispatch } = useStore((state) => state);
   const abilities = [
@@ -47,3 +47,5 @@ export const Abilities = () => {
     </div>
   );
 };
+
+export default Abilities;

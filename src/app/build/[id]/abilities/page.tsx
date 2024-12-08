@@ -1,6 +1,5 @@
 import React from "react";
-import { Abilities } from "./abilities";
-import BuildMenuList from "@/components/buildMenuList";
+import Abilities from "./abilities";
 import BuildComponent from "@/components/buildComponent";
 
 const AbilitiesPage = async () => {

@@ -3,7 +3,7 @@ import Image from "next/image";
 import { CiCircleMinus, CiCirclePlus } from "react-icons/ci";
 import { useStore } from "@/store/store";
 
-export const Ability = ({ ability }: { ability: string }) => {
+const Ability = ({ ability }: { ability: string }) => {
   const titleCaseStat = ability[0].toUpperCase() + ability.slice(1);
   const val = useStore((state) => state.current[ability]);
   const [clicks, setClicks] = useState(val - 8);
@@ -154,3 +154,5 @@ export const Ability = ({ ability }: { ability: string }) => {
     </main>
   );
 };
+
+export default Ability;
