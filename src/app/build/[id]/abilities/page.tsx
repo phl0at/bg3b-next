@@ -1,14 +1,13 @@
 import React from "react";
 import { Abilities } from "./abilities";
-import BuildLayout from "../../layout";
 import BuildMenuList from "@/components/buildMenuList";
+import BuildComponent from "@/components/buildComponent";
 
 const AbilitiesPage = async () => {
   return (
-    <BuildLayout>
-      <BuildMenuList />
+    <BuildComponent>
       <Abilities />
-    </BuildLayout>
+    </BuildComponent>
   );
 };
 
