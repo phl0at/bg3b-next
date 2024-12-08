@@ -47,6 +47,7 @@ const types = {
   removeCantrip: "REMOVE CANTRIP",
   equipItem: "EQUIP ITEM",
   removeItem: "REMOVE ITEM",
+  showMenu: "SHOW MENU",
 };
 
 const reducer = (state, { type, payload }) => {
@@ -261,6 +262,13 @@ const reducer = (state, { type, payload }) => {
     }
     //!-------------------------------------------------------------------
     //!-------------------------------------------------------------------
+    case types.showMenu: {
+      const newState = {...state}
+      newState.showMenu = payload
+      return newState
+    }
+    //!-------------------------------------------------------------------
+    //!-------------------------------------------------------------------
     default:
       return state;
   }
@@ -270,6 +278,7 @@ export const useStore = create((set) => ({
   current: {
     ...defaultBuild,
   },
+  showMenu: false,
   builds: new Set(),
   dispatch: (args) => set((state) => reducer(state, args)),
 }));

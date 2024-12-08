@@ -1,22 +1,26 @@
 "use client";
 import React from "react";
 import { FiAlignJustify } from "react-icons/fi";
-import { useMenuContext } from "@/context/menu";
 import MenuLayer from "@/components/menuLayer";
+import { useStore } from "@/store/store";
 
 const MenuButton = () => {
-  const { toggleMenu } = useMenuContext();
+  const { dispatch, showMenu } = useStore((state) => state);
+
+  const handleToggle = () => {
+    dispatch({ type: "SHOW MENU", payload: !showMenu });
+  };
 
   return (
     <>
       <div className="fixed z-20 w-screen h-12 group">
         <FiAlignJustify
-          onClick={toggleMenu}
+          onClick={handleToggle}
           className="text-blue-300 group-hover:text-blue-500 cursor-pointer fixed -left-9 group-hover:translate-x-10 transition ease-in-out delay-250 duration-300"
           size="45"
         />
       </div>
-      <MenuLayer />
+      <MenuLayer handleToggle={handleToggle} />
     </>
   );
 };

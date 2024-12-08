@@ -1,13 +1,13 @@
 import React from "react";
-import { useMenuContext } from "@/context/menu";
+import { useStore } from "@/store/store";
 import MenuList from "./menuList";
 
-const MenuLayer = () => {
-  const { showMenu, toggleMenu } = useMenuContext();
+const MenuLayer = ({ handleToggle }: { handleToggle: () => void }) => {
+  const { showMenu } = useStore((state) => state);
 
   return (
     <div
-      onClick={toggleMenu}
+      onClick={handleToggle}
       className={`fixed z-10 backdrop-blur-md transition-all ease-in-out delay-50 duration-100 ${
         showMenu
           ? "fixed z-10 w-screen h-screen backdrop-blur-sm transition-all ease-in-out delay-100"

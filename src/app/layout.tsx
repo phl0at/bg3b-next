@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Header from "@/app/header";
 import Footer from "@/app/footer";
-import { MenuProvider } from "@/context/menu";
 
 import "./globals.css";
 
@@ -20,11 +19,9 @@ export default function RootLayout({
       <body
         className={`antialiased bg-zinc-900 flex flex-col justify-between h-screen`}
       >
-        <MenuProvider>
-          <Header />
-          {children}
-          <Footer />
-        </MenuProvider>
+        <Header />
+        {children}
+        <Footer />
       </body>
     </html>
   );
