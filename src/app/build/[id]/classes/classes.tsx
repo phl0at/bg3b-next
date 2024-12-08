@@ -1,9 +1,17 @@
 "use client";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useState, MouseEvent } from "react";
+import { useStore } from "@/store/store";
 
 const Classes = ({ classes }: { classes: Class[] }) => {
-  const [selectedClass, setSelectedClass] = useState(1)
+  const { dispatch } = useStore((state) => state);
+  const [selectedClass, setSelectedClass] = useState(1);
+
+  const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    dispatch({ type: "ADD CLASS", payload: classes[selectedClass - 1] });
+  };
+
 
 
   return (
@@ -24,6 +32,9 @@ const Classes = ({ classes }: { classes: Class[] }) => {
             {_class.name}
           </div>
         ))}
+      </div>
+      <div>
+        <button onClick={handleClick}>Add Class</button>
       </div>
       <div className="text-center">
         {classes[selectedClass - 1].description}

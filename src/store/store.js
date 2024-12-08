@@ -179,38 +179,36 @@ const reducer = (state, { type, payload }) => {
     //!-------------------------------------------------------------------
     //!-------------------------------------------------------------------
     case types.addClass: {
-      // let newState = {
-      //   ...state,
-      //   current: {
-      //     ...state.current,
-      //     build_classes: { ...state.current.build_classes },
-      //   },
-      // };
-      // if (newState.current.build_classes[action.payload.class_id]) {
-      //   //If the build has this class, simply increment the classes level
-      //   newState.current.build_classes[action.payload.class_id].level++;
-      // } else {
-      //   //Otherwise, set the class level to 1, set its order, and add it to the build
-      //   action.payload.level = 1;
-      //   action.payload.order = Object.values(
-      //     newState.current.build_classes
-      //   ).length;
-      //   newState.current.build_classes[action.payload.class_id] =
-      //     action.payload;
-      // }
-      // newState.current.level++;
-      // // determines whether the
-      // // class has a subclass available at this level
-      // // and return either true or false
-      // newState.current.build_classes[action.payload.class_id].mustPickSC =
-      //   mustPickSC(newState.current.build_classes[action.payload.class_id]);
+      const newState = {
+        ...state,
+        current: {
+          ...state.current,
+          build_classes: { ...state.current.build_classes },
+        },
+      };
+      if (newState.current.build_classes[payload.id]) {
+        //If the build has this class, simply increment the classes level
+        newState.current.build_classes[payload.id].level++;
+      } else {
+        //Otherwise, set the class level to 1, set its order, and add it to the build
+        payload.level = 1;
+        payload.order = Object.values(newState.current.build_classes).length;
+        newState.current.build_classes[payload.id] = payload;
+      }
+      newState.current.level++;
+      // determines whether the
+      // class has a subclass available at this level
+      // and return either true or false
+      // newState.current.build_classes[payload.id].mustPickSC = mustPickSC(
+      //   newState.current.build_classes[payload.id]
+      // );
       // // adds the proper amount of cantrip points
       // // to the build based on the new class/level
       // newState.current.cantripPoints += addCantripPoints(
-      //   action.payload.name,
+      //   payload.name,
       //   newState.current.level
       // );
-      // return newState;
+      return newState;
     }
     //!-------------------------------------------------------------------
     //!-------------------------------------------------------------------
@@ -263,9 +261,9 @@ const reducer = (state, { type, payload }) => {
     //!-------------------------------------------------------------------
     //!-------------------------------------------------------------------
     case types.showMenu: {
-      const newState = {...state}
-      newState.showMenu = payload
-      return newState
+      const newState = { ...state };
+      newState.showMenu = payload;
+      return newState;
     }
     //!-------------------------------------------------------------------
     //!-------------------------------------------------------------------
