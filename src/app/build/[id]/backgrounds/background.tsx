@@ -3,7 +3,7 @@ import { useStore } from "@/store/store";
 import Image from "next/image";
 import React from "react";
 
-export function Backgrounds({ backgrounds }: { backgrounds: Background[] }) {
+const Backgrounds = ({ backgrounds }: { backgrounds: Background[] }) => {
   const background = useStore((state) => state.current.background);
   const dispatch = useStore((state) => state.dispatch);
 
@@ -16,7 +16,9 @@ export function Backgrounds({ backgrounds }: { backgrounds: Background[] }) {
               <div
                 className="flex flex-col justify-center items-center cursor-pointer"
                 key={bg.id}
-                onClick={() => dispatch({type: "SET BACKGROUND", payload: bg.id})}
+                onClick={() =>
+                  dispatch({ type: "SET BACKGROUND", payload: bg.id })
+                }
               >
                 <Image
                   className="object-cover"
@@ -35,4 +37,6 @@ export function Backgrounds({ backgrounds }: { backgrounds: Background[] }) {
       </div>
     </div>
   );
-}
+};
+
+export default Backgrounds;
