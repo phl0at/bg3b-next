@@ -48,6 +48,8 @@ type Class = {
   description: string;
   modifier: string;
   sub_class: string | null;
+  order: number;
+  level: number;
   mustPickSC?: boolean;
 };
 type SubClass = {
