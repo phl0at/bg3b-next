@@ -9,17 +9,22 @@ export async function getData(path: string) {
   return data.data;
 }
 
-export function mustPickSC(_class: Class) {
+export async function mustPickSC(_class: Class) {
   // we take in the newly added class object
   // if there is an available SC,
   // return true, otherwise return false
-  if (levelOneSubClasses[_class.name] && _class.level === 1) {
-    return true;
-  } else if (levelTwoSubClasses[_class.name] && _class.level === 2) {
-    return true;
-  } else if (levelThreeSubClasses[_class.name] && _class.level === 3) {
-    return true;
-  }
+  //! TODO: This is called in the zustand store and cannot be awaited
+  //! find an implementation that does not involve calling this helper
+  //! from within the store
+  if(_class.sub_class != undefined) return false
+
+  console.log(url)
+  const res = await fetch(`${url}/rest/subclasses?filter={class:${_class.id}}`, {
+    headers: { "X-API-KEY": `${key}` },
+  });
+
+  console.log(res,"!!!!!!!!!!!!!!!!!!!")
+
   return false;
 }
 
@@ -28,9 +33,7 @@ export function addCantripPoints(_class: string, level: number) {
     case "Bard": {
       if (level === 1) {
         return 2;
-      } else if (level === 4) {
-        return 1;
-      } else if (level === 10) {
+      } else if (level === 4 || level === 10) {
         return 1;
       } else {
         return 0;

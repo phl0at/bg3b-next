@@ -1,6 +1,6 @@
 /* eslint-disable */
 import { create } from "zustand";
-import { addCantripPoints } from "@/lib/utils";
+import { addCantripPoints, mustPickSC } from "@/lib/utils";
 
 const defaultBuild = {
   id: "new",
@@ -197,14 +197,14 @@ const reducer = (state, { type, payload }) => {
         newState.current.build_classes[payload.id] = payload;
       }
       newState.current.level++;
-      //! TODO: IMPLEMENT HELPER FUNCTIONS FOR THE CODE BELOW
+
       // determines whether the
       // class has a subclass available at this level
       // and return either true or false
       // newState.current.build_classes[payload.id].mustPickSC = mustPickSC(
       //   newState.current.build_classes[payload.id]
       // );
-      
+
       // adds the proper amount of cantrip points
       // to the build based on the new class/level
       newState.current.cantripPoints += addCantripPoints(
