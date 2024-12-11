@@ -4,7 +4,7 @@ import { addCantripPoints, mustPickSC } from "@/lib/utils";
 
 const defaultBuild = {
   id: "new",
-  character_name: "Tav",
+  characterName: "Tav",
   origin: 8,
   race: 1,
   background: 1,
@@ -18,11 +18,11 @@ const defaultBuild = {
   cantrips: {},
   availableCantrips: new Set(),
   cantripPoints: 0,
-  plus_1: "",
-  plus_2: "",
+  plus1: "",
+  plus2: "",
   level: 0,
-  armour_class: 10,
-  build_classes: {},
+  armourClass: 10,
+  classList: {},
 };
 
 const types = {
@@ -78,8 +78,8 @@ const reducer = (state, { type, payload }) => {
       if (payload.id && payload.name) {
         newState.current.origin = payload.id;
         payload.id != 8
-          ? (newState.current.character_name = payload.name)
-          : (newState.current.character_name = "Tav");
+          ? (newState.current.characterName = payload.name)
+          : (newState.current.characterName = "Tav");
       }
       return newState;
     }
@@ -122,8 +122,8 @@ const reducer = (state, { type, payload }) => {
       newState.current.intelligence = 8;
       newState.current.wisdom = 8;
       newState.current.charisma = 8;
-      newState.current.plus_1 = "";
-      newState.current.plus_2 = "";
+      newState.current.plus1 = "";
+      newState.current.plus2 = "";
       return newState;
     }
     //!-------------------------------------------------------------------
@@ -145,7 +145,7 @@ const reducer = (state, { type, payload }) => {
     case types.setBonus: {
       const newState = { ...state, current: { ...state.current } };
       const existingBonus = newState.current[payload.amount];
-      const bonusAmount = Number(payload.amount.split("_")[1]);
+      const bonusAmount = Number(payload.amount[payload.amount.length - 1]);
 
       if (existingBonus) {
         newState.current[existingBonus] -= bonusAmount;
@@ -158,7 +158,7 @@ const reducer = (state, { type, payload }) => {
     //!-------------------------------------------------------------------
     case types.removeBonus: {
       const newState = { ...state, current: { ...state.current } };
-      const bonusAmount = Number(payload.amount.split("_")[1]);
+      const bonusAmount = Number(payload.amount[payload.amount.length - 1]);
       newState.current[payload.amount] = "";
       newState.current[payload.ability] -= bonusAmount;
       return newState;
@@ -184,17 +184,17 @@ const reducer = (state, { type, payload }) => {
         ...state,
         current: {
           ...state.current,
-          build_classes: { ...state.current.build_classes },
+          classList: { ...state.current.classList },
         },
       };
-      if (newState.current.build_classes[payload.id]) {
+      if (newState.current.classList[payload.id]) {
         //If the build has this class, simply increment the classes level
-        newState.current.build_classes[payload.id].level++;
+        newState.current.classList[payload.id].level++;
       } else {
         //Otherwise, set the class level to 1, set its order, and add it to the build
         payload.level = 1;
-        payload.order = Object.values(newState.current.build_classes).length;
-        newState.current.build_classes[payload.id] = payload;
+        payload.order = Object.values(newState.current.classList).length;
+        newState.current.classList[payload.id] = payload;
       }
       newState.current.level++;
 
@@ -211,7 +211,6 @@ const reducer = (state, { type, payload }) => {
         payload.name,
         newState.current.level
       );
-      console.log(newState.current)
       return newState;
     }
     //!-------------------------------------------------------------------
@@ -219,7 +218,7 @@ const reducer = (state, { type, payload }) => {
     case types.clearClasses: {
       const newState = { ...state };
       newState.current.level = 0;
-      newState.current.build_classes = [];
+      newState.current.classList = [];
       newState.current.cantrips = [];
       newState.current.availableCantrips = new Set();
       newState.current.cantripPoints = 0;
@@ -233,11 +232,11 @@ const reducer = (state, { type, payload }) => {
         ...state,
         current: {
           ...state.current,
-          build_classes: { ...state.current.build_classes },
+          classList: { ...state.current.classList },
         },
       };
-      newState.current.build_classes[payload.class_id] = payload;
-      newState.current.build_classes[payload.class_id].mustPickSC = false;
+      newState.current.classList[payload.class_id] = payload;
+      newState.current.classList[payload.class_id].mustPickSC = false;
       return newState;
     }
     //!-------------------------------------------------------------------

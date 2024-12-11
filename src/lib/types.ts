@@ -6,21 +6,21 @@ type User = {
 type Build = {
   id: number | string;
   abilityPoints: number;
-  armour_class: number;
+  armourClass: number;
   availableCantrips?: Set<Cantrip>;
   background: number;
-  build_classes: Class[];
+  classList: Class[];
   cantripPoints: number;
   cantrips: Cantrip[];
-  character_name: string;
+  characterName: string;
   charisma: number;
   constitution: number;
   dexterity: number;
   intelligence: number;
   level: number;
   origin: number;
-  plus_1: string;
-  plus_2: string;
+  plus1: string;
+  plus2: string;
   race: number;
   strength: number;
   wisdom: number;
@@ -53,6 +53,9 @@ type Class = {
   mustPickSC?: boolean;
 };
 type SubClass = {
+  class: number;
+  id: number;
+  level: number;
   name: string;
   description: string;
 };

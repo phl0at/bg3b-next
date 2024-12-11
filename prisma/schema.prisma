@@ -17,34 +17,34 @@ model User {
 
 model Build {
   id Int @id @default(autoincrement())
-  author User @relation(fields: [author_id], references: [id])
-  author_id Int @unique
-  character_name String
+  author User @relation(fields: [authorId], references: [id])
+  authorId Int @unique
+  characterName String
   origin Int
   race Int
-  sub_race String?
+  subRace String?
   background Int
   strength Int
   dexterity Int
   constitution Int
   wisdom Int
   charisma Int
-  plus_2 String
-  plus_1 String
+  plus2 String
+  plus1 String
   helmet Int
   cloak Int
   armour Int
   glove Int
   boot Int
   amulet Int
-  ring_1 Int
-  ring_2 Int
-  melee_mh Int
-  melee_oh Int
-  ranged_mh Int
-  ranged_oh Int
-  armour_class Int?
-  classes BuildClass[]
+  ring1 Int
+  ring2 Int
+  meleeMH Int
+  meleeOH Int
+  rangedMH Int
+  rangedOH Int
+  armourClass Int?
+  classList BuildClass[]
   cantrips BuildCantrip[]
   spells BuildSpell[]
   favorites Favorite[]
@@ -52,9 +52,9 @@ model Build {
 
 model BuildClass {
   id Int @id @default(autoincrement())
-  build Build @relation(fields: [build_id], references: [id])
-  build_id Int
-  class_id Int
+  build Build @relation(fields: [buildId], references: [id])
+  buildId Int
+  classId Int
   name String
   level Int
   sub_class String?
@@ -64,22 +64,22 @@ model BuildClass {
 
 model BuildCantrip {
   id Int @id @default(autoincrement())
-  build Build @relation(fields: [build_id], references: [id])
-  build_id Int
-  cantrip_id Int
+  build Build @relation(fields: [buildId], references: [id])
+  buildId Int
+  cantripId Int
 }
 
 model BuildSpell {
   id Int @id @default(autoincrement())
-  build Build @relation(fields: [build_id], references: [id])
-  build_id Int
-  spell_id Int
+  build Build @relation(fields: [buildId], references: [id])
+  buildId Int
+  spellId Int
 }
 
 model Favorite {
   id Int @id @default(autoincrement())
-  user User @relation(fields: [user_id], references: [id])
-  user_id Int
-  build Build @relation(fields: [build_id], references: [id])
-  build_id Int
+  user User @relation(fields: [userId], references: [id])
+  userId Int
+  build Build @relation(fields: [buildId], references: [id])
+  buildId Int
 }

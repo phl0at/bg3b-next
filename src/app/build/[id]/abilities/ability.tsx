@@ -7,7 +7,7 @@ const Ability = ({ ability }: { ability: string }) => {
   const titleCaseStat = ability[0].toUpperCase() + ability.slice(1);
   const val = useStore((state) => state.current[ability]);
   const [clicks, setClicks] = useState(val - 8);
-  const { plus_1, plus_2, abilityPoints } = useStore((state) => state.current);
+  const { plus1, plus2, abilityPoints } = useStore((state) => state.current);
   const { dispatch } = useStore((state) => state);
 
   // An ability can only be clicked/increased 7 times.
@@ -15,9 +15,9 @@ const Ability = ({ ability }: { ability: string }) => {
   // to the ability's current value, minus its base value.
   // The base value changes depending on whether a +1 or +2 bonus is applied to the ability.
   useEffect(() => {
-    if (plus_2 === ability) {
+    if (plus2 === ability) {
       setClicks(val - 10);
-    } else if (plus_1 === ability) {
+    } else if (plus1 === ability) {
       setClicks(val - 9);
     } else {
       setClicks(val - 8);
@@ -64,37 +64,37 @@ const Ability = ({ ability }: { ability: string }) => {
   // to the chosen ability before applying new ones
   const clickPlusTwo = (e: MouseEvent<HTMLButtonElement>, ability: string) => {
     e.preventDefault();
-    if (plus_2 === ability) {
+    if (plus2 === ability) {
       dispatch({
         type: "REMOVE BONUS",
-        payload: { amount: "plus_2", ability },
+        payload: { amount: "plus2", ability },
       });
     } else {
-      if (plus_1 === ability) {
+      if (plus1 === ability) {
         dispatch({
           type: "REMOVE BONUS",
-          payload: { amount: "plus_1", ability },
+          payload: { amount: "plus1", ability },
         });
       }
-      dispatch({ type: "SET BONUS", payload: { amount: "plus_2", ability } });
+      dispatch({ type: "SET BONUS", payload: { amount: "plus2", ability } });
     }
   };
 
   const clickPlusOne = (e: MouseEvent<HTMLButtonElement>, ability: string) => {
     e.preventDefault();
-    if (plus_1 === ability) {
+    if (plus1 === ability) {
       dispatch({
         type: "REMOVE BONUS",
-        payload: { amount: "plus_1", ability },
+        payload: { amount: "plus1", ability },
       });
     } else {
-      if (plus_2 === ability) {
+      if (plus2 === ability) {
         dispatch({
           type: "REMOVE BONUS",
-          payload: { amount: "plus_2", ability },
+          payload: { amount: "plus2", ability },
         });
       }
-      dispatch({ type: "SET BONUS", payload: { amount: "plus_1", ability } });
+      dispatch({ type: "SET BONUS", payload: { amount: "plus1", ability } });
     }
   };
 
@@ -139,13 +139,13 @@ const Ability = ({ ability }: { ability: string }) => {
         <div className="flex items-center justify-between gap-x-[6px]">
           <button
             className={`${
-              plus_2 === ability && "bg-slate-600"
+              plus2 === ability && "bg-slate-600"
             } w-[16px] h-[16px] border-solid border-[2px] hover:border-white`}
             onClick={(e) => clickPlusTwo(e, ability)}
           />
           <button
             className={`${
-              plus_1 === ability && "bg-slate-600"
+              plus1 === ability && "bg-slate-600"
             } w-[16px] h-[16px] border-solid border-[2px] hover:border-white`}
             onClick={(e) => clickPlusOne(e, ability)}
           />
