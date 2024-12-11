@@ -1,6 +1,6 @@
 /* eslint-disable */
 import { create } from "zustand";
-import { addCantripPoints, mustPickSC } from "@/lib/utils";
+import { addCantripPoints } from "@/lib/utils";
 
 const defaultBuild = {
   id: "new",

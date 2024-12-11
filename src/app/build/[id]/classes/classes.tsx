@@ -1,20 +1,20 @@
 "use client";
 import Image from "next/image";
-import React, { useState, MouseEvent, useEffect } from "react";
-import { mustPickSC } from "@/lib/utils";
+import React, { useState, MouseEvent } from "react";
+// import { mustPickSC } from "@/lib/utils";
 import { useStore } from "@/store/store";
 
 const Classes = ({
   classes,
-  subClasses,
+  // subClasses,
 }: {
   classes: Class[];
-  subClasses: SubClass[];
+  // subClasses: SubClass[];
 }) => {
   const { dispatch } = useStore((state) => state);
   const chosenClasses = useStore((state) => state.current.classList);
   const [selectedClass, setSelectedClass] = useState(1);
-  const [subClassAvailable, setSubClassAvailable] = useState(false);
+  // const [subClassAvailable, setSubClassAvailable] = useState(false);
 
   const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
