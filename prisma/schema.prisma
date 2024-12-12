@@ -22,7 +22,7 @@ model Build {
   characterName String
   origin Int
   race Int
-  subRace String?
+  subRace Int
   background Int
   strength Int
   dexterity Int
@@ -43,33 +43,33 @@ model Build {
   meleeOH Int
   rangedMH Int
   rangedOH Int
-  armourClass Int?
-  classList BuildClass[]
-  cantrips BuildCantrip[]
-  spells BuildSpell[]
+  armourClass Int
+  classList Class[]
+  cantrips Cantrip[]
+  spells Spell[]
   favorites Favorite[]
 }
 
-model BuildClass {
+model Class {
   id Int @id @default(autoincrement())
   build Build @relation(fields: [buildId], references: [id])
   buildId Int
   classId Int
   name String
   level Int
-  sub_class String?
+  subClass Int
   order Int
   modifier String
 }
 
-model BuildCantrip {
+model Cantrip {
   id Int @id @default(autoincrement())
   build Build @relation(fields: [buildId], references: [id])
   buildId Int
   cantripId Int
 }
 
-model BuildSpell {
+model Spell {
   id Int @id @default(autoincrement())
   build Build @relation(fields: [buildId], references: [id])
   buildId Int

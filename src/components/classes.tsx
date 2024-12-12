@@ -1,8 +1,8 @@
 "use client";
 import Image from "next/image";
-import React, { useState, MouseEvent, useEffect } from "react";
-import { mustPickSC } from "@/lib/utils";
+import React, { useState, MouseEvent } from "react";
 import { useStore } from "@/store/store";
+import SubClassComponent from "./subClasses";
 
 const Classes = ({
   classes,
@@ -16,17 +16,10 @@ const Classes = ({
   const selectedClassInBuild = useStore(
     (state) => state.current.classList[selectedClass]
   );
-  const availableSubClasses = subClasses.filter(
-    (subClass) =>
-      selectedClassInBuild?.id === subClass.class &&
-      selectedClassInBuild?.level >= subClass.level
-  );
-
   const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     dispatch({ type: "ADD CLASS", payload: classes[selectedClass - 1] });
   };
-
 
   return (
     <main className="bg-zinc-800 shadow-xl min-w-96 w-2/5 h-full rounded-3xl flex flex-col justify-start items-center py-8">
@@ -53,6 +46,10 @@ const Classes = ({
       <div className="text-center">
         {classes[selectedClass - 1].description}
       </div>
+      <SubClassComponent
+        selectedClassInBuild={selectedClassInBuild}
+        subClasses={subClasses}
+      />
     </main>
   );
 };

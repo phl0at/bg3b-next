@@ -7,6 +7,7 @@ const defaultBuild = {
   characterName: "Tav",
   origin: 8,
   race: 1,
+  subRace: 0,
   background: 1,
   strength: 8,
   dexterity: 8,
@@ -198,13 +199,6 @@ const reducer = (state, { type, payload }) => {
       }
       newState.current.level++;
 
-      // determines whether the
-      // class has a subclass available at this level
-      // and return either true or false
-      // newState.current.build_classes[payload.id].mustPickSC = mustPickSC(
-      //   newState.current.build_classes[payload.id]
-      // );
-
       // adds the proper amount of cantrip points
       // to the build based on the new class/level
       newState.current.cantripPoints += addCantripPoints(
@@ -235,8 +229,7 @@ const reducer = (state, { type, payload }) => {
           classList: { ...state.current.classList },
         },
       };
-      newState.current.classList[payload.class_id] = payload;
-      newState.current.classList[payload.class_id].mustPickSC = false;
+      newState.current.classList[payload.class] = payload.id;
       return newState;
     }
     //!-------------------------------------------------------------------

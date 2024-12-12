@@ -22,17 +22,22 @@ type Build = {
   plus1: string;
   plus2: string;
   race: number;
+  subRace: number;
   strength: number;
   wisdom: number;
   magSec?: number;
 };
-
 type Origin = {
   id: number;
   name: string;
   description: string;
 };
 type Race = {
+  id: number;
+  name: string;
+  description: string;
+};
+type SubRace = {
   id: number;
   name: string;
   description: string;
@@ -47,10 +52,9 @@ type Class = {
   name: string;
   description: string;
   modifier: string;
-  sub_class: string | null;
+  subClass: number;
   order: number;
   level: number;
-  mustPickSC?: boolean;
 };
 type SubClass = {
   class: number;
@@ -61,10 +65,10 @@ type SubClass = {
 };
 type Cantrip = {
   id: number;
-  attack_save?: string;
+  attackSave?: string;
   concentration?: boolean;
   damage?: string;
-  damage_type?: string;
+  damageType?: string;
   description: string;
   duration: number;
   name: string;
