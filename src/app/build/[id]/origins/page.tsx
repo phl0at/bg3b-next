@@ -1,5 +1,5 @@
 import React from "react";
-import Origins from "./origin";
+import Origins from "@/components/origin";
 import BuildComponent from "@/components/buildComponent";
 import { getData } from "@/lib/utils";
 

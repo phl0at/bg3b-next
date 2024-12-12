@@ -1,5 +1,5 @@
 import React from "react";
-import Races from "./race";
+import Races from "@/components/race";
 import BuildComponent from "@/components/buildComponent";
 import { getData } from "@/lib/utils";
 

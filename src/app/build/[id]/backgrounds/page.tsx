@@ -1,5 +1,5 @@
 import React from "react";
-import Backgrounds from "./background";
+import Backgrounds from "@/components/background";
 import BuildComponent from "@/components/buildComponent";
 import { getData } from "@/lib/utils";
 
