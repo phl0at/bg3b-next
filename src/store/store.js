@@ -35,6 +35,7 @@ const types = {
   setOrigin: "SET ORIGIN",
   setRace: "SET RACE",
   setBackground: "SET BACKGROUND",
+  setClass: "SET CLASS",
   raiseAbilityPoints: "RAISE ABILITY POINTS",
   lowerAbilityPoints: "LOWER ABILITY POINTS",
   resetAbilities: "RESET ABILITIES",
@@ -42,9 +43,9 @@ const types = {
   decreaseAbility: "DECREASE ABILITY",
   setBonus: "SET BONUS",
   removeBonus: "REMOVE BONUS",
-  setSubClass: "SET SUB CLASS",
   addClass: "ADD CLASS",
   clearClasses: "CLEAR CLASSES",
+  setSubClass: "SET SUB CLASS",
   addCantrip: "ADD CANTRIP",
   removeCantrip: "REMOVE CANTRIP",
   equipItem: "EQUIP ITEM",
@@ -60,6 +61,15 @@ const reducer = (state, { type, payload }) => {
         current: {
           ...defaultBuild,
         },
+      };
+      return newState;
+    }
+    //!-------------------------------------------------------------------
+    //!-------------------------------------------------------------------
+    case types.set: {
+      const newState = {
+        ...state,
+        selectedClass: payload,
       };
       return newState;
     }
@@ -273,6 +283,7 @@ export const useStore = create((set) => ({
     ...defaultBuild,
   },
   showMenu: false,
+  selectedClass: 1,
   builds: new Set(),
   dispatch: (args) => set((state) => reducer(state, args)),
 }));

@@ -22,7 +22,7 @@ const Abilities = () => {
   };
 
   return (
-    <div className="bg-zinc-800 shadow-xl w-2/5 h-full rounded-3xl flex flex-col justify-start items-center py-8">
+    <>
       <div className="flex justify-between w-5/6 h-[30px]">
         <div className="w-[30px]"></div>
         <div>{`Abilities`}</div>
@@ -44,7 +44,7 @@ const Abilities = () => {
           <Ability key={ability} ability={ability} />
         ))}
       </div>
-    </div>
+    </>
   );
 };
 
