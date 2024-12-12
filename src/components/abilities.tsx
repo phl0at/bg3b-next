@@ -41,6 +41,7 @@ const Abilities = () => {
           <div className={plus_1 === "" ? "text-red-700" : ""}>+1</div>
         </div>
         {abilities.map((ability) => (
+          //!TO DO: Save all imagekitio files to public folder and import them into respective components
           <Ability key={ability} ability={ability} />
         ))}
       </div>
