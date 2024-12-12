@@ -1,5 +1,3 @@
-import { getPlaiceholder } from "plaiceholder";
-
 const url = process.env.API_URL;
 const key = process.env.API_KEY;
 
@@ -44,16 +42,4 @@ export function addCantripPoints(_class: string, level: number) {
       break;
     }
   }
-}
-
-export async function getImage(url: string) {
-  const image = await fetch(url).then(async (res) =>
-    Buffer.from(await res.arrayBuffer())
-  );
-
-  const { ...plaiceholder } = await getPlaiceholder(image, { size: 10 });
-
-  return {
-    ...plaiceholder,
-  };
 }

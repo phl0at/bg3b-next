@@ -38,7 +38,6 @@ const DataMapper = ({
                 height={height}
                 src={URL}
                 alt=""
-                placeholder="blur"
               />
               {element.name}
             </div>

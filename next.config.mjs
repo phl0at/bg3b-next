@@ -1,5 +1,3 @@
-import withPlaiceholder from "@plaiceholder/next";
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
@@ -8,10 +6,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "ik.imagekit.io",
         port: "",
-        pathname: "/phl0at/images/**",
+        pathname: "/phl0at/images/**"
       },
     ],
   },
 };
 
-export default withPlaiceholder(nextConfig);
+export default nextConfig;
