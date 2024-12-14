@@ -12,7 +12,7 @@ const DataMapper = ({
 }: {
   data: Class[] | Origin[] | Background[] | Race[];
   selectedElement: number;
-  setter: (id: {}) => void;
+  setter: (element: Class | Background | Race | Origin) => void;
   width: number;
   height: number;
   button: React.ReactNode;

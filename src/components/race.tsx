@@ -15,7 +15,7 @@ import Dragonborn from "../../public/races/Dragonborn.png";
 import HalfOrc from "../../public/races/HalfOrc.png";
 
 const Races = ({ races }: { races: Race[] }) => {
-  const setter = (item: {}) => dispatch({ type: "SET RACE", payload: item });
+  const setter = (race: Race) => dispatch({ type: "SET RACE", payload: race });
   const {
     dispatch,
     current: { race },
@@ -33,7 +33,7 @@ const Races = ({ races }: { races: Race[] }) => {
     Dragonborn,
     HalfOrc,
   ];
-  
+
   return (
     <DataMapper
       data={races}

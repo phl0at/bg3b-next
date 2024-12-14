@@ -24,7 +24,8 @@ const Classes = ({
   subClasses: SubClass[];
 }) => {
   const { dispatch, selectedClass } = useStore((state) => state);
-  const setter = (item: {}) => dispatch({ type: "SET CLASS", payload: item });
+  const setter = (_class: any) =>
+    dispatch({ type: "SET CLASS", payload: _class });
   const selectedClassInBuild = useStore(
     (state) => state.current.classList[selectedClass]
   );

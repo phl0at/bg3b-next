@@ -16,12 +16,12 @@ import Urchin from "../../public/backgrounds/Urchin.png";
 // import HauntedOne from "../../public/backgrounds/Haunted One.png";
 
 const Backgrounds = ({ backgrounds }: { backgrounds: Background[] }) => {
-  const setter = (item: {}) =>
-    dispatch({ type: "SET BACKGROUND", payload: item });
   const {
     dispatch,
     current: { background },
   } = useStore((state) => state);
+  const setter = (background: Background) =>
+    dispatch({ type: "SET BACKGROUND", payload: background });
   const images = [
     Acolyte,
     Charlatan,

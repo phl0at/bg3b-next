@@ -16,7 +16,7 @@ const Origins = ({ origins }: { origins: Origin[] }) => {
     dispatch,
     current: { origin },
   } = useStore((state) => state);
-  const setter = (item: {}) => dispatch({ type: "SET ORIGIN", payload: item });
+  const setter = (origin: Origin) => dispatch({ type: "SET ORIGIN", payload: origin });
   const images = [
     Astarion,
     Laezel,
