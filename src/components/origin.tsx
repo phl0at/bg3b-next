@@ -16,16 +16,16 @@ const Origins = ({ origins }: { origins: Origin[] }) => {
     dispatch,
     current: { origin },
   } = useStore((state) => state);
-  const setter = (id: number) => dispatch({ type: "SET ORIGIN", payload: id });
+  const setter = (item: {}) => dispatch({ type: "SET ORIGIN", payload: item });
   const images = [
     Astarion,
-    Custom,
-    Gale,
-    Karlach,
     Laezel,
+    Gale,
     Shadowheart,
-    TheDarkUrge,
     Wyll,
+    Karlach,
+    TheDarkUrge,
+    Custom,
   ];
 
   return (

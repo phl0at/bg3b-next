@@ -66,10 +66,10 @@ const reducer = (state, { type, payload }) => {
     }
     //!-------------------------------------------------------------------
     //!-------------------------------------------------------------------
-    case types.set: {
+    case types.setClass: {
       const newState = {
         ...state,
-        selectedClass: payload,
+        selectedClass: payload.id,
       };
       return newState;
     }
@@ -98,14 +98,14 @@ const reducer = (state, { type, payload }) => {
     //!-------------------------------------------------------------------
     case types.setRace: {
       const newState = { ...state, current: { ...state.current } };
-      newState.current.race = payload;
+      newState.current.race = payload.id;
       return newState;
     }
     //!-------------------------------------------------------------------
     //!-------------------------------------------------------------------
     case types.setBackground: {
       const newState = { ...state, current: { ...state.current } };
-      newState.current.background = payload;
+      newState.current.background = payload.id;
       return newState;
     }
     //!-------------------------------------------------------------------

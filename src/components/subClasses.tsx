@@ -7,7 +7,6 @@ const SubClassComponent = ({
   selectedClassInBuild: Class;
   subClasses: SubClass[];
 }) => {
-  console.log(selectedClassInBuild);
   if (!selectedClassInBuild) return "";
 
   const availableSubClasses = subClasses.filter(

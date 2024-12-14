@@ -12,7 +12,7 @@ const DataMapper = ({
 }: {
   data: Class[] | Origin[] | Background[] | Race[];
   selectedElement: number;
-  setter: (id: number) => void;
+  setter: (id: {}) => void;
   width: number;
   height: number;
   button: React.ReactNode;
@@ -31,7 +31,7 @@ const DataMapper = ({
               }}
               className="flex flex-col justify-center items-center cursor-pointer rounded-md"
               key={element.name}
-              onClick={() => setter(element.id)}
+              onClick={() => setter(element)}
             >
               <Image src={images[i]} alt="" placeholder="blur" />
               {element.name}
