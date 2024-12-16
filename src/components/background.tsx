@@ -25,8 +25,8 @@ const Backgrounds = ({
       data={backgrounds.toSpliced(backgrounds.length - 1)}
       selectedElement={background}
       setter={setter}
-      width={150}
-      height={150}
+      width={120}
+      height={120}
       button={<></>}
       images={images}
     />

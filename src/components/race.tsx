@@ -22,8 +22,8 @@ const Races = ({
       data={races}
       selectedElement={race}
       setter={setter}
-      width={150}
-      height={150}
+      width={120}
+      height={120}
       button={<></>}
       images={images}
     />

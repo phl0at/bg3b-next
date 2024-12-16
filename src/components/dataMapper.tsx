@@ -20,26 +20,30 @@ const DataMapper = ({
 }) => {
   return (
     <>
-      <div className="grid grid-cols-4 gap-y-5 w-5/6">
+      <div className="grid grid-cols-4 gap-x-3 gap-y-5 w-5/6">
         {data.map((element: Class | Background | Race | Origin, i) => {
           return (
             <div
-              style={{
-                outline: element.id === selectedElement ? "solid" : "none",
-              }}
-              className="flex flex-col justify-center items-center cursor-pointer rounded-md w-fill h-fill"
+              className="flex flex-col justify-center items-center cursor-pointer w-fill h-fill"
               key={element.name}
               onClick={() => setter(element)}
             >
-              <Image
-                src={images[i]}
-                alt=""
-                width={width}
-                height={height}
-                placeholder="blur"
-                className="rounded-md object-fill"
-                loading="lazy"
-              />
+              <div
+                style={{
+                  outline: element.id === selectedElement ? "solid" : "none",
+                }}
+                className="rounded-md"
+              >
+                <Image
+                  src={images[i]}
+                  alt=""
+                  width={width}
+                  height={height}
+                  placeholder="blur"
+                  className="rounded-md object-cover"
+                  loading="lazy"
+                />
+              </div>
               {element.name}
             </div>
           );

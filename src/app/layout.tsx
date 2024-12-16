@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Header from "@/app/header";
-import Footer from "@/app/footer";
 
 import "./globals.css";
 
@@ -16,12 +15,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`antialiased bg-zinc-900 flex flex-col justify-between h-screen`}
-      >
+      <body className={`antialiased bg-zinc-900 flex flex-col justify-between`}>
         <Header />
         {children}
-        <Footer />
       </body>
     </html>
   );

@@ -32,8 +32,8 @@ const Classes = ({
         data={classes}
         selectedElement={selectedClass}
         setter={setter}
-        width={135}
-        height={135}
+        width={105}
+        height={105}
         button={
           <div>
             <button onClick={handleClick}>Add Class</button>
