@@ -25,15 +25,21 @@ const DataMapper = ({
           return (
             <div
               style={{
-                width: width,
-                height: height,
                 outline: element.id === selectedElement ? "solid" : "none",
               }}
-              className="flex flex-col justify-center items-center cursor-pointer rounded-md"
+              className="flex flex-col justify-center items-center cursor-pointer rounded-md w-fill h-fill"
               key={element.name}
               onClick={() => setter(element)}
             >
-              <Image src={images[i]} alt="" placeholder="blur" />
+              <Image
+                src={images[i]}
+                alt=""
+                width={width}
+                height={height}
+                placeholder="blur"
+                className="rounded-md object-fill"
+                loading="lazy"
+              />
               {element.name}
             </div>
           );

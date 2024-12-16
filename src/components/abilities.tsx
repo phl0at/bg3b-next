@@ -3,8 +3,9 @@ import React, { MouseEvent } from "react";
 import Ability from "./ability";
 import { useStore } from "@/store/store";
 import { CiUndo } from "react-icons/ci";
+import { StaticImageData } from "next/image";
 
-const Abilities = () => {
+const Abilities = ({ images }: { images: StaticImageData[] }) => {
   const { abilityPoints, plus_1, plus_2 } = useStore((state) => state.current);
   const { dispatch } = useStore((state) => state);
   const abilities = [
@@ -40,9 +41,9 @@ const Abilities = () => {
           <div className={plus_2 === "" ? "text-red-700" : ""}>+2</div>
           <div className={plus_1 === "" ? "text-red-700" : ""}>+1</div>
         </div>
-        {abilities.map((ability) => (
+        {abilities.map((ability, i) => (
           //!TO DO: Save all imagekitio files to public folder and import them into respective components
-          <Ability key={ability} ability={ability} />
+          <Ability key={ability} ability={ability} image={images[i]} />
         ))}
       </div>
     </>

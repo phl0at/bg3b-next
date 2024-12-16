@@ -1,32 +1,22 @@
 "use client";
+import { StaticImageData } from "next/image";
 import { useStore } from "@/store/store";
 import React from "react";
 import DataMapper from "./dataMapper";
-import Karlach from "../../public/origins/Karlach.webp";
-import Astarion from "../../public/origins/Astarion.webp";
-import Custom from "../../public/origins/Custom.webp";
-import Gale from "../../public/origins/Gale.webp";
-import Laezel from "../../public/origins/Laezel.webp";
-import Shadowheart from "../../public/origins/Shadowheart.webp";
-import TheDarkUrge from "../../public/origins/TheDarkUrge.webp";
-import Wyll from "../../public/origins/Wyll.webp";
 
-const Origins = ({ origins }: { origins: Origin[] }) => {
+const Origins = ({
+  origins,
+  images,
+}: {
+  origins: Origin[];
+  images: StaticImageData[];
+}) => {
   const {
     dispatch,
     current: { origin },
   } = useStore((state) => state);
-  const setter = (origin: Origin) => dispatch({ type: "SET ORIGIN", payload: origin });
-  const images = [
-    Astarion,
-    Laezel,
-    Gale,
-    Shadowheart,
-    Wyll,
-    Karlach,
-    TheDarkUrge,
-    Custom,
-  ];
+  const setter = (origin: Origin) =>
+    dispatch({ type: "SET ORIGIN", payload: origin });
 
   return (
     <DataMapper
@@ -34,8 +24,8 @@ const Origins = ({ origins }: { origins: Origin[] }) => {
       data={origins}
       selectedElement={origin}
       setter={setter}
-      width={125}
-      height={150}
+      width={155}
+      height={155}
       button={<></>}
     />
   );

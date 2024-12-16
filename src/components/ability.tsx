@@ -1,9 +1,15 @@
 import React, { useState, useEffect, MouseEvent } from "react";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import { CiCircleMinus, CiCirclePlus } from "react-icons/ci";
 import { useStore } from "@/store/store";
 
-const Ability = ({ ability }: { ability: string }) => {
+const Ability = ({
+  ability,
+  image,
+}: {
+  ability: string;
+  image: StaticImageData;
+}) => {
   const titleCaseStat = ability[0].toUpperCase() + ability.slice(1);
   const val = useStore((state) => state.current[ability]);
   const [clicks, setClicks] = useState(val - 8);
@@ -101,13 +107,7 @@ const Ability = ({ ability }: { ability: string }) => {
   return (
     <main className="flex flex-row justify-between">
       <div className="flex items-center">
-        <Image
-          priority={true}
-          src={`https://ik.imagekit.io/phl0at/images/stat_icons/${titleCaseStat}.png`}
-          alt=""
-          width={85}
-          height={85}
-        />
+        <Image priority={true} src={image} alt="" width={120} height={120} />
         <div>{titleCaseStat}</div>
       </div>
       <div className="flex flex-row items-center justify-evenly gap-x-5">
