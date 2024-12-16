@@ -107,7 +107,7 @@ const Ability = ({
   return (
     <main className="flex flex-row justify-between">
       <div className="flex items-center">
-        <Image priority={true} src={image} alt="" width={120} height={120} />
+        <Image priority={true} src={image} alt="" width={120} height={120} placeholder="blur" />
         <div>{titleCaseStat}</div>
       </div>
       <div className="flex flex-row items-center justify-evenly gap-x-5">
