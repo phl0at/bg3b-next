@@ -15,7 +15,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`antialiased bg-zinc-900 flex flex-col justify-between`}>
+      <body className={`antialiased bg-zinc-900 flex flex-col justify-between backdrop-blur-sm`}>
         <Header />
         {children}
       </body>

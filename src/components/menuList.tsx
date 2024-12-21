@@ -18,8 +18,8 @@ const MenuList = () => {
     items-center \
     gap-2  \
     font-sans text-4xl \
-    text-blue-300 \
-    hover:text-blue-500 \
+    text-amber-100 \
+    hover:text-amber-300 \
     hover:shadow-sm \
     hover:translate-x-4 \
     transition \

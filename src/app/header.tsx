@@ -10,13 +10,13 @@ const Header = () => {
       <div className="absolute right-2 top-2 w-fit flex flex-row justify-center items-center">
         <Link href="https://github.com/phl0at/bg3b-next">
           <DiGithubBadge
-            className="text-blue-300 hover:text-blue-500 hover:-translate-y-1 transition ease-in-out delay-250 duration-300"
+            className="text-amber-100 hover:text-amber-300 hover:-translate-y-1 transition ease-in-out delay-250 duration-300"
             size="55"
           />
         </Link>
         <Link href="https://www.linkedin.com/in/phl0at">
           <FaLinkedin
-            className="text-blue-300 hover:text-blue-500 hover:-translate-y-1 transition ease-in-out delay-250 duration-300"
+            className="text-amber-100 hover:text-amber-300 hover:-translate-y-1 transition ease-in-out delay-250 duration-300"
             size="42"
           />
         </Link>

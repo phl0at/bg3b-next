@@ -10,7 +10,7 @@ const MenuLayer = ({ handleToggle }: { handleToggle: () => void }) => {
       onClick={handleToggle}
       className={`fixed z-10 backdrop-blur-md transition-all ease-in-out delay-50 duration-100 ${
         showMenu
-          ? "fixed z-10 w-screen h-screen backdrop-blur-sm transition-all ease-in-out delay-100"
+          ? "fixed z-10 w-screen h-screen backdrop-blur-md transition-all ease-in-out delay-100"
           : "w-0 h-0"
       }`}
     >

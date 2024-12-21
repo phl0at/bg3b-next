@@ -110,11 +110,11 @@ const Ability = ({
     <main className="flex flex-row justify-between">
       <div className="flex items-center">
         <Image
-          priority={true}
           src={image}
           alt=""
           width={120}
           height={120}
+          loading="lazy"
           placeholder="blur"
         />
         <div>{titleCaseStat}</div>

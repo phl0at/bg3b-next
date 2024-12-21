@@ -45,15 +45,15 @@ const BuildMenuList = () => {
     <div className="flex flex-col gap-12 text-3xl font-sans">
       {menuOptions.map((option) => (
         <Link
-          className="flex justify-end items-center text-blue-300 group"
+          className="flex justify-end items-center text-amber-100 group"
           href={`${option.menu}`}
           key={option.menu}
         >
           <div
             className={
               option.menu === pathname
-                ? "text-blue-500"
-                : "group-hover:text-blue-300 text-zinc-900 transition-colors ease-in-out"
+                ? "text-amber-300"
+                : "group-hover:opacity-100 opacity-0 transition-all ease-in-out"
             }
           >
             {option.title}
@@ -61,7 +61,7 @@ const BuildMenuList = () => {
           {option.menu === pathname ? (
             <FaRegDotCircle
               size="67"
-              className={`${option.translate} text-blue-500`}
+              className={`${option.translate} text-amber-300`}
             />
           ) : (
             <FaRegCircle
