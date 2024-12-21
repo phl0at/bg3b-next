@@ -16,7 +16,6 @@ import Warlock from "../../../../../public/classes/Warlock.png";
 import Wizard from "../../../../../public/classes/Wizard.png";
 
 const ClassPage = async () => {
-  //!Create a custom route in Neurelo to get both of these in one request
   const classes = await getData("classes");
   const subClasses = await getData("subclasses");
   const images = [

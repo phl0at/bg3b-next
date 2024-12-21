@@ -11,38 +11,38 @@ const BuildMenuList = () => {
   const menuOptions = [
     {
       title: "Origins",
-      translateHover: "group-hover:-translate-x-[113px]",
-      translate: "-translate-x-[113px]",
+      translateHover: "group-hover:-translate-x-[167px]",
+      translate: "-translate-x-[167px]",
       menu: `/build/${buildId}/origins`,
     },
     {
       title: "Races",
-      translateHover: "group-hover:-translate-x-[100px]",
-      translate: "-translate-x-[100px]",
+      translateHover: "group-hover:-translate-x-[147px]",
+      translate: "-translate-x-[147px]",
       menu: `/build/${buildId}/races`,
     },
     {
       title: "Backgrounds",
-      translateHover: "group-hover:-translate-x-[164px]",
-      translate: "-translate-x-[164px]",
+      translateHover: "group-hover:-translate-x-[243px]",
+      translate: "-translate-x-[243px]",
       menu: `/build/${buildId}/backgrounds`,
     },
     {
       title: "Classes",
-      translateHover: "group-hover:-translate-x-[113px]",
-      translate: "-translate-x-[113px]",
+      translateHover: "group-hover:-translate-x-[167px]",
+      translate: "-translate-x-[167px]",
       menu: `/build/${buildId}/classes`,
     },
     {
       title: "Abilities",
-      translateHover: "group-hover:-translate-x-[119px]",
-      translate: "-translate-x-[119px]",
+      translateHover: "group-hover:-translate-x-[175px]",
+      translate: "-translate-x-[175px]",
       menu: `/build/${buildId}/abilities`,
     },
   ];
 
   return (
-    <div className="flex flex-col gap-7 text-xl font-sans">
+    <div className="flex flex-col gap-12 text-3xl font-sans">
       {menuOptions.map((option) => (
         <Link
           className="flex justify-end items-center text-blue-300 group"
@@ -60,12 +60,12 @@ const BuildMenuList = () => {
           </div>
           {option.menu === pathname ? (
             <FaRegDotCircle
-              size="45"
+              size="67"
               className={`${option.translate} text-blue-500`}
             />
           ) : (
             <FaRegCircle
-              size="45"
+              size="67"
               className={`${option.translateHover} transition eas-in-out`}
             />
           )}

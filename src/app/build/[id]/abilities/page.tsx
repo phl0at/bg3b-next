@@ -8,7 +8,7 @@ import Intelligence from "../../../../../public/stats/Intelligence.png"
 import Wisdom from "../../../../../public/stats/Wisdom.png"
 import Charisma from "../../../../../public/stats/Charisma.png"
 
-const AbilitiesPage = async () => {
+const AbilitiesPage = () => {
   const images = [
     Strength,
     Dexterity,

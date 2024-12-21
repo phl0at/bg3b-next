@@ -6,8 +6,10 @@ import { CiUndo } from "react-icons/ci";
 import { StaticImageData } from "next/image";
 
 const Abilities = ({ images }: { images: StaticImageData[] }) => {
-  const { abilityPoints, plus_1, plus_2 } = useStore((state) => state.current);
-  const { dispatch } = useStore((state) => state);
+  const {
+    dispatch,
+    current: { abilityPoints, plus_1, plus_2 },
+  } = useStore((state) => state);
   const abilities = [
     "strength",
     "dexterity",
@@ -26,7 +28,6 @@ const Abilities = ({ images }: { images: StaticImageData[] }) => {
     <>
       <div className="flex justify-between w-5/6 h-[30px]">
         <div className="w-[30px]"></div>
-        <div>{`Abilities`}</div>
         <div className="w-[30px]">
           {abilityPoints < 27 && (
             <button onClick={handleReset}>
@@ -42,7 +43,6 @@ const Abilities = ({ images }: { images: StaticImageData[] }) => {
           <div className={plus_1 === "" ? "text-red-700" : ""}>+1</div>
         </div>
         {abilities.map((ability, i) => (
-          //!TO DO: Save all imagekitio files to public folder and import them into respective components
           <Ability key={ability} ability={ability} image={images[i]} />
         ))}
       </div>

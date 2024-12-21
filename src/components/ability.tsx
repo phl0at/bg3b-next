@@ -11,10 +11,12 @@ const Ability = ({
   image: StaticImageData;
 }) => {
   const titleCaseStat = ability[0].toUpperCase() + ability.slice(1);
+  const {
+    dispatch,
+    current: { plus1, plus2, abilityPoints },
+  } = useStore((state) => state);
   const val = useStore((state) => state.current[ability]);
   const [clicks, setClicks] = useState(val - 8);
-  const { plus1, plus2, abilityPoints } = useStore((state) => state.current);
-  const { dispatch } = useStore((state) => state);
 
   // An ability can only be clicked/increased 7 times.
   // This will track the number of increases by setting the # of clicks
@@ -107,7 +109,14 @@ const Ability = ({
   return (
     <main className="flex flex-row justify-between">
       <div className="flex items-center">
-        <Image priority={true} src={image} alt="" width={120} height={120} placeholder="blur" />
+        <Image
+          priority={true}
+          src={image}
+          alt=""
+          width={120}
+          height={120}
+          placeholder="blur"
+        />
         <div>{titleCaseStat}</div>
       </div>
       <div className="flex flex-row items-center justify-evenly gap-x-5">
