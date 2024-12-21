@@ -34,8 +34,8 @@ model Build {
   helmet Int
   cloak Int
   armour Int
-  glove Int
-  boot Int
+  gloves Int
+  boots Int
   amulet Int
   ring1 Int
   ring2 Int
