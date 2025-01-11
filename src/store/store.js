@@ -283,6 +283,7 @@ export const useStore = create((set) => ({
     ...defaultBuild,
   },
   showMenu: false,
+  showEquipment: "current",
   selectedClass: 1,
   builds: new Set(),
   dispatch: (args) => set((state) => reducer(state, args)),
