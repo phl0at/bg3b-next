@@ -76,4 +76,96 @@ type Cantrip = {
   range?: number;
   school: string;
 };
+type Helmet = {
+  id: number;
+  description: string;
+  img: string;
+  modifiers: string | null;
+  name: string;
+  rarity: string;
+  spell: string | null;
+  type: string;
+};
+type Cloak = {
+  id: number;
+  description: string;
+  img: string;
+  modifiers: string | null;
+  name: string;
+  rarity: string;
+  spell: string | null;
+};
+type Amulet = {
+  id: number;
+  description: string;
+  img: string;
+  modifiers: string | null;
+  name: string;
+  rarity: string;
+  spell: string | null;
+};
+type Armour = {
+  id: number;
+  description: string;
+  armour_class: number;
+  img: string;
+  modifiers: string | null;
+  name: string;
+  rarity: string;
+  spell: string | null;
+  type: string;
+};
+type Glove = {
+  id: number;
+  description: string;
+  img: string;
+  modifiers: string | null;
+  name: string;
+  rarity: string;
+  spell: string | null;
+  type: string;
+};
+type Ring = {
+  id: number;
+  description: string;
+  img: string;
+  modifiers: string | null;
+  name: string;
+  rarity: string;
+  spell: string | null;
+};
+type Boot = {
+  id: number;
+  description: string;
+  img: string;
+  modifiers: string | null;
+  name: string;
+  rarity: string;
+  spell: string | null;
+  type: string;
+};
+type Weapon = {
+  id: number;
+  description: string;
+  damage: string;
+  damage_bonus: number;
+  damage_mod: string;
+  damage_type: string;
+  img: string;
+  modifiers: string;
+  name: string;
+  range: string;
+  rarity: string;
+  spell: string;
+  type: string;
+};
+type ItemData =
+  | Helmet[]
+  | Cloak[]
+  | Amulet[]
+  | Armour[]
+  | Glove[]
+  | Ring[]
+  | Boot[]
+  | Weapon[];
 /* eslint-disable */
