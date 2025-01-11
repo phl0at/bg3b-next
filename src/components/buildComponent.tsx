@@ -1,13 +1,14 @@
 import React from "react";
 import BuildMenuList from "@/components/buildMenuList";
 import Equipment from "./equipment";
+
 const BuildComponent = ({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) => {
   return (
-    <main className="h-screen flex gap-4 items-center justify-center">
+    <main className="h-screen flex gap-4 items-center justify-center mr-[10%]">
       <BuildMenuList />
       <div
         className="

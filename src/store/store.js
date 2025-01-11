@@ -51,6 +51,7 @@ const types = {
   equipItem: "EQUIP ITEM",
   removeItem: "REMOVE ITEM",
   showMenu: "SHOW MENU",
+  showEquipment: "SHOW EQ",
 };
 
 const reducer = (state, { type, payload }) => {
@@ -269,6 +270,13 @@ const reducer = (state, { type, payload }) => {
     case types.showMenu: {
       const newState = { ...state };
       newState.showMenu = payload;
+      return newState;
+    }
+    //!-------------------------------------------------------------------
+    //!-------------------------------------------------------------------
+    case types.showEquipment: {
+      const newState = { ...state };
+      newState.showEquipment = payload;
       return newState;
     }
     //!-------------------------------------------------------------------
