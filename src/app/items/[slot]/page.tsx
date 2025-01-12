@@ -7,7 +7,7 @@ const ItemsPage = async ({ params }: { params: Promise<{ slot: string }> }) => {
   const items = await getData(`${slot}`);
   const title = slot[0].toUpperCase() + slot.slice(1);
   return (
-    <main className="h-screen flex gap-4 items-center justify-center ">
+    <main className="h-screen flex gap-4 items-center justify-center text-amber-100">
       <div
         className="
         bg-opacity-80
@@ -29,7 +29,7 @@ const ItemsPage = async ({ params }: { params: Promise<{ slot: string }> }) => {
         items-center
         py-12"
       >
-        <div className="text-amber-100 text-4xl">{title}</div>
+        <div className="w-full h-[10%] text-3xl px-5">{title}</div>
         <ItemList items={items} />
       </div>
     </main>
