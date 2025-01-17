@@ -37,3 +37,13 @@ nextjs-portal {
     text-wrap: balance;
   }
 }
+
+::-webkit-scrollbar {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgb(101, 71, 42);
+  border-radius: 20px;
+}

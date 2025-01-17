@@ -44,7 +44,7 @@ const Equipment = () => {
     >
       <div className="w-5/6 flex flex-row justify-between py-4">
         <ItemSlot
-          key="helmet"
+          key={1}
           slot="helmet"
           path="helmets"
           image={<GiElfHelmet size="80" />}
@@ -53,22 +53,21 @@ const Equipment = () => {
       </div>
       <div className="w-5/6 flex flex-row justify-between py-4">
         <ItemSlot
-          key="cloak"
+          key={2}
           slot="cloak"
           path="cloaks"
           image={<GiCape size="80" />}
         />
-        <div></div>
       </div>
       <div className="w-5/6 flex flex-row justify-between py-4">
         <ItemSlot
-          key="armour"
+          key={3}
           slot="armour"
           path="armours"
           image={<GiCapeArmor size="80" />}
         />
         <ItemSlot
-          key="amulet"
+          key={4}
           slot="amulet"
           path="amulets"
           image={<GiEmeraldNecklace size="80" />}
@@ -76,13 +75,13 @@ const Equipment = () => {
       </div>
       <div className="w-5/6 flex flex-row justify-between py-4">
         <ItemSlot
-          key="gloves"
+          key={5}
           slot="gloves"
           path="gloves"
           image={<GiGloves size="80" />}
         />
         <ItemSlot
-          key="ring1"
+          key={6}
           slot="ring1"
           path="rings"
           image={<GiDiamondRing size="80" />}
@@ -90,13 +89,13 @@ const Equipment = () => {
       </div>
       <div className="w-5/6 flex flex-row justify-between py-4">
         <ItemSlot
-          key="boots"
+          key={7}
           slot="boots"
           path="boots"
           image={<GiLegArmor size="80" />}
         />
         <ItemSlot
-          key="ring2"
+          key={8}
           slot="ring2"
           path="rings"
           image={<GiDiamondRing size="80" />}
@@ -105,29 +104,29 @@ const Equipment = () => {
       <div className="w-5/6 flex flex-row justify-between py-4">
         <div className="flex gap-x-2">
           <ItemSlot
-            key="meleeMH"
+            key={9}
             slot="meleeMH"
-            path="weapons"
+            path="melee"
             image={<GiBroadsword size="80" />}
           />
           <ItemSlot
-            key="meleeOH"
+            key={10}
             slot="meleeOH"
-            path="weapons"
+            path="melee"
             image={<GiBroadDagger size="80" />}
           />
         </div>
         <div className="flex gap-x-2">
           <ItemSlot
-            key="rangedMH"
+            key={11}
             slot="rangedMH"
-            path="weapons"
+            path="ranged"
             image={<GiBowArrow size="80" />}
           />
           <ItemSlot
-            key="rangedOH"
+            key={12}
             slot="rangedOH"
-            path="weapons"
+            path="ranged"
             image={<GiCrossbow size="80" />}
           />
         </div>

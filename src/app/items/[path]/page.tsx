@@ -2,10 +2,17 @@ import React from "react";
 import ItemList from "@/components/itemList";
 import { getData } from "@/lib/utils";
 
-const ItemsPage = async ({ params }: { params: Promise<{ slot: string }> }) => {
-  const slot = (await params).slot;
-  const items = await getData(`${slot}`);
-  const title = slot[0].toUpperCase() + slot.slice(1);
+const ItemsPage = async ({ params }: { params: Promise<{ path: string }> }) => {
+  const path = (await params).path;
+  const title = path[0].toUpperCase() + path.slice(1);
+  // The URL path to get weapons from the Nurelo API is /rest/weapons
+  // in order to display only melee or only ranged weapons, a query
+  // filter is added to the URL
+  const items =
+    path === "ranged" || path === "melee"
+      ? await getData(`weapons?filter={"range":"${title}"}`)
+      : await getData(`${path}`);
+
   return (
     <main className="h-screen flex gap-4 items-center justify-center text-amber-100">
       <div
@@ -27,9 +34,10 @@ const ItemsPage = async ({ params }: { params: Promise<{ slot: string }> }) => {
         flex-col
         justify-start
         items-center
-        py-12"
+        py-12
+        overflow-hidden"
       >
-        <div className="w-full h-[10%] text-3xl px-5">{title}</div>
+        <div className="w-full h-[10%] text-5xl text-amber-400 px-10">{title}</div>
         <ItemList items={items} />
       </div>
     </main>
