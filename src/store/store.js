@@ -181,7 +181,6 @@ const reducer = (state, { type, payload }) => {
     case types.equipItem: {
       const newState = { ...state, current: { ...state.current } };
       newState.current[payload.slot] = payload.item;
-      console.log(newState)
       return newState;
     }
     //!-------------------------------------------------------------------

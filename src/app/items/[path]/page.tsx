@@ -33,11 +33,9 @@ const ItemsPage = async ({ params }: { params: Promise<{ path: string }> }) => {
         flex
         flex-col
         justify-start
-        items-center
-        py-12
-        overflow-hidden"
+        items-center"
       >
-        <div className="w-full h-[10%] text-5xl text-amber-400 px-10">{title}</div>
+        <div className="w-full h-[10%] text-5xl text-amber-400 pl-10 pt-10">{title}</div>
         <ItemList items={items} />
       </div>
     </main>

@@ -4,7 +4,6 @@ import Image from "next/image";
 import { useStore } from "@/store/store";
 import { usePathname, useRouter } from "next/navigation";
 import { IoArrowBackCircleOutline } from "react-icons/io5";
-
 const imgURL = process.env.NEXT_PUBLIC_IMG_URL;
 
 const ItemList = ({ items }: { items: ItemData }) => {
@@ -44,7 +43,7 @@ const ItemList = ({ items }: { items: ItemData }) => {
               <tr
                 key={item.id}
                 onClick={() => clickItem(item)}
-                className={`text-2xl cursor-pointer group hover:outline ${
+                className={`text-2xl cursor-pointer hover:outline ${
                   i % 2 === 0 ? "bg-black" : ""
                 } ${item === equippedItem ? "bg-gray-800" : ""}`}
               >
@@ -62,7 +61,7 @@ const ItemList = ({ items }: { items: ItemData }) => {
                 >
                   {item.name}
                 </td>
-                <td className="py-10">
+                <td className="py-10 pr-10">
                   <div>
                     <div className="text-amber-400">{des1.split(":")[0]}:</div>
                     {des1.split(":")[1]}

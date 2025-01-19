@@ -18,7 +18,7 @@ import {
 } from "react-icons/gi";
 
 const Equipment = () => {
-  const { current: armourClass } = useStore((state) => state);
+  const { armourClass } = useStore((state) => state.current);
 
   return (
     <div
