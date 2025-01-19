@@ -168,4 +168,6 @@ type ItemData =
   | Ring[]
   | Boot[]
   | Weapon[];
+
+type SomeItem = Helmet | Cloak | Amulet | Armour | Glove | Ring | Boot | Weapon;
 /* eslint-disable */

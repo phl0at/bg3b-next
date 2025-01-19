@@ -18,7 +18,7 @@ import {
 } from "react-icons/gi";
 
 const Equipment = () => {
-  const { armourClass } = useStore((state) => state.current);
+  const { current: armourClass } = useStore((state) => state);
 
   return (
     <div
@@ -47,7 +47,7 @@ const Equipment = () => {
           key={1}
           slot="helmet"
           path="helmets"
-          image={<GiElfHelmet size="80" />}
+          defaultImg={<GiElfHelmet size="80" />}
         />
         <div className="text-2xl">{`AC: ${armourClass}`}</div>
       </div>
@@ -56,7 +56,7 @@ const Equipment = () => {
           key={2}
           slot="cloak"
           path="cloaks"
-          image={<GiCape size="80" />}
+          defaultImg={<GiCape size="80" />}
         />
       </div>
       <div className="w-5/6 flex flex-row justify-between py-4">
@@ -64,13 +64,13 @@ const Equipment = () => {
           key={3}
           slot="armour"
           path="armours"
-          image={<GiCapeArmor size="80" />}
+          defaultImg={<GiCapeArmor size="80" />}
         />
         <ItemSlot
           key={4}
           slot="amulet"
           path="amulets"
-          image={<GiEmeraldNecklace size="80" />}
+          defaultImg={<GiEmeraldNecklace size="80" />}
         />
       </div>
       <div className="w-5/6 flex flex-row justify-between py-4">
@@ -78,13 +78,13 @@ const Equipment = () => {
           key={5}
           slot="gloves"
           path="gloves"
-          image={<GiGloves size="80" />}
+          defaultImg={<GiGloves size="80" />}
         />
         <ItemSlot
           key={6}
           slot="ring1"
           path="rings"
-          image={<GiDiamondRing size="80" />}
+          defaultImg={<GiDiamondRing size="80" />}
         />
       </div>
       <div className="w-5/6 flex flex-row justify-between py-4">
@@ -92,13 +92,13 @@ const Equipment = () => {
           key={7}
           slot="boots"
           path="boots"
-          image={<GiLegArmor size="80" />}
+          defaultImg={<GiLegArmor size="80" />}
         />
         <ItemSlot
           key={8}
           slot="ring2"
           path="rings"
-          image={<GiDiamondRing size="80" />}
+          defaultImg={<GiDiamondRing size="80" />}
         />
       </div>
       <div className="w-5/6 flex flex-row justify-between py-4">
@@ -107,13 +107,13 @@ const Equipment = () => {
             key={9}
             slot="meleeMH"
             path="melee"
-            image={<GiBroadsword size="80" />}
+            defaultImg={<GiBroadsword size="80" />}
           />
           <ItemSlot
             key={10}
             slot="meleeOH"
             path="melee"
-            image={<GiBroadDagger size="80" />}
+            defaultImg={<GiBroadDagger size="80" />}
           />
         </div>
         <div className="flex gap-x-2">
@@ -121,13 +121,13 @@ const Equipment = () => {
             key={11}
             slot="rangedMH"
             path="ranged"
-            image={<GiBowArrow size="80" />}
+            defaultImg={<GiBowArrow size="80" />}
           />
           <ItemSlot
             key={12}
             slot="rangedOH"
             path="ranged"
-            image={<GiCrossbow size="80" />}
+            defaultImg={<GiCrossbow size="80" />}
           />
         </div>
       </div>

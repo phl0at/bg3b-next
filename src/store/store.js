@@ -50,6 +50,7 @@ const types = {
   removeCantrip: "REMOVE CANTRIP",
   equipItem: "EQUIP ITEM",
   removeItem: "REMOVE ITEM",
+  viewItem: "VIEW ITEM",
   showMenu: "SHOW MENU",
   showEquipment: "SHOW EQ",
 };
@@ -179,7 +180,8 @@ const reducer = (state, { type, payload }) => {
     //!-------------------------------------------------------------------
     case types.equipItem: {
       const newState = { ...state, current: { ...state.current } };
-      newState.current[payload.type] = payload.item;
+      newState.current[payload.slot] = payload.item;
+      console.log(newState)
       return newState;
     }
     //!-------------------------------------------------------------------
@@ -187,6 +189,13 @@ const reducer = (state, { type, payload }) => {
     case types.removeItem: {
       const newState = { ...state, current: { ...state.current } };
       delete newState.current[payload];
+      return newState;
+    }
+    //!-------------------------------------------------------------------
+    //!-------------------------------------------------------------------
+    case types.viewItem: {
+      const newState = { ...state };
+      newState.viewItem = payload;
       return newState;
     }
     //!-------------------------------------------------------------------
