@@ -17,7 +17,7 @@ const ItemList = ({ items }: { items: ItemData }) => {
   return (
     <div className="overflow-y-auto w-[90%] mt-5">
       <div className="text-3xl flex justify-start items-center">
-        <div className="w-[10%] pl-2">
+        <div className="w-[17%] pl-2">
           <button onClick={clickBack}>
             <IoArrowBackCircleOutline
               size="60"
@@ -25,7 +25,7 @@ const ItemList = ({ items }: { items: ItemData }) => {
             />
           </button>
         </div>
-        <div className="w-[20%]">Name</div>
+        <div className="w-[14%]">Name</div>
         <div>Info</div>
       </div>
       {items.map((item, i) => {
@@ -44,7 +44,7 @@ const ItemList = ({ items }: { items: ItemData }) => {
               />
             </div>
             <div
-              className={`w-[15%] ${
+              className={`w-[13%] ${
                 item.rarity === "Uncommon"
                   ? "text-green-500"
                   : item.rarity === "Rare"
@@ -58,13 +58,13 @@ const ItemList = ({ items }: { items: ItemData }) => {
             >
               {item.name}
             </div>
-            <div className="w-[70%] py-10">
-              <div>
+            <div className="w-[70%] py-6">
+              <div className="pr-2">
                 <div className="text-amber-400">{des1.split(":")[0]}:</div>
                 {des1.split(":")[1]}
               </div>
               {des2 && (
-                <div>
+                <div className="pr-2">
                   <div className="text-amber-400">{des2.split(":")[0]}:</div>
                   {des2.split(":")[1]}
                 </div>

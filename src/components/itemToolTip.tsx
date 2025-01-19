@@ -1,8 +1,9 @@
 "use client";
+import React from "react";
 import { useStore } from "@/store/store";
 import { parseMods } from "@/lib/utils";
-import React from "react";
 import { useState } from "react";
+import { FaCheckCircle } from "react-icons/fa";
 
 const ItemToolTip = ({
   item,
@@ -50,6 +51,9 @@ const ItemToolTip = ({
           )}
         </div>
       )}
+      <div className="relative text-green-500 ml-4 w-[50px]">
+        {item === equippedItem && <FaCheckCircle size="47" />}
+      </div>
       {children}
     </div>
   );
