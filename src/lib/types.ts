@@ -85,6 +85,11 @@ type Helmet = {
   rarity: string;
   spell: string | null;
   type: string;
+  damage?: string;
+  damage_bonus?: number;
+  damage_mod?: string;
+  damage_type?: string;
+  range?: string;
 };
 type Cloak = {
   id: number;
@@ -94,7 +99,12 @@ type Cloak = {
   name: string;
   rarity: string;
   spell: string | null;
-  type?: string
+  type?: string;
+  damage?: string;
+  damage_bonus?: number;
+  damage_mod?: string;
+  damage_type?: string;
+  range?: string;
 };
 type Amulet = {
   id: number;
@@ -104,7 +114,12 @@ type Amulet = {
   name: string;
   rarity: string;
   spell: string | null;
-  type?: string
+  type?: string;
+  damage?: string;
+  damage_bonus?: number;
+  damage_mod?: string;
+  damage_type?: string;
+  range?: string;
 };
 type Armour = {
   id: number;
@@ -116,6 +131,11 @@ type Armour = {
   rarity: string;
   spell: string | null;
   type: string;
+  damage?: string;
+  damage_bonus?: number;
+  damage_mod?: string;
+  damage_type?: string;
+  range?: string;
 };
 type Glove = {
   id: number;
@@ -126,6 +146,11 @@ type Glove = {
   rarity: string;
   spell: string | null;
   type: string;
+  damage?: string;
+  damage_bonus?: number;
+  damage_mod?: string;
+  damage_type?: string;
+  range?: string;
 };
 type Ring = {
   id: number;
@@ -135,7 +160,12 @@ type Ring = {
   name: string;
   rarity: string;
   spell: string | null;
-  type?: string
+  type?: string;
+  damage?: string;
+  damage_bonus?: number;
+  damage_mod?: string;
+  damage_type?: string;
+  range?: string;
 };
 type Boot = {
   id: number;
@@ -146,6 +176,11 @@ type Boot = {
   rarity: string;
   spell: string | null;
   type: string;
+  damage?: string;
+  damage_bonus?: number;
+  damage_mod?: string;
+  damage_type?: string;
+  range?: string;
 };
 type Weapon = {
   id: number;
@@ -154,10 +189,10 @@ type Weapon = {
   damage_bonus: number;
   damage_mod: string;
   damage_type: string;
+  range: string;
   img: string;
   modifiers: string;
   name: string;
-  range: string;
   rarity: string;
   spell: string;
   type: string;

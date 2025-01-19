@@ -19,70 +19,63 @@ const ItemList = ({ items }: { items: ItemData }) => {
 
   return (
     <div className="overflow-y-auto w-[90%] mt-5">
-      <table>
-        <tbody>
-          <tr className="text-3xl">
-            <th></th>
-            <th className="w-[8%]">
-              <button onClick={clickBack}>
-                <IoArrowBackCircleOutline
-                  size="60"
-                  className="hover:text-amber-400"
-                />
-              </button>
-            </th>
-            <th className="w-[22%]">Name</th>
-            <th>Info</th>
-          </tr>
-          {items.map((item, i) => {
-            const des1 = item.description.split("&*&")[0];
-            const des2 = item.description.split("&*&")[1];
+      <div className="text-3xl flex justify-start items-center">
+        <div className="w-[10%] pl-2">
+          <button onClick={clickBack}>
+            <IoArrowBackCircleOutline
+              size="60"
+              className="hover:text-amber-400"
+            />
+          </button>
+        </div>
+        <div className="w-[20%]">Name</div>
+        <div>Info</div>
+      </div>
+      {items.map((item, i) => {
+        const des1 = item.description.split("&*&")[0];
+        const des2 = item.description.split("&*&")[1];
 
-            return (
-              <ItemToolTip key={item.id} index={i} item={item}>
-                <td className="pl-3">
-                  <Image
-                    src={`${imgURL}/item_icons/${pathname}/${item.img}.png`}
-                    loading="lazy"
-                    alt="loading"
-                    width={75}
-                    height={75}
-                  />
-                </td>
-                <td
-                  className={`${
-                    item.rarity === "Uncommon"
-                      ? "text-green-500"
-                      : item.rarity === "Rare"
-                      ? "text-blue-500"
-                      : item.rarity === "Very Rare"
-                      ? "text-pink-600"
-                      : item.rarity === "Legendary"
-                      ? "text-yellow-700"
-                      : "th"
-                  }`}
-                >
-                  {item.name}
-                </td>
-                <td className="py-10 pr-10">
-                  <div>
-                    <div className="text-amber-400">{des1.split(":")[0]}:</div>
-                    {des1.split(":")[1]}
-                  </div>
-                  {des2 && (
-                    <div>
-                      <div className="text-amber-400">
-                        {des2.split(":")[0]}:
-                      </div>
-                      {des2.split(":")[1]}
-                    </div>
-                  )}
-                </td>
-              </ItemToolTip>
-            );
-          })}
-        </tbody>
-      </table>
+        return (
+          <ItemToolTip key={item.id} index={i} item={item}>
+            <div className="w-[10%] flex justify-center">
+              <Image
+                src={`${imgURL}/item_icons/${pathname}/${item.img}.png`}
+                loading="lazy"
+                alt="loading"
+                width={75}
+                height={75}
+              />
+            </div>
+            <div
+              className={`w-[15%] ${
+                item.rarity === "Uncommon"
+                  ? "text-green-500"
+                  : item.rarity === "Rare"
+                  ? "text-blue-500"
+                  : item.rarity === "Very Rare"
+                  ? "text-pink-600"
+                  : item.rarity === "Legendary"
+                  ? "text-yellow-700"
+                  : "th"
+              }`}
+            >
+              {item.name}
+            </div>
+            <div className="w-[70%] py-10">
+              <div>
+                <div className="text-amber-400">{des1.split(":")[0]}:</div>
+                {des1.split(":")[1]}
+              </div>
+              {des2 && (
+                <div>
+                  <div className="text-amber-400">{des2.split(":")[0]}:</div>
+                  {des2.split(":")[1]}
+                </div>
+              )}
+            </div>
+          </ItemToolTip>
+        );
+      })}
     </div>
   );
 };

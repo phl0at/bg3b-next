@@ -43,3 +43,21 @@ export function addCantripPoints(_class: string, level: number) {
     }
   }
 }
+
+export function parseMods(item: SomeItem) {
+  const set = item.modifiers?.includes("=");
+  const add = item.modifiers?.includes("+");
+
+  if (set) {
+    return `Sets ${item.modifiers?.split("=")[0]} to ${
+      item.modifiers?.split("=")[1]
+    }`;
+  } else if (add) {
+    const type = item.modifiers?.split("&*&")[1];
+    return `Adds ${item.modifiers?.split("&*&")[0].split("+")[1]} ${
+      type || "Physical"
+    } damage`;
+  } else {
+    return null;
+  }
+}
