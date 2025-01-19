@@ -1,13 +1,14 @@
 "use client";
 import React from "react";
 import Image from "next/image";
+import ItemToolTip from "./itemToolTip";
 import { useStore } from "@/store/store";
 import { usePathname, useRouter } from "next/navigation";
 import { IoArrowBackCircleOutline } from "react-icons/io5";
 const imgURL = process.env.NEXT_PUBLIC_IMG_URL;
 
 const ItemList = ({ items }: { items: ItemData }) => {
-  const { dispatch, viewItem } = useStore((state) => state);
+  const { viewItem } = useStore((state) => state);
   const equippedItem = useStore((state) => state.current[viewItem]);
   const pathname = usePathname().split("/")[2];
   const router = useRouter();
@@ -15,38 +16,30 @@ const ItemList = ({ items }: { items: ItemData }) => {
     e.preventDefault();
     router.back();
   };
-  const clickItem = (item: SomeItem) => {
-    dispatch({ type: "EQUIP ITEM", payload: { item, slot: viewItem } });
-  };
 
   return (
-    <div className="overflow-y-auto w-[90%] my-10">
+    <div className="overflow-y-auto w-[90%] mt-5">
       <table>
         <tbody>
           <tr className="text-3xl">
-            <td className="w-[8%]">
+            <th></th>
+            <th className="w-[8%]">
               <button onClick={clickBack}>
                 <IoArrowBackCircleOutline
                   size="60"
                   className="hover:text-amber-400"
                 />
               </button>
-            </td>
-            <td className="w-[22%]">Name</td>
-            <td>Info</td>
+            </th>
+            <th className="w-[22%]">Name</th>
+            <th>Info</th>
           </tr>
           {items.map((item, i) => {
             const des1 = item.description.split("&*&")[0];
             const des2 = item.description.split("&*&")[1];
 
             return (
-              <tr
-                key={item.id}
-                onClick={() => clickItem(item)}
-                className={`text-2xl cursor-pointer hover:outline ${
-                  i % 2 === 0 ? "bg-black" : ""
-                } ${item === equippedItem ? "bg-gray-800" : ""}`}
-              >
+              <ItemToolTip key={item.id} index={i} item={item}>
                 <td className="pl-3">
                   <Image
                     src={`${imgURL}/item_icons/${pathname}/${item.img}.png`}
@@ -57,7 +50,17 @@ const ItemList = ({ items }: { items: ItemData }) => {
                   />
                 </td>
                 <td
-                  className={`${item === equippedItem ? "text-amber-400" : ""}`}
+                  className={`${
+                    item.rarity === "Uncommon"
+                      ? "text-green-500"
+                      : item.rarity === "Rare"
+                      ? "text-blue-500"
+                      : item.rarity === "Very Rare"
+                      ? "text-pink-600"
+                      : item.rarity === "Legendary"
+                      ? "text-yellow-700"
+                      : "th"
+                  }`}
                 >
                   {item.name}
                 </td>
@@ -75,7 +78,7 @@ const ItemList = ({ items }: { items: ItemData }) => {
                     </div>
                   )}
                 </td>
-              </tr>
+              </ItemToolTip>
             );
           })}
         </tbody>

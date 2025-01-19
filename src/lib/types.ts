@@ -94,6 +94,7 @@ type Cloak = {
   name: string;
   rarity: string;
   spell: string | null;
+  type?: string
 };
 type Amulet = {
   id: number;
@@ -103,6 +104,7 @@ type Amulet = {
   name: string;
   rarity: string;
   spell: string | null;
+  type?: string
 };
 type Armour = {
   id: number;
@@ -133,6 +135,7 @@ type Ring = {
   name: string;
   rarity: string;
   spell: string | null;
+  type?: string
 };
 type Boot = {
   id: number;
