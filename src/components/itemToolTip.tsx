@@ -33,6 +33,7 @@ const ItemToolTip = ({
       } ${item === equippedItem ? "bg-gray-800" : ""}`}
     >
       {display && (
+        //! TODO: Finish the rest of the item data and beautify the tooltip
         <div className="absolute flex flex-col gap-y-2 left-[5%] top-[9%] text-xl w-[14%] p-5 bg-opacity-80 bg-stone-950 rounded-xl border-2 border-amber-400">
           <p>{`${item.rarity} ${item.type && item.type}`}</p>
           {modifiers && <p>{modifiers}</p>}
@@ -41,7 +42,7 @@ const ItemToolTip = ({
             <div>
               Grants:
               {spells.map((spell) => (
-                <p>{spell}</p>
+                <p key={spell}>{spell}</p>
               ))}
             </div>
           ) : (

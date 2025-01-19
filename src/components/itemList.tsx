@@ -2,14 +2,11 @@
 import React from "react";
 import Image from "next/image";
 import ItemToolTip from "./itemToolTip";
-import { useStore } from "@/store/store";
 import { usePathname, useRouter } from "next/navigation";
 import { IoArrowBackCircleOutline } from "react-icons/io5";
 const imgURL = process.env.NEXT_PUBLIC_IMG_URL;
 
 const ItemList = ({ items }: { items: ItemData }) => {
-  const { viewItem } = useStore((state) => state);
-  const equippedItem = useStore((state) => state.current[viewItem]);
   const pathname = usePathname().split("/")[2];
   const router = useRouter();
   const clickBack = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -56,7 +53,7 @@ const ItemList = ({ items }: { items: ItemData }) => {
                   ? "text-pink-600"
                   : item.rarity === "Legendary"
                   ? "text-yellow-700"
-                  : "th"
+                  : ""
               }`}
             >
               {item.name}
