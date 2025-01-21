@@ -35,8 +35,8 @@ const ItemsPage = async ({ params }: { params: Promise<{ path: string }> }) => {
         justify-start
         items-center"
       >
-        <div className="w-full h-[10%] text-5xl text-amber-400 pl-10 pt-10">{title}</div>
-        <ItemList items={items} />
+
+        <ItemList items={items} title={title} />
       </div>
     </main>
   );

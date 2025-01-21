@@ -6,7 +6,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { IoArrowBackCircleOutline } from "react-icons/io5";
 const imgURL = process.env.NEXT_PUBLIC_IMG_URL;
 
-const ItemList = ({ items }: { items: ItemData }) => {
+const ItemList = ({ items, title }: { items: ItemData; title: string }) => {
   const pathname = usePathname().split("/")[2];
   const router = useRouter();
   const clickBack = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -15,9 +15,9 @@ const ItemList = ({ items }: { items: ItemData }) => {
   };
 
   return (
-    <div className="overflow-y-auto w-[90%] mt-5">
-      <div className="text-3xl flex justify-start items-center">
-        <div className="w-[17%] pl-2">
+    <div className="overflow-y-auto w-[90%] mt-10 flex flex-col">
+      <div className="text-3xl w-[50%] mb-10 flex justify-start items-center">
+        <div className="fixed pl-2">
           <button onClick={clickBack}>
             <IoArrowBackCircleOutline
               size="60"
@@ -25,16 +25,17 @@ const ItemList = ({ items }: { items: ItemData }) => {
             />
           </button>
         </div>
-        <div className="w-[14%]">Name</div>
-        <div>Info</div>
+        <div className="w-full flex justify-center text-4xl text-amber-400">
+          {title}
+        </div>
       </div>
       {items.map((item, i) => {
-        const des1 = item.description.split("&*&")[0];
-        const des2 = item.description.split("&*&")[1];
+        // const des1 = item.description.split("&*&")[0];
+        // const des2 = item.description.split("&*&")[1];
 
         return (
           <ItemToolTip key={item.id} index={i} item={item}>
-            <div className="w-[10%] flex justify-center">
+            <div className="flex justify-center">
               <Image
                 src={`${imgURL}/item_icons/${pathname}/${item.img}.png`}
                 loading="lazy"
@@ -44,7 +45,7 @@ const ItemList = ({ items }: { items: ItemData }) => {
               />
             </div>
             <div
-              className={`w-[13%] ${
+              className={`${
                 item.rarity === "Uncommon"
                   ? "text-green-500"
                   : item.rarity === "Rare"
@@ -58,7 +59,7 @@ const ItemList = ({ items }: { items: ItemData }) => {
             >
               {item.name}
             </div>
-            <div className="w-[70%] py-6">
+            {/* <div className="w-[70%] py-6">
               <div className="pr-2">
                 <div className="text-amber-400">{des1.split(":")[0]}:</div>
                 {des1.split(":")[1]}
@@ -69,7 +70,7 @@ const ItemList = ({ items }: { items: ItemData }) => {
                   {des2.split(":")[1]}
                 </div>
               )}
-            </div>
+            </div> */}
           </ItemToolTip>
         );
       })}

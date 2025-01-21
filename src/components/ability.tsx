@@ -107,7 +107,7 @@ const Ability = ({
   };
 
   return (
-    <main className="flex flex-row justify-between">
+    <main className="flex flex-row justify-between text-2xl text-amber-100">
       <div className="flex items-center">
         <Image
           src={image}
@@ -120,42 +120,42 @@ const Ability = ({
         <div>{titleCaseStat}</div>
       </div>
       <div className="flex flex-row items-center justify-evenly gap-x-5">
-        <div className="flex items-center justify-center">
+        <div className="flex items-center justify-center gap-x-2">
           <button
             disabled={clicks < 1 || abilityPoints > 26}
-            className={
+            className={`hover:text-amber-400 ${
               clicks < 1 || abilityPoints > 26
                 ? "text-gray-600 cursor-default"
                 : ""
-            }
+            }`}
             onClick={(e) => clickLower(e, ability)}
           >
-            <CiCircleMinus size="35" />
+            <CiCircleMinus size="50" />
           </button>
           <div className="w-[18px] flex justify-center">{val}</div>
           <button
             disabled={clicks > 6 || abilityPoints < 1}
-            className={
+            className={`hover:text-amber-400 ${
               clicks > 6 || abilityPoints < 1
                 ? "text-gray-600 cursor-default"
                 : ""
-            }
+            }`}
             onClick={(e) => clickRaise(e, ability)}
           >
-            <CiCirclePlus size="35" />
+            <CiCirclePlus size="50" />
           </button>
         </div>
         <div className="flex items-center justify-between gap-x-[6px]">
           <button
             className={`${
-              plus2 === ability && "bg-slate-600"
-            } w-[16px] h-[16px] border-solid border-[2px] hover:border-white`}
+              plus2 === ability && "bg-amber-400"
+            } w-[20px] h-[20px] border-solid border-[2px] border-amber-100 hover:border-amber-400`}
             onClick={(e) => clickPlusTwo(e, ability)}
           />
           <button
             className={`${
-              plus1 === ability && "bg-slate-600"
-            } w-[16px] h-[16px] border-solid border-[2px] hover:border-white`}
+              plus1 === ability && "bg-amber-400"
+            } w-[20px] h-[20px] border-solid border-[2px] border-amber-100 hover:border-amber-400`}
             onClick={(e) => clickPlusOne(e, ability)}
           />
         </div>

@@ -26,21 +26,36 @@ const Abilities = ({ images }: { images: StaticImageData[] }) => {
 
   return (
     <>
-      <div className="flex justify-between w-5/6 h-[30px]">
+      <div className="flex justify-between w-[80%] h-[30px]">
         <div className="w-[30px]"></div>
         <div className="w-[30px]">
           {abilityPoints < 27 && (
             <button onClick={handleReset}>
-              <CiUndo size="30" />
+              <CiUndo
+                size="50"
+                className="text-amber-100 hover:text-amber-400"
+              />
             </button>
           )}
         </div>
       </div>
-      <div>{`Ability Points: ${abilityPoints}`}</div>
+      <div className="text-amber-400 text-3xl">{`Ability Points: ${abilityPoints}`}</div>
       <div className="w-[85%] flex flex-col gap-y-[5px]">
         <div className="relative top-8 text-sm flex flex-row items-end justify-end gap-x-[7px]">
-          <div className={plus_2 === "" ? "text-red-700" : ""}>+2</div>
-          <div className={plus_1 === "" ? "text-red-700" : ""}>+1</div>
+          <div
+            className={`text-lg ${
+              plus_2 === "" ? "text-red-700" : "text-amber-100"
+            }`}
+          >
+            +2
+          </div>
+          <div
+            className={`text-lg ${
+              plus_2 === "" ? "text-red-700" : "text-amber-100"
+            }`}
+          >
+            +1
+          </div>
         </div>
         {abilities.map((ability, i) => (
           <Ability key={ability} ability={ability} image={images[i]} />

@@ -12,6 +12,7 @@ const BuildComponent = ({
       <BuildMenuList />
       <div
         className="
+        text-lg
         bg-opacity-80
         bg-stone-950
         outline-amber-400
