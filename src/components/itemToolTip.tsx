@@ -50,7 +50,24 @@ const ItemToolTip = ({
             ""
           )}
         </div>
+
       )}
+
+       {/*
+        // const des1 = item.description.split("&*&")[0];
+        // const des2 = item.description.split("&*&")[1];
+            <div className="w-[70%] py-6">
+              <div className="pr-2">
+                <div className="text-amber-400">{des1.split(":")[0]}:</div>
+                {des1.split(":")[1]}
+              </div>
+              {des2 && (
+                <div className="pr-2">
+                  <div className="text-amber-400">{des2.split(":")[0]}:</div>
+                  {des2.split(":")[1]}
+                </div>
+              )}
+            </div> */}
       <div className="relative text-green-500 ml-4 w-[50px]">
         {item === equippedItem && <FaCheckCircle size="47" />}
       </div>

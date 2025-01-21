@@ -29,51 +29,34 @@ const ItemList = ({ items, title }: { items: ItemData; title: string }) => {
           {title}
         </div>
       </div>
-      {items.map((item, i) => {
-        // const des1 = item.description.split("&*&")[0];
-        // const des2 = item.description.split("&*&")[1];
-
-        return (
-          <ItemToolTip key={item.id} index={i} item={item}>
-            <div className="flex justify-center">
-              <Image
-                src={`${imgURL}/item_icons/${pathname}/${item.img}.png`}
-                loading="lazy"
-                alt="loading"
-                width={75}
-                height={75}
-              />
-            </div>
-            <div
-              className={`${
-                item.rarity === "Uncommon"
-                  ? "text-green-500"
-                  : item.rarity === "Rare"
-                  ? "text-blue-500"
-                  : item.rarity === "Very Rare"
-                  ? "text-pink-600"
-                  : item.rarity === "Legendary"
-                  ? "text-yellow-700"
-                  : ""
-              }`}
-            >
-              {item.name}
-            </div>
-            {/* <div className="w-[70%] py-6">
-              <div className="pr-2">
-                <div className="text-amber-400">{des1.split(":")[0]}:</div>
-                {des1.split(":")[1]}
-              </div>
-              {des2 && (
-                <div className="pr-2">
-                  <div className="text-amber-400">{des2.split(":")[0]}:</div>
-                  {des2.split(":")[1]}
-                </div>
-              )}
-            </div> */}
-          </ItemToolTip>
-        );
-      })}
+      {items.map((item, i) => (
+        <ItemToolTip key={item.id} index={i} item={item}>
+          <div className="flex justify-center">
+            <Image
+              src={`${imgURL}/item_icons/${pathname}/${item.img}.png`}
+              loading="lazy"
+              alt="loading"
+              width={75}
+              height={75}
+            />
+          </div>
+          <div
+            className={`${
+              item.rarity === "Uncommon"
+                ? "text-green-500"
+                : item.rarity === "Rare"
+                ? "text-blue-500"
+                : item.rarity === "Very Rare"
+                ? "text-pink-600"
+                : item.rarity === "Legendary"
+                ? "text-yellow-700"
+                : ""
+            }`}
+          >
+            {item.name}
+          </div>
+        </ItemToolTip>
+      ))}
     </div>
   );
 };
