@@ -8,7 +8,7 @@ import { StaticImageData } from "next/image";
 const Abilities = ({ images }: { images: StaticImageData[] }) => {
   const {
     dispatch,
-    current: { abilityPoints, plus_1, plus_2 },
+    current: { abilityPoints, plus1, plus2 },
   } = useStore((state) => state);
   const abilities = [
     "strength",
@@ -44,14 +44,14 @@ const Abilities = ({ images }: { images: StaticImageData[] }) => {
         <div className="relative top-8 text-sm flex flex-row items-end justify-end gap-x-[7px]">
           <div
             className={`text-lg ${
-              plus_2 === "" ? "text-red-700" : "text-amber-100"
+              plus2 === "" ? "text-red-700" : "text-amber-100"
             }`}
           >
             +2
           </div>
           <div
             className={`text-lg ${
-              plus_1 === "" ? "text-red-700" : "text-amber-100"
+              plus1 === "" ? "text-red-700" : "text-amber-100"
             }`}
           >
             +1
