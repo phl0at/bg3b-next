@@ -51,7 +51,7 @@ const Abilities = ({ images }: { images: StaticImageData[] }) => {
           </div>
           <div
             className={`text-lg ${
-              plus_2 === "" ? "text-red-700" : "text-amber-100"
+              plus_1 === "" ? "text-red-700" : "text-amber-100"
             }`}
           >
             +1
