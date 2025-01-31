@@ -50,7 +50,7 @@ const DataMapper = ({
         })}
       </div>
       {button}
-      <div className="text-center text-amber-100">
+      <div className="mt-2 p-5 text-center text-amber-100">
         {data[selectedElement - 1]?.description}
       </div>
     </>
