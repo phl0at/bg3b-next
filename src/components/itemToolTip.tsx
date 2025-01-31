@@ -23,6 +23,10 @@ const ItemToolTip = ({
 
   const modifiers = parseMods(item);
   const spells = item.spell ? item.spell.split("&*&") : [];
+  const des1 = item.description.split("&*&")[0];
+  const des2 = item.description.split("&*&")[1];
+
+  console.log(item);
 
   return (
     <div
@@ -37,25 +41,7 @@ const ItemToolTip = ({
         //! TODO: Finish the rest of the item data and beautify the tooltip
         <div className="absolute flex flex-col gap-y-2 right-[22%] top-[18%] text-xl w-[25%] h-[30%] p-5 bg-opacity-80 bg-stone-950 rounded-xl border-2 border-amber-400">
           <p>{`${item.rarity} ${item.type && item.type}`}</p>
-          {modifiers && <p>{modifiers}</p>}
-
-          {spells.length > 0 ? (
-            <div>
-              Spells:
-              {spells.map((spell) => (
-                <p key={spell}>{spell}</p>
-              ))}
-            </div>
-          ) : (
-            ""
-          )}
-        </div>
-
-      )}
-
-       {/*
-        // const des1 = item.description.split("&*&")[0];
-        // const des2 = item.description.split("&*&")[1];
+          <p>
             <div className="w-[70%] py-6">
               <div className="pr-2">
                 <div className="text-amber-400">{des1.split(":")[0]}:</div>
@@ -67,7 +53,28 @@ const ItemToolTip = ({
                   {des2.split(":")[1]}
                 </div>
               )}
-            </div> */}
+            </div>
+          </p>
+
+          {modifiers && <p>{modifiers}</p>}
+
+          {spells.length > 0 ? (
+            <p>
+              <div className="text-amber-400">Spells:</div>
+              <div>
+                {spells.map((spell) => (
+                  <p key={spell}>{spell}</p>
+                ))}
+              </div>
+            </p>
+          ) : (
+            ""
+          )}
+        </div>
+      )}
+
+      {/*
+       */}
       <div className="relative text-green-500 ml-4 w-[50px]">
         {item === equippedItem && <FaCheckCircle size="47" />}
       </div>
