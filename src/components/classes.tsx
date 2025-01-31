@@ -35,8 +35,8 @@ const Classes = ({
         width={105}
         height={105}
         button={
-          <div>
-            <button onClick={handleClick}>Add Class</button>
+          <div className="w-full mt-5 flex items-center justify-center text-amber-100 ">
+            <button className="p-3 outline rounded-lg hover:text-amber-400" onClick={handleClick}>Add Class</button>
           </div>
         }
         images={images}
