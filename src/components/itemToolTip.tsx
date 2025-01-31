@@ -41,7 +41,7 @@ const ItemToolTip = ({
 
           {spells.length > 0 ? (
             <div>
-              Grants:
+              Spells:
               {spells.map((spell) => (
                 <p key={spell}>{spell}</p>
               ))}
