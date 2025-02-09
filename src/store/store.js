@@ -231,8 +231,8 @@ const reducer = (state, { type, payload }) => {
     case types.clearClasses: {
       const newState = { ...state };
       newState.current.level = 0;
-      newState.current.classList = [];
-      newState.current.cantrips = [];
+      newState.current.classList = {};
+      newState.current.cantrips ={};
       newState.current.availableCantrips = new Set();
       newState.current.cantripPoints = 0;
       newState.current.magSec = 0;

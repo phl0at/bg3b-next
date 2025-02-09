@@ -22,10 +22,16 @@ const Classes = ({
     (state) => state.current.classList[selectedClass]
   );
 
-  const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
+  const handleClickAdd = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     dispatch({ type: "ADD CLASS", payload: classes[selectedClass - 1] });
   };
+
+  const handleClickReset = (e: MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    dispatch({ type: "CLEAR CLASSES" });
+  };
+
 
   return (
     <>
@@ -40,7 +46,7 @@ const Classes = ({
             <div className="gap-x-5 flex items-center justify-start text-amber-100 ">
               <button
                 className="p-3 outline rounded-lg hover:text-amber-400"
-                onClick={handleClick}
+                onClick={handleClickAdd}
               >
                 Add Class
               </button>
@@ -48,13 +54,16 @@ const Classes = ({
               <div className="flex flex-col items-start justify-center">
                 <p>
                   {`${classes[selectedClass - 1].name}: ${
-                    classes[selectedClass - 1].level || 0
+                  selectedClassInBuild?.level || 0
                   }`}
                 </p>
                 <p>{`Total: ${level} / 12`}</p>
               </div>
             </div>
-            <button className="p-3 outline rounded-lg hover:text-red-400">
+            <button
+              className="p-3 outline rounded-lg hover:text-red-400"
+              onClick={handleClickReset}
+            >
               Reset Classes
             </button>
           </div>
