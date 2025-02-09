@@ -15,6 +15,7 @@ const Classes = ({
   images: StaticImageData[];
 }) => {
   const { dispatch, selectedClass } = useStore((state) => state);
+  const { level } = useStore((state) => state.current);
   const setter = (_class: any) =>
     dispatch({ type: "SET CLASS", payload: _class });
   const selectedClassInBuild = useStore(
@@ -35,8 +36,22 @@ const Classes = ({
         width={105}
         height={105}
         button={
-          <div className="w-[78%] mt-5 flex items-center justify-start text-amber-100 ">
-            <button className="p-3 outline rounded-lg hover:text-amber-400" onClick={handleClick}>Add Class</button>
+          <div className="w-[78%] mt-5 gap-x-5 flex items-center justify-start text-amber-100 ">
+            <button
+              className="p-3 outline rounded-lg hover:text-amber-400"
+              onClick={handleClick}
+            >
+              Add Class
+            </button>
+
+            <div className="flex flex-col items-start justify-center">
+              <p>
+                {`${classes[selectedClass - 1].name}: ${
+                  classes[selectedClass - 1].level || 0
+                }`}
+              </p>
+              <p>{`Total: ${level} / 12`}</p>
+            </div>
           </div>
         }
         images={images}
