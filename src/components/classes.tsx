@@ -36,22 +36,27 @@ const Classes = ({
         width={105}
         height={105}
         button={
-          <div className="w-[78%] mt-5 gap-x-5 flex items-center justify-start text-amber-100 ">
-            <button
-              className="p-3 outline rounded-lg hover:text-amber-400"
-              onClick={handleClick}
-            >
-              Add Class
-            </button>
+          <div className="w-[78%] mt-5 gap-x-5 flex items-center justify-between text-amber-100 ">
+            <div className="gap-x-5 flex items-center justify-start text-amber-100 ">
+              <button
+                className="p-3 outline rounded-lg hover:text-amber-400"
+                onClick={handleClick}
+              >
+                Add Class
+              </button>
 
-            <div className="flex flex-col items-start justify-center">
-              <p>
-                {`${classes[selectedClass - 1].name}: ${
-                  classes[selectedClass - 1].level || 0
-                }`}
-              </p>
-              <p>{`Total: ${level} / 12`}</p>
+              <div className="flex flex-col items-start justify-center">
+                <p>
+                  {`${classes[selectedClass - 1].name}: ${
+                    classes[selectedClass - 1].level || 0
+                  }`}
+                </p>
+                <p>{`Total: ${level} / 12`}</p>
+              </div>
             </div>
+            <button className="p-3 outline rounded-lg hover:text-red-400">
+              Reset Classes
+            </button>
           </div>
         }
         images={images}
