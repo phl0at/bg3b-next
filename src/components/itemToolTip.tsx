@@ -26,7 +26,6 @@ const ItemToolTip = ({
   const des1 = item.description.split("&*&")[0];
   const des2 = item.description.split("&*&")[1];
 
-  console.log(item);
 
   return (
     <div
@@ -39,7 +38,7 @@ const ItemToolTip = ({
     >
       {display && (
         //! TODO: Finish the rest of the item data and beautify the tooltip
-        <div className="absolute flex flex-col gap-y-2 right-[22%] top-[18%] text-xl w-[25%] h-[30%] p-5 bg-opacity-80 bg-stone-950 rounded-xl border-2 border-amber-400">
+        <div className="absolute flex flex-col gap-y-2 right-[22%] top-[18%] text-xl w-[25%] min-h-[25%] p-5 bg-opacity-80 bg-stone-950 rounded-xl border-2 border-amber-400">
           <p>{`${item.rarity} ${item.type && item.type}`}</p>
           <p>
             <div className="w-[70%] py-6">
