@@ -80,7 +80,12 @@ const Classes = ({
           />
         </>
       )}
-      {display === "subclass" && <></>}
+      {display === "subclass" && (
+        <SubClassComponent
+          selectedClassInBuild={selectedClassInBuild}
+          subClasses={subClasses}
+        />
+      )}
     </>
   );
 };
