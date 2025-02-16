@@ -42,7 +42,7 @@ const Classes = ({
         width={105}
         height={105}
         button={
-          <div className="w-[78%] mt-5 gap-x-5 flex items-center justify-between text-amber-100 ">
+          <div className="w-[78%] my-14 gap-x-5 flex items-center justify-between text-amber-100 ">
             <div className="gap-x-5 flex items-center justify-start text-amber-100 ">
               <button
                 className="p-3 outline rounded-lg hover:text-amber-400"
