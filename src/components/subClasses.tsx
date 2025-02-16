@@ -1,11 +1,13 @@
-import React from "react";
+import React, { MouseEvent } from "react";
 
 const SubClassComponent = ({
   selectedClassInBuild,
   subClasses,
+  setDisplay,
 }: {
   selectedClassInBuild: Class;
   subClasses: SubClass[];
+  setDisplay: (str: string) => void;
 }) => {
   if (!selectedClassInBuild) return "";
 
@@ -15,23 +17,22 @@ const SubClassComponent = ({
       selectedClassInBuild.level >= subClass.level
   );
 
+  const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    setDisplay("class");
+  };
+
   if (!availableSubClasses.length) return "";
 
-  if (selectedClassInBuild.subClass === undefined) {
-    return (
-      <main>
-        {availableSubClasses.map((subClass) => {
-          return <div key={subClass.id}>{subClass.description}</div>;
-        })}
-      </main>
-    );
-  } else {
-    return (
-      <main>
-        {availableSubClasses[selectedClassInBuild.subClass].description}
-      </main>
-    );
-  }
+  return (
+    <main>
+      {availableSubClasses.map((subClass) => {
+        return <div key={subClass.id}>{subClass.description}</div>;
+      })}
+
+      <button onClick={handleClick}>Back</button>
+    </main>
+  );
 };
 
 export default SubClassComponent;

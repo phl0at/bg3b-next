@@ -27,12 +27,14 @@ const SubClassButton = ({
   if (selectedClassInBuild.subClass === undefined) {
     return (
       <button
-        className="p-3 outline rounded-lg hover:text-amber-400"
+        className="mt-12 p-3 outline rounded-lg text-amber-100 hover:text-amber-400"
         onClick={handleClick}
       >
         Chose a Sub Class
       </button>
     );
+  } else {
+    <div>{availableSubClasses[selectedClassInBuild.subClass].description}</div>;
   }
 };
 

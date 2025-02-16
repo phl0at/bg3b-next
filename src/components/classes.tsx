@@ -84,6 +84,7 @@ const Classes = ({
         <SubClassComponent
           selectedClassInBuild={selectedClassInBuild}
           subClasses={subClasses}
+          setDisplay={setDisplay}
         />
       )}
     </>
