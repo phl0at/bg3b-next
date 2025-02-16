@@ -20,7 +20,7 @@ const DataMapper = ({
 }) => {
   return (
     <>
-      <div className="grid grid-cols-4 gap-x-3 gap-y-5 w-5/6 text-amber-100">
+      <div className="grid grid-cols-4 gap-x-3 gap-y-5 w-[90%] text-amber-100">
         {data.map((element: Class | Background | Race | Origin, i) => {
           return (
             <div
@@ -50,7 +50,7 @@ const DataMapper = ({
         })}
       </div>
       {button}
-      <div className="w-[78%] text-left text-amber-100">
+      <div className="w-[78%] mt-12 text-left text-amber-100">
         <p className="text-amber-400 my-1">{data[selectedElement - 1]?.name}</p>
         <p>{data[selectedElement - 1]?.description}</p>
       </div>
