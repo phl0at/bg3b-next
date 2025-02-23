@@ -67,7 +67,7 @@ const Classes = ({
                   className="p-3 outline rounded-lg hover:text-red-400"
                   onClick={handleClickReset}
                 >
-                  Reset Level
+                  Reset Classes
                 </button>
               </div>
             }
