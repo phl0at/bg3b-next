@@ -51,7 +51,7 @@ const Classes = ({
                     className="p-3 outline rounded-lg hover:text-amber-400"
                     onClick={handleClickAdd}
                   >
-                    Add Classes
+                    Add Class
                   </button>
 
                   <div className="flex flex-col items-start justify-center">
