@@ -1,3 +1,5 @@
+import { StaticImageData } from "next/image";
+
 const url = process.env.API_URL;
 const key = process.env.API_KEY;
 
@@ -61,4 +63,9 @@ export function parseMods(item: SomeItem) {
   } else {
     return null;
   }
+}
+
+export const importSubClassImg = (subClass: string) => {
+  const image = import(`../../public/classes/subclasses/${subClass}`)
+  return image
 }
