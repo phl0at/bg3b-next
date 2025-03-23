@@ -1,5 +1,6 @@
 import React, { MouseEvent, useState } from "react";
-
+import Image from "next/image";
+import { IoArrowBackCircleOutline } from "react-icons/io5";
 
 const SubClassComponent = ({
   selectedClassInBuild,
@@ -28,21 +29,31 @@ const SubClassComponent = ({
 
   return (
     <>
-      {availableSubClasses.map((subClass) => {
-        return (
-          <div key={subClass.id} className="w-[90%] text-amber-100">
-            <p className="text-amber-400">{subClass.name}</p>
-            <p>{subClass.description}</p>
-          </div>
-        );
-      })}
-
-      <button
-        onClick={handleClick}
-        className="p-3 outline rounded-lg hover:text-red-400"
-      >
-        Back
-      </button>
+      <div className="w-5/6">
+        <button
+          onClick={handleClick}
+          className="text-amber-100 hover:text-amber-400"
+        >
+          <IoArrowBackCircleOutline size="60" />
+        </button>
+      </div>
+      <div className="flex w-5/6 justify-evenly">
+        {availableSubClasses.map((subClass) => {
+          return (
+            <div className="flex flex-col justify-center items-center">
+              <Image
+                src={`/classes/subclasses/${selectedClassInBuild.name}/${subClass.name}.png`}
+                alt=""
+                width={90}
+                height={90}
+                className="rounded-md object-cover"
+                loading="lazy"
+              />
+              <div>{subClass.name}</div>
+            </div>
+          );
+        })}
+      </div>
     </>
   );
 };
