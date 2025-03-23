@@ -1,5 +1,5 @@
 import React, { MouseEvent, useState } from "react";
-import {importSubClassImg} from "@/lib/utils"
+
 
 const SubClassComponent = ({
   selectedClassInBuild,
@@ -24,8 +24,6 @@ const SubClassComponent = ({
     e.preventDefault();
     setDisplay("class");
   };
-  const images = importSubClassImg(selectedClassInBuild.name)
-  console.log(mages)
   const [selectedSC, setSelectedSC] = useState(-1);
 
   return (

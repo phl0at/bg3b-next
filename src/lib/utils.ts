@@ -66,6 +66,7 @@ export function parseMods(item: SomeItem) {
 }
 
 export const importSubClassImg = (subClass: string) => {
-  const image = import(`../../public/classes/subclasses/${subClass}`)
-  return image
+  console.log(subClass)
+  // const image = import(`../../public/classes/subclasses/${subClass}`)
+  // return image
 }
