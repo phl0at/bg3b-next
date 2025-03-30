@@ -37,10 +37,10 @@ const SubClassComponent = ({
           <IoArrowBackCircleOutline size="60" />
         </button>
       </div>
-      <div className="flex w-5/6 justify-evenly">
+      <div className="flex flex-col w-5/6 justify-evenly items-start">
         {availableSubClasses.map((subClass) => {
           return (
-            <div className="flex flex-col justify-center items-center text-amber-100 hover:text-amber-400 cursor-pointer">
+            <div className="flex flex-col justify-center items-center text-amber-100">
               <Image
                 src={`/classes/subclasses/${selectedClassInBuild.name}/${subClass.name}.png`}
                 alt=""
