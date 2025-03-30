@@ -39,8 +39,8 @@ const SubClassComponent = ({
       <div className="flex flex-col gap-y-8 w-5/6 justify-evenly items-start">
         {availableSubClasses.map((subClass) => {
           return (
-            <div>
-              <div className="flex flex-col items-center text-amber-100">
+            <div className="flex gap-2 text-amber-100">
+              <div className="flex min-w-[100px] flex-col items-center">
                 <Image
                   src={`/classes/subclasses/${selectedClassInBuild.name}/${subClass.name}.png`}
                   alt=""
