@@ -40,7 +40,7 @@ const SubClassComponent = ({
       <div className="flex w-5/6 justify-evenly">
         {availableSubClasses.map((subClass) => {
           return (
-            <div className="flex flex-col justify-center items-center">
+            <div className="flex flex-col justify-center items-center text-amber-100 hover:text-amber-400 cursor-pointer">
               <Image
                 src={`/classes/subclasses/${selectedClassInBuild.name}/${subClass.name}.png`}
                 alt=""
