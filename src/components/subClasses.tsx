@@ -1,4 +1,4 @@
-import React, { MouseEvent, useState } from "react";
+import React, { MouseEvent } from "react";
 import Image from "next/image";
 import { IoArrowBackCircleOutline } from "react-icons/io5";
 
@@ -25,7 +25,6 @@ const SubClassComponent = ({
     e.preventDefault();
     setDisplay("class");
   };
-  const [selectedSC, setSelectedSC] = useState(-1);
 
   return (
     <>
@@ -37,19 +36,22 @@ const SubClassComponent = ({
           <IoArrowBackCircleOutline size="60" />
         </button>
       </div>
-      <div className="flex flex-col w-5/6 justify-evenly items-start">
+      <div className="flex flex-col gap-y-8 w-5/6 justify-evenly items-start">
         {availableSubClasses.map((subClass) => {
           return (
-            <div className="flex flex-col justify-center items-center text-amber-100">
-              <Image
-                src={`/classes/subclasses/${selectedClassInBuild.name}/${subClass.name}.png`}
-                alt=""
-                width={90}
-                height={90}
-                className="rounded-md object-cover"
-                loading="lazy"
-              />
-              <div>{subClass.name}</div>
+            <div>
+              <div className="flex flex-col items-center text-amber-100">
+                <Image
+                  src={`/classes/subclasses/${selectedClassInBuild.name}/${subClass.name}.png`}
+                  alt=""
+                  width={90}
+                  height={90}
+                  className="rounded-md object-cover"
+                  loading="lazy"
+                />
+                <div>{subClass.name}</div>
+              </div>
+              <div>{subClass.description}</div>
             </div>
           );
         })}
