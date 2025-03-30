@@ -1,14 +1,12 @@
 import React, { useState, useEffect, MouseEvent } from "react";
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import { CiCircleMinus, CiCirclePlus } from "react-icons/ci";
 import { useStore } from "@/store/store";
 
 const Ability = ({
   ability,
-  image,
 }: {
   ability: string;
-  image: StaticImageData;
 }) => {
   const titleCaseStat = ability[0].toUpperCase() + ability.slice(1);
   const {
@@ -110,12 +108,11 @@ const Ability = ({
     <main className="flex flex-row justify-between text-2xl text-amber-100">
       <div className="flex items-center">
         <Image
-          src={image}
+          src={`/stats/${ability}.png`}
           alt=""
           width={120}
           height={120}
           loading="lazy"
-          placeholder="blur"
         />
         <div>{titleCaseStat}</div>
       </div>

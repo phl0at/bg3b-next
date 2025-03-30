@@ -3,9 +3,8 @@ import React, { MouseEvent } from "react";
 import Ability from "./ability";
 import { useStore } from "@/store/store";
 import { CiUndo } from "react-icons/ci";
-import { StaticImageData } from "next/image";
 
-const Abilities = ({ images }: { images: StaticImageData[] }) => {
+const Abilities = () => {
   const {
     dispatch,
     current: { abilityPoints, plus1, plus2 },
@@ -57,8 +56,8 @@ const Abilities = ({ images }: { images: StaticImageData[] }) => {
             +1
           </div>
         </div>
-        {abilities.map((ability, i) => (
-          <Ability key={ability} ability={ability} image={images[i]} />
+        {abilities.map((ability) => (
+          <Ability key={ability} ability={ability} />
         ))}
       </div>
     </>

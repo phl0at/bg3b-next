@@ -40,7 +40,7 @@ const SubClassComponent = ({
         {availableSubClasses.map((subClass) => {
           return (
             <div className="flex gap-2 text-amber-100">
-              <div className="flex min-w-[100px] flex-col items-center">
+              <div className="flex min-w-[100px] flex-col items-center hover:text-amber-400 cursor-pointer">
                 <Image
                   src={`/classes/subclasses/${selectedClassInBuild.name}/${subClass.name}.png`}
                   alt=""
@@ -51,7 +51,7 @@ const SubClassComponent = ({
                 />
                 <div>{subClass.name}</div>
               </div>
-              <div>{subClass.description}</div>
+              <div className="text-base">{subClass.description}</div>
             </div>
           );
         })}

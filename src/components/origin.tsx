@@ -1,5 +1,4 @@
 "use client";
-import { StaticImageData } from "next/image";
 import { useStore } from "@/store/store";
 import React from "react";
 import DataMapper from "./dataMapper";
@@ -9,7 +8,7 @@ const Origins = ({
   images,
 }: {
   origins: Origin[];
-  images: StaticImageData[];
+  images: string[];
 }) => {
   const {
     dispatch,
@@ -17,10 +16,12 @@ const Origins = ({
   } = useStore((state) => state);
   const setter = (origin: Origin) =>
     dispatch({ type: "SET ORIGIN", payload: origin });
+  const menu = "origins"
 
   return (
     <DataMapper
       images={images}
+      menu={menu}
       data={origins}
       selectedElement={origin}
       setter={setter}

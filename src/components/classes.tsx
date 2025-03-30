@@ -1,5 +1,4 @@
 "use client";
-import { StaticImageData } from "next/image";
 import React, { MouseEvent, useState } from "react";
 import { useStore } from "@/store/store";
 import SubClassComponent from "./subClasses";
@@ -13,11 +12,12 @@ const Classes = ({
 }: {
   classes: Class[];
   subClasses: SubClass[];
-  images: StaticImageData[];
+  images: string[];
 }) => {
   const { dispatch, selectedClass } = useStore((state) => state);
   const { level } = useStore((state) => state.current);
   const [display, setDisplay] = useState("class");
+  const menu = "classes"
   const setter = (_class: any) =>
     dispatch({ type: "SET CLASS", payload: _class });
   const selectedClassInBuild = useStore(
@@ -71,6 +71,7 @@ const Classes = ({
                 </button>
               </div>
             }
+            menu={menu}
             images={images}
           />
           <SubClassButton

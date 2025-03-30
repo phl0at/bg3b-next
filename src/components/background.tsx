@@ -2,16 +2,13 @@
 import { useStore } from "@/store/store";
 import React from "react";
 import DataMapper from "./dataMapper";
-import { StaticImageData } from "next/image";
-
-// import HauntedOne from "../../public/backgrounds/Haunted One.png";
 
 const Backgrounds = ({
   backgrounds,
   images,
 }: {
   backgrounds: Background[];
-  images: StaticImageData[];
+  images: string[];
 }) => {
   const {
     dispatch,
@@ -19,6 +16,7 @@ const Backgrounds = ({
   } = useStore((state) => state);
   const setter = (background: Background) =>
     dispatch({ type: "SET BACKGROUND", payload: background });
+  const menu = "backgrounds"
 
   return (
     <DataMapper
@@ -29,6 +27,7 @@ const Backgrounds = ({
       height={120}
       button={<></>}
       images={images}
+      menu={menu}
     />
   );
 };

@@ -9,13 +9,14 @@ const Races = ({
   images,
 }: {
   races: Race[];
-  images: StaticImageData[];
+  images: string[];
 }) => {
   const setter = (race: Race) => dispatch({ type: "SET RACE", payload: race });
   const {
     dispatch,
     current: { race },
   } = useStore((state) => state);
+  const menu = "races"
 
   return (
     <DataMapper
@@ -26,6 +27,7 @@ const Races = ({
       height={120}
       button={<></>}
       images={images}
+      menu={menu}
     />
   );
 };
