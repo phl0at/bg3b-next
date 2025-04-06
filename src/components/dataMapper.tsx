@@ -42,7 +42,6 @@ const DataMapper = ({
                   width={width}
                   height={height}
                   className="rounded-md object-cover"
-                  loading="lazy"
                 />
               </div>
               {element.name}
