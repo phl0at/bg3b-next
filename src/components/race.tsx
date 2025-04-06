@@ -16,7 +16,7 @@ const Races = ({
     dispatch,
     current: { race },
   } = useStore((state) => state);
-  const menu = "races"
+
 
   return (
     <DataMapper
@@ -27,7 +27,7 @@ const Races = ({
       height={120}
       button={<></>}
       images={images}
-      menu={menu}
+      menu={"races"}
     />
   );
 };
