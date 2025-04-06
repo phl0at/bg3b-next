@@ -16,7 +16,6 @@ const Backgrounds = ({
   } = useStore((state) => state);
   const setter = (background: Background) =>
     dispatch({ type: "SET BACKGROUND", payload: background });
-  const menu = "backgrounds"
 
   return (
     <DataMapper
@@ -27,7 +26,7 @@ const Backgrounds = ({
       height={120}
       button={<></>}
       images={images}
-      menu={menu}
+      menu={"backgrounds"}
     />
   );
 };
