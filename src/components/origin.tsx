@@ -16,12 +16,11 @@ const Origins = ({
   } = useStore((state) => state);
   const setter = (origin: Origin) =>
     dispatch({ type: "SET ORIGIN", payload: origin });
-  const menu = "origins"
 
   return (
     <DataMapper
       images={images}
-      menu={menu}
+      menu={"origins"}
       data={origins}
       selectedElement={origin}
       setter={setter}
