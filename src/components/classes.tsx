@@ -17,7 +17,6 @@ const Classes = ({
   const { dispatch, selectedClass } = useStore((state) => state);
   const { level } = useStore((state) => state.current);
   const [display, setDisplay] = useState("class");
-  const menu = "classes"
   const setter = (_class: any) =>
     dispatch({ type: "SET CLASS", payload: _class });
   const selectedClassInBuild = useStore(
@@ -71,7 +70,7 @@ const Classes = ({
                 </button>
               </div>
             }
-            menu={menu}
+            menu={"classes"}
             images={images}
           />
           <SubClassButton
