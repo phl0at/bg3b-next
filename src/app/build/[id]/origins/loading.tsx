@@ -1,11 +1,11 @@
 "use client";
 import React from "react";
-import { MoonLoader } from "react-spinners";
+import { GridLoader } from "react-spinners";
 
 const Loading = () => {
   return (
     <main className="h-screen w-screen flex items-center justify-center">
-      <MoonLoader />;
+      <GridLoader />;
     </main>
   );
 };
