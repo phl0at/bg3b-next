@@ -21,7 +21,12 @@ const SubClassComponent = ({
 
   if (!availableSubClasses.length) return "";
 
-  const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
+  const handleClickBack = (e: MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    setDisplay("class");
+  };
+
+  const handleClickSubClass = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     setDisplay("class");
   };
@@ -30,17 +35,17 @@ const SubClassComponent = ({
     <>
       <div className="w-5/6">
         <button
-          onClick={handleClick}
+          onClick={handleClickBack}
           className="text-amber-100 hover:text-amber-400"
         >
           <IoArrowBackCircleOutline size="60" />
         </button>
       </div>
-      <div className="flex flex-col gap-y-8 w-5/6 justify-evenly items-start">
+      <div className="flex-col w-5/6 justify-evenly items-start">
         {availableSubClasses.map((subClass) => {
           return (
-            <div className="flex gap-2 text-amber-100">
-              <div className="flex min-w-[100px] flex-col items-center hover:text-amber-400 cursor-pointer">
+            <div className="flex-col text-amber-100 hover:text-amber-400">
+              <div className="flex min-w-[100px] flex-col items-center justify-center cursor-pointer">
                 <Image
                   src={`/classes/subclasses/${selectedClassInBuild.name}/${subClass.name}.png`}
                   alt=""
@@ -51,7 +56,7 @@ const SubClassComponent = ({
                 />
                 <div>{subClass.name}</div>
               </div>
-              <div className="text-base">{subClass.description}</div>
+              <div className="text-base text-center flex items-center">{subClass.description}</div>
             </div>
           );
         })}
