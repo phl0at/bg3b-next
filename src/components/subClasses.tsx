@@ -36,7 +36,7 @@ const SubClassComponent = ({
       <div className="w-5/6">
         <button
           onClick={handleClickBack}
-          className="text-amber-100 hover:text-amber-400"
+          className="text-amber-100 hover:text-amber-500"
         >
           <IoArrowBackCircleOutline size="60" />
         </button>
