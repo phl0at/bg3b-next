@@ -28,7 +28,7 @@ const SubClassComponent = ({
 
   const handleClickSubClass = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    setDisplay("class");
+    setDisplay("classes");
   };
 
   return (
