@@ -51,7 +51,7 @@ const SubClassComponent = ({
                   alt=""
                   width={90}
                   height={90}
-                  className="rounded-lg object-cover"
+                  className="rounded-md object-cover"
                   loading="lazy"
                 />
                 <div>{subClass.name}</div>
