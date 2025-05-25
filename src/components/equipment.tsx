@@ -40,7 +40,7 @@ const Equipment = () => {
       flex-col
       justify-start
       items-center
-      py-5"
+      py-6"
     >
       <div className="w-5/6 flex flex-row justify-between py-4">
         <ItemSlot
