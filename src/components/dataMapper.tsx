@@ -41,7 +41,7 @@ const DataMapper = ({
                   alt=""
                   width={width}
                   height={height}
-                  className="rounded-md object-cove"
+                  className="rounded-md object-cover"
                 />
               </div>
               {element.name}
