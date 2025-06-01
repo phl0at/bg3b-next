@@ -39,7 +39,7 @@ const Equipment = () => {
       flex
       flex-col
       justify-start
-      items-cente
+      items-center
       py-8"
     >
       <div className="w-5/6 flex flex-row justify-between py-4">
