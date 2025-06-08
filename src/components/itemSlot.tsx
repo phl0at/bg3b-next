@@ -28,7 +28,7 @@ const ItemSlot = ({
       {item ? (
         <Image
           src={`${imgURL}/item_icons/${path}/${item.img}.png`}
-          loading="lazy"
+          // loading="lazy"
           alt="loading"
           width={75}
           height={75}
