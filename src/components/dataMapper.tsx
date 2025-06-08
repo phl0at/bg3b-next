@@ -34,7 +34,7 @@ const DataMapper = ({
                 style={{
                   outline: element.id === selectedElement ? "solid" : "none",
                 }}
-                className="rounded-sm"
+                className="rounded-md"
               >
                 <Image
                   src={`/${menu}/${images[i]}`}
