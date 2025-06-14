@@ -1,9 +1,11 @@
+import BuildMenuList from "@/components/buildMenuList";
 import Equipment from "@/components/equipment";
 import React from "react";
 
 const BuildPage = () => {
   return (
     <main className="h-screen flex gap-4 items-center justify-center mr-[9.85%]">
+      <BuildMenuList/>
       <div
         className="
         text-lg
