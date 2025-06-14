@@ -1,4 +1,3 @@
-import { StaticImageData } from "next/image";
 
 const url = process.env.API_URL;
 const key = process.env.API_KEY;
@@ -64,4 +63,3 @@ export function parseMods(item: SomeItem) {
     return null;
   }
 }
-

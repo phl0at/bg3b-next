@@ -1,5 +1,4 @@
 "use client";
-import { StaticImageData } from "next/image";
 import { useStore } from "@/store/store";
 import DataMapper from "./dataMapper";
 import React from "react";

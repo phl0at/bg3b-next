@@ -26,10 +26,10 @@ const SubClassComponent = ({
     setDisplay("class");
   };
 
-  const handleClickSubClass = (e: MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-    setDisplay("class");
-  };
+  // const handleClickSubClass = (e: MouseEvent<HTMLButtonElement>) => {
+  //   e.preventDefault();
+  //   setDisplay("class");
+  // };
 
   return (
     <>
@@ -42,9 +42,9 @@ const SubClassComponent = ({
         </button>
       </div>
       <div className="flex-col w-5/6 justify-evenly items-start">
-        {availableSubClasses.map((subClass) => {
+        {availableSubClasses.map((subClass, i) => {
           return (
-            <div className="flex-col text-amber-100 hover:text-amber-400">
+            <div key={i} className="flex-col text-amber-100 hover:text-amber-400">
               <div className="flex min-w-[100px] flex-col items-center justify-center cursor-pointer">
                 <Image
                   src={`/classes/subclasses/${selectedClassInBuild.name}/${subClass.name}.png`}
