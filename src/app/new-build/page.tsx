@@ -28,7 +28,7 @@ const BuildPage = () => {
         items-center
         py-12"
       >
-      React State Changes Here
+
       </div>
       <Equipment/>
     </main>
