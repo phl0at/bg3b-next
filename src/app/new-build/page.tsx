@@ -28,7 +28,12 @@ const BuildPage = () => {
         items-center
         py-12"
       >
+have one page for creating a build,
+with route ending in either "new" or the id of the build.
+all api data should be grabbed at once for the menu items.
 
+each menu option will change menus by modifying react state,
+ of grabbing new data in a whole new page
       </div>
       <Equipment/>
     </main>
