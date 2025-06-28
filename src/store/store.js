@@ -72,7 +72,7 @@ const reducer = (state, { type, payload }) => {
     case types.setBuildMenu: {
       const newState = {
         ...state,
-        buildMenu: payload.menu,
+        buildMenu: payload,
       };
       return newState;
     }
@@ -311,7 +311,7 @@ export const useStore = create((set) => ({
   showMenu: false,
   showEquipment: "current",
   selectedClass: 1,
-  buildMenu: "origins",
+  buildMenu: "Origins",
   builds: new Set(),
   dispatch: (args) => set((state) => reducer(state, args)),
 }));

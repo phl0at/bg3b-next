@@ -1,64 +1,58 @@
 "use client";
 import React from "react";
-import Link from "next/link";
 import { FaRegCircle, FaRegDotCircle } from "react-icons/fa";
-import { usePathname } from "next/navigation";
 import { useStore } from "@/store/store";
 
 const BuildMenuList = () => {
-  const pathname = usePathname();
-  const buildId = useStore((state) => state.current.id);
+  const { buildMenu, dispatch } = useStore((state) => state);
+  const onClick = (menu: string) =>
+    dispatch({ type: "SET BUILD MENU", payload: menu });
   const menuOptions = [
     {
       title: "Origins",
       translateHover: "group-hover:-translate-x-[167px]",
       translate: "-translate-x-[167px]",
-      menu: `/build/${buildId}/origins`,
     },
     {
       title: "Races",
       translateHover: "group-hover:-translate-x-[147px]",
       translate: "-translate-x-[147px]",
-      menu: `/build/${buildId}/races`,
     },
     {
       title: "Backgrounds",
       translateHover: "group-hover:-translate-x-[243px]",
       translate: "-translate-x-[243px]",
-      menu: `/build/${buildId}/backgrounds`,
     },
     {
       title: "Classes",
       translateHover: "group-hover:-translate-x-[167px]",
       translate: "-translate-x-[167px]",
-      menu: `/build/${buildId}/classes`,
     },
     {
       title: "Abilities",
       translateHover: "group-hover:-translate-x-[175px]",
       translate: "-translate-x-[175px]",
-      menu: `/build/${buildId}/abilities`,
     },
   ];
 
   return (
     <div className="flex flex-col gap-12 text-3xl font-sans">
-      {menuOptions.map((option) => (
-        <Link
-          className="flex justify-end items-center text-amber-100 group"
-          href={`${option.menu}`}
-          key={option.menu}
+      {menuOptions.map((option, i) => (
+        <div
+          onClick={() => onClick(option.title)}
+          className="flex justify-end items-center text-amber-100 group cursor-pointer"
+          key={i}
         >
           <div
             className={
-              option.menu === pathname
+              option.title === buildMenu
                 ? "text-amber-300"
                 : "group-hover:opacity-100 opacity-0 transition-all ease-in-out"
             }
           >
             {option.title}
           </div>
-          {option.menu === pathname ? (
+          {option.title === buildMenu ? (
             <FaRegDotCircle
               size="67"
               className={`${option.translate} text-amber-300`}
@@ -69,7 +63,7 @@ const BuildMenuList = () => {
               className={`${option.translateHover} transition eas-in-out`}
             />
           )}
-        </Link>
+        </div>
       ))}
     </div>
   );
