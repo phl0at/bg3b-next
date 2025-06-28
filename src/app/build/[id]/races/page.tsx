@@ -6,6 +6,7 @@ import { getData } from "@/lib/utils";
 
 const RacePage = async () => {
   const races = await getData("races");
+  console.log(races)
   const images = [
     "Elf.png",
     "Tiefling.png",
@@ -22,7 +23,6 @@ const RacePage = async () => {
 
   return (
     <BuildComponent>
-      <Races races={races} images={images} />
     </BuildComponent>
   );
 };

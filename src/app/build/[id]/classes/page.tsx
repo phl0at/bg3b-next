@@ -7,6 +7,7 @@ const ClassPage = async () => {
   const classes = await getData("classes");
   const subClasses = await getData("subclasses");
 
+  console.log(subClasses)
   const images = [
     "Barbarian.png",
     "Bard.png",
@@ -24,7 +25,6 @@ const ClassPage = async () => {
 
   return (
     <BuildComponent>
-      <Classes classes={classes} subClasses={subClasses} images={images} />
     </BuildComponent>
   );
 };

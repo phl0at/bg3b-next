@@ -15,10 +15,9 @@ const OriginPage = async () => {
     "TheDarkUrge.webp",
     "Custom.webp",
   ];
-
+console.log(origins)
   return (
     <BuildComponent>
-      <Origins origins={origins} images={images} />
     </BuildComponent>
   );
 };

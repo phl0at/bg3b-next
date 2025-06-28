@@ -20,9 +20,9 @@ const BGPage = async () => {
     "Urchin.png",
   ];
 
+
   return (
     <BuildComponent>
-      <Backgrounds backgrounds={backgrounds} images={images} />
     </BuildComponent>
   );
 };

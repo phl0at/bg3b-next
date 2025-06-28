@@ -7,7 +7,6 @@ const AbilitiesPage = () => {
 
   return (
     <BuildComponent>
-      <Abilities />
     </BuildComponent>
   );
 };
