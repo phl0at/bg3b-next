@@ -5,7 +5,7 @@ import { getData } from "@/lib/utils";
 const ItemsPage = async ({ params }: { params: Promise<{ path: string }> }) => {
   const path = (await params).path;
   const title = path[0].toUpperCase() + path.slice(1);
-  // The URL path to get weapons from the Nurelo API is /rest/weapons
+  // make a file for each weapon slot and copy the returned neurelo data to each respective file
 
   const items =
     path === "ranged" || path === "melee"
