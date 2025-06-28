@@ -1,15 +1,8 @@
 import React from "react";
-import BuildMenuList from "@/components/buildMenuList";
-import Equipment from "./equipment";
 
-const BuildComponent = ({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) => {
+
+const BuildComponent = () => {
   return (
-    <main className="h-screen flex gap-4 items-center justify-center mr-[9.85%]">
-      <BuildMenuList />
       <div
         className="
         text-lg
@@ -32,10 +25,8 @@ const BuildComponent = ({
         items-center
         py-12"
       >
-        {children}
+
       </div>
-      <Equipment />
-    </main>
   );
 };
 
