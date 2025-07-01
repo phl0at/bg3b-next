@@ -2,14 +2,9 @@
 import { useStore } from "@/store/store";
 import React from "react";
 import DataMapper from "./dataMapper";
+import Origins from "@/lib/origins";
 
-const Origins = ({
-  origins,
-  images,
-}: {
-  origins: Origin[];
-  images: string[];
-}) => {
+const OriginComponent = () => {
   const {
     dispatch,
     current: { origin },
@@ -19,9 +14,8 @@ const Origins = ({
 
   return (
     <DataMapper
-      images={images}
       menu={"origins"}
-      data={origins}
+      data={Origins}
       selectedElement={origin}
       setter={setter}
       width={155}
@@ -31,4 +25,4 @@ const Origins = ({
   );
 };
 
-export default Origins;
+export default OriginComponent;

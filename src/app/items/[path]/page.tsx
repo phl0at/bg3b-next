@@ -12,7 +12,6 @@ const ItemsPage = async ({ params }: { params: Promise<{ path: string }> }) => {
       ? await getData(`weapons?filter={"range":"${title}"}`)
       : await getData(`${path}`);
 
-  console.log(items);
   return (
     <main className="h-screen flex gap-4 items-center justify-center text-amber-100">
       <div

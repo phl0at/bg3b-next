@@ -1,10 +1,20 @@
+"use client";
 import React from "react";
-
+import dynamic from "next/dynamic";
+import { useStore } from "@/store/store";
 
 const BuildComponent = () => {
+  const buildMenu = useStore((state) => state.buildMenu);
+  const DynamicOrigins = dynamic(() => import("@/components/origin"), {
+    loading: () => <p>LOADING DATA</p>,
+  });
+  const DynamicRaces = dynamic(() => import("@/components/race"), {
+    loading: () => <p>LOADING DATA</p>,
+  });
+
   return (
-      <div
-        className="
+    <div
+      className="
         text-lg
         bg-opacity-80
         bg-stone-950
@@ -24,9 +34,10 @@ const BuildComponent = () => {
         justify-start
         items-center
         py-12"
-      >
-
-      </div>
+    >
+      {buildMenu === "Origins" && <DynamicOrigins />}
+      {buildMenu === "Races" && <DynamicRaces />}
+    </div>
   );
 };
 

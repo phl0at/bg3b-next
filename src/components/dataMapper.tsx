@@ -8,7 +8,6 @@ const DataMapper = ({
   width,
   height,
   button,
-  images,
   menu
 }: {
   data: Class[] | Origin[] | Background[] | Race[];
@@ -17,7 +16,6 @@ const DataMapper = ({
   width: number;
   height: number;
   button: React.ReactNode;
-  images: string[];
   menu: string
 }) => {
   return (
@@ -37,7 +35,7 @@ const DataMapper = ({
                 className="rounded-md"
               >
                 <Image
-                  src={`/${menu}/${images[i]}`}
+                  src={`/${menu}/${element.img}`}
                   alt=""
                   width={width}
                   height={height}

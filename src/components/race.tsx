@@ -1,34 +1,27 @@
 "use client";
 import { useStore } from "@/store/store";
-import DataMapper from "./dataMapper";
 import React from "react";
+import DataMapper from "./dataMapper";
+import Races from "@/lib/races";
 
-const Races = ({
-  races,
-  images,
-}: {
-  races: Race[];
-  images: string[];
-}) => {
-  const setter = (race: Race) => dispatch({ type: "SET RACE", payload: race });
+const RaceComponent = () => {
   const {
     dispatch,
     current: { race },
   } = useStore((state) => state);
-
+  const setter = (race: Race) => dispatch({ type: "SET RACE", payload: race });
 
   return (
     <DataMapper
-      data={races}
+      menu={"races"}
+      data={Races}
       selectedElement={race}
       setter={setter}
       width={120}
       height={120}
       button={<></>}
-      images={images}
-      menu={"races"}
     />
   );
 };
 
-export default Races;
+export default RaceComponent;

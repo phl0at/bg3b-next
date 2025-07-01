@@ -31,21 +31,25 @@ type Origin = {
   id: number;
   name: string;
   description: string;
+  img: string;
 };
 type Race = {
   id: number;
   name: string;
   description: string;
+  img: string;
 };
 type SubRace = {
   id: number;
   name: string;
   description: string;
+  img: string;
 };
 type Background = {
   id: number;
   name: string;
   description: string;
+  img: string;
 };
 type Class = {
   id: number;
@@ -55,6 +59,7 @@ type Class = {
   subClass: number;
   order: number;
   level: number;
+  img: string;
 };
 type SubClass = {
   class: number;
@@ -62,6 +67,7 @@ type SubClass = {
   level: number;
   name: string;
   description: string;
+  img: string;
 };
 type Cantrip = {
   id: number;
@@ -75,6 +81,7 @@ type Cantrip = {
   radius?: number;
   range?: number;
   school: string;
+  img: string;
 };
 type Helmet = {
   id: number;
