@@ -1,4 +1,4 @@
-const RangedWeapons = [
+const Ranged = [
   {
     damage: '1d8',
     damage_bonus: 1,
@@ -76,4 +76,4 @@ const RangedWeapons = [
   }
 ]
 
-export default RangedWeapons
+export default Ranged
