@@ -1,15 +1,19 @@
 "use client";
 import React from "react";
 import dynamic from "next/dynamic";
+import { PulseLoader } from "react-spinners";
 import { useStore } from "@/store/store";
 
 const BuildComponent = () => {
   const buildMenu = useStore((state) => state.buildMenu);
   const DynamicOrigins = dynamic(() => import("@/components/origin"), {
-    loading: () => <p>LOADING DATA</p>,
+    loading: () => <PulseLoader className="my-80" color="#e4c274" />,
   });
   const DynamicRaces = dynamic(() => import("@/components/race"), {
-    loading: () => <p>LOADING DATA</p>,
+    loading: () => <PulseLoader className="my-80" color="#e4c274" />,
+  });
+  const DynamicBackgrounds = dynamic(() => import("@/components/background"), {
+    loading: () => <PulseLoader className="my-80" color="#e4c274" />,
   });
 
   return (
@@ -37,6 +41,7 @@ const BuildComponent = () => {
     >
       {buildMenu === "Origins" && <DynamicOrigins />}
       {buildMenu === "Races" && <DynamicRaces />}
+      {buildMenu === "Backgrounds" && <DynamicBackgrounds />}
     </div>
   );
 };
