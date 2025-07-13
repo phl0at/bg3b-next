@@ -2,14 +2,9 @@
 import { useStore } from "@/store/store";
 import React from "react";
 import DataMapper from "./dataMapper";
+import Backgrounds from "@/lib/backgrounds"
 
-const Backgrounds = ({
-  backgrounds,
-  images,
-}: {
-  backgrounds: Background[];
-  images: string[];
-}) => {
+const BackgroundComponent = () => {
   const {
     dispatch,
     current: { background },
@@ -17,18 +12,18 @@ const Backgrounds = ({
   const setter = (background: Background) =>
     dispatch({ type: "SET BACKGROUND", payload: background });
 
+  console.log(Backgrounds)
   return (
     <DataMapper
-      data={backgrounds.toSpliced(backgrounds.length - 1)}
+      menu={"backgrounds"}
+      data={Backgrounds.toSpliced(Backgrounds.length - 1)}
       selectedElement={background}
       setter={setter}
       width={120}
       height={120}
       button={<></>}
-      images={images}
-      menu={"backgrounds"}
     />
   );
 };
 
-export default Backgrounds;
+export default BackgroundComponent;

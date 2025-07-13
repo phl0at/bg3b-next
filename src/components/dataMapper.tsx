@@ -21,7 +21,7 @@ const DataMapper = ({
   return (
     <>
       <div className="grid grid-cols-4 gap-x-3 gap-y-5 w-[90%] text-amber-100">
-        {data.map((element: Class | Background | Race | Origin, i) => {
+        {data.map((element: Class | Background | Race | Origin) => {
           return (
             <div
               className="flex flex-col gap-y-1 justify-center items-center cursor-pointer w-fill h-fill hover:text-amber-400"
