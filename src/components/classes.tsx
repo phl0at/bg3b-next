@@ -1,5 +1,5 @@
 "use client";
-import React, { MouseEvent, useState } from "react";
+import React, { useState } from "react";
 import { useStore } from "@/store/store";
 import SubClassComponent from "./subClasses";
 import SubClassButton from "./subClassButton";
