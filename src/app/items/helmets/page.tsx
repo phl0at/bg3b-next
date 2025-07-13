@@ -1,11 +1,11 @@
+"use client"
 import React from "react";
 import ItemList from "@/components/itemList";
+import Helmets from "@/lib/helmets"
+import { useStore } from "@/store/store";
 
-const ItemsPage = async ({ params }: { params: Promise<{ path: string }> }) => {
-  const path = (await params).path;
-  const title = path[0].toUpperCase() + path.slice(1);
-  // make a file for each weapon slot and copy the returned neurelo data to each respective file
-  const items = "find a way to import items dynamically based on the path name"
+const ItemsPage = () => {
+  const { viewItem } = useStore((state) => state);
 
   return (
     <main className="h-screen flex gap-4 items-center justify-center text-amber-100">
@@ -29,7 +29,7 @@ const ItemsPage = async ({ params }: { params: Promise<{ path: string }> }) => {
         justify-start
         items-center"
       >
-        <ItemList items={items} title={title} />
+        <ItemList items={Helmets} title={viewItem} />
       </div>
     </main>
   );

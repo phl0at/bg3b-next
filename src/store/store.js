@@ -313,5 +313,6 @@ export const useStore = create((set) => ({
   selectedClass: 1,
   buildMenu: "Origins",
   builds: new Set(),
+  viewItem: "",
   dispatch: (args) => set((state) => reducer(state, args)),
 }));

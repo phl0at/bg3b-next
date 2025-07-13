@@ -7,16 +7,14 @@ const imgURL = process.env.NEXT_PUBLIC_IMG_URL;
 const ItemSlot = ({
   slot,
   defaultImg,
-  path,
 }: {
   slot: string;
   defaultImg: React.ReactNode;
-  path: string;
 }) => {
   const item = useStore((state) => state.current[slot]);
   const { dispatch } = useStore((state) => state);
   const handleClick = () => {
-    dispatch({ type: "VIEW ITEM", payload: slot });
+    dispatch({ type: "VIEW ITEM", payload: path });
   };
 
   return (
