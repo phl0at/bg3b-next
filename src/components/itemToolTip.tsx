@@ -30,15 +30,12 @@ const ItemToolTip = ({
 
   return (
     <div
-      onMouseEnter={() => setDisplay(true)}
-      onMouseLeave={() => setDisplay(false)}
       onClick={() => clickItem(item)}
       className={`flex items-center gap-x-6 py-4 m-1 text-2xl w-[50%] cursor-pointer hover:outline ${
         index % 2 === 0 ? "bg-black" : ""
       } ${item === equippedItem ? "bg-gray-800" : ""}`}
     >
       {display && (
-        //! TODO: Finish the rest of the item data and beautify the tooltip
         <div className="absolute flex flex-col gap-y-2 right-[22%] top-[18%] text-xl w-[25%] min-h-[25%] p-5 bg-opacity-80 bg-stone-950 rounded-xl border-2 border-amber-400">
           <p>{`${item.rarity} ${item.type && item.type}`}</p>
           <p>
