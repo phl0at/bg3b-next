@@ -3,11 +3,7 @@ import Image from "next/image";
 import { CiCircleMinus, CiCirclePlus } from "react-icons/ci";
 import { useStore } from "@/store/store";
 
-const Ability = ({
-  ability,
-}: {
-  ability: string;
-}) => {
+const AbilityComponent = ({ ability }: { ability: string }) => {
   const titleCaseStat = ability[0].toUpperCase() + ability.slice(1);
   const {
     dispatch,
@@ -42,16 +38,10 @@ const Ability = ({
     } else if (clicks >= 5 && abilityPoints > 1) {
       dispatch({ type: "LOWER ABILITY POINTS", payload: 2 });
       dispatch({ type: "INCREASE ABILITY", payload: type });
-      // } else {
+    } else {
       // Throw an error if the user tries increasing an ability
       // that's been increased 5 times but only 1 point remains.
-      // setModalContent(
-      //   <ErrorModal
-      //     errors={{
-      //       FAQ: ["Increasing this ability requires 2 points"],
-      //     }}
-      //   />
-      // );
+      alert("Increasing abilities beyond 13 requires 2 Ability Points!");
     }
   };
   const clickLower = (e: MouseEvent<HTMLButtonElement>, type: string) => {
@@ -161,4 +151,4 @@ const Ability = ({
   );
 };
 
-export default Ability;
+export default AbilityComponent;

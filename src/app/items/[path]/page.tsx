@@ -1,16 +1,11 @@
 import React from "react";
 import ItemList from "@/components/itemList";
-import { getData } from "@/lib/utils";
 
 const ItemsPage = async ({ params }: { params: Promise<{ path: string }> }) => {
   const path = (await params).path;
   const title = path[0].toUpperCase() + path.slice(1);
   // make a file for each weapon slot and copy the returned neurelo data to each respective file
-
-  const items =
-    path === "ranged" || path === "melee"
-      ? await getData(`weapons?filter={"range":"${title}"}`)
-      : await getData(`${path}`);
+  const items = "find a way to import items dynamically based on the path name"
 
   return (
     <main className="h-screen flex gap-4 items-center justify-center text-amber-100">

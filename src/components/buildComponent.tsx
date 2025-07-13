@@ -18,6 +18,9 @@ const BuildComponent = () => {
   const DynamicClasses = dynamic(() => import("@/components/classes"), {
     loading: () => <PulseLoader className="my-80" color="#e4c274" />,
   });
+  const DynamicAbilities = dynamic(() => import("@/components/abilities"), {
+    loading: () => <PulseLoader className="my-80" color="#e4c274" />,
+  });
 
   return (
     <div
@@ -46,6 +49,7 @@ const BuildComponent = () => {
       {buildMenu === "Races" && <DynamicRaces />}
       {buildMenu === "Backgrounds" && <DynamicBackgrounds />}
       {buildMenu === "Classes" && <DynamicClasses />}
+      {buildMenu === "Abilities" && <DynamicAbilities />}
     </div>
   );
 };

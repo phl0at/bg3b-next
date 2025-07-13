@@ -4,7 +4,7 @@ import Ability from "./ability";
 import { useStore } from "@/store/store";
 import { CiUndo } from "react-icons/ci";
 
-const Abilities = () => {
+const AbilitiesComponent = () => {
   const {
     dispatch,
     current: { abilityPoints, plus1, plus2 },
@@ -64,4 +64,4 @@ const Abilities = () => {
   );
 };
 
-export default Abilities;
+export default AbilitiesComponent;
