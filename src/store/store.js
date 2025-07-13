@@ -51,7 +51,6 @@ const types = {
   removeCantrip: "REMOVE CANTRIP",
   equipItem: "EQUIP ITEM",
   removeItem: "REMOVE ITEM",
-  viewItem: "VIEW ITEM",
   showMenu: "SHOW MENU",
   showEquipment: "SHOW EQ",
 };
@@ -202,13 +201,6 @@ const reducer = (state, { type, payload }) => {
     }
     //!-------------------------------------------------------------------
     //!-------------------------------------------------------------------
-    case types.viewItem: {
-      const newState = { ...state };
-      newState.viewItem = payload;
-      return newState;
-    }
-    //!-------------------------------------------------------------------
-    //!-------------------------------------------------------------------
     case types.addClass: {
       const newState = {
         ...state,
@@ -313,6 +305,5 @@ export const useStore = create((set) => ({
   selectedClass: 1,
   buildMenu: "Origins",
   builds: new Set(),
-  viewItem: "",
   dispatch: (args) => set((state) => reducer(state, args)),
 }));

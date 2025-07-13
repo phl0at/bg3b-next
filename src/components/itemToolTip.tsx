@@ -7,25 +7,26 @@ import { FaCheckCircle } from "react-icons/fa";
 
 const ItemToolTip = ({
   item,
-  children,
   index,
+  slot,
+  children,
 }: Readonly<{
   index: number;
   item: SomeItem;
+  slot: string;
   children: React.ReactNode;
 }>) => {
-  const { dispatch, viewItem } = useStore((state) => state);
-  const equippedItem = useStore((state) => state.current[viewItem]);
+  const { dispatch } = useStore((state) => state);
+  const equippedItem = useStore((state) => state.current[slot]);
   const [display, setDisplay] = useState(false);
   const clickItem = (item: SomeItem) => {
-    dispatch({ type: "EQUIP ITEM", payload: { item, slot: viewItem } });
+    dispatch({ type: "EQUIP ITEM", payload: { item, slot } });
   };
 
   const modifiers = parseMods(item);
   const spells = item.spell ? item.spell.split("&*&") : [];
   const des1 = item.description.split("&*&")[0];
   const des2 = item.description.split("&*&")[1];
-
 
   return (
     <div
@@ -71,9 +72,6 @@ const ItemToolTip = ({
           )}
         </div>
       )}
-
-      {/*
-       */}
       <div className="relative text-green-500 ml-4 w-[50px]">
         {item === equippedItem && <FaCheckCircle size="47" />}
       </div>

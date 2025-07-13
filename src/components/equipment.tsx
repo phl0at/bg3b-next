@@ -46,6 +46,7 @@ const Equipment = () => {
         <ItemSlot
           key={1}
           slot="helmet"
+          path="helmets"
           defaultImg={<GiElfHelmet size="80" />}
         />
         <div className="text-2xl">{`AC: ${armourClass}`}</div>
@@ -54,6 +55,7 @@ const Equipment = () => {
         <ItemSlot
           key={2}
           slot="cloak"
+          path="cloaks"
           defaultImg={<GiCape size="80" />}
         />
       </div>
@@ -61,11 +63,13 @@ const Equipment = () => {
         <ItemSlot
           key={3}
           slot="armour"
+          path="armours"
           defaultImg={<GiCapeArmor size="80" />}
         />
         <ItemSlot
           key={4}
           slot="amulet"
+          path="amulets"
           defaultImg={<GiEmeraldNecklace size="80" />}
         />
       </div>
@@ -73,11 +77,13 @@ const Equipment = () => {
         <ItemSlot
           key={5}
           slot="gloves"
+          path="gloves"
           defaultImg={<GiGloves size="80" />}
         />
         <ItemSlot
           key={6}
           slot="ring1"
+          path="rings"
           defaultImg={<GiDiamondRing size="80" />}
         />
       </div>
@@ -85,11 +91,13 @@ const Equipment = () => {
         <ItemSlot
           key={7}
           slot="boots"
+          path="boots"
           defaultImg={<GiLegArmor size="80" />}
         />
         <ItemSlot
           key={8}
           slot="ring2"
+          path="rings"
           defaultImg={<GiDiamondRing size="80" />}
         />
       </div>
@@ -98,11 +106,13 @@ const Equipment = () => {
           <ItemSlot
             key={9}
             slot="meleeMH"
+            path="melee"
             defaultImg={<GiBroadsword size="80" />}
           />
           <ItemSlot
             key={10}
             slot="meleeOH"
+            path="melee"
             defaultImg={<GiBroadDagger size="80" />}
           />
         </div>
@@ -110,11 +120,13 @@ const Equipment = () => {
           <ItemSlot
             key={11}
             slot="rangedMH"
+            path="ranged"
             defaultImg={<GiBowArrow size="80" />}
           />
           <ItemSlot
             key={12}
             slot="rangedOH"
+            path="ranged"
             defaultImg={<GiCrossbow size="80" />}
           />
         </div>

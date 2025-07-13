@@ -1,12 +1,8 @@
-"use client"
 import React from "react";
 import ItemList from "@/components/itemList";
 import Helmets from "@/lib/helmets"
-import { useStore } from "@/store/store";
 
-const ItemsPage = () => {
-  const { viewItem } = useStore((state) => state);
-
+const HelmetsPage = () => {
   return (
     <main className="h-screen flex gap-4 items-center justify-center text-amber-100">
       <div
@@ -29,10 +25,10 @@ const ItemsPage = () => {
         justify-start
         items-center"
       >
-        <ItemList items={Helmets} title={viewItem} />
+        <ItemList items={Helmets} slot="helmet" title="Helmets" />
       </div>
     </main>
   );
 };
 
-export default ItemsPage;
+export default HelmetsPage;

@@ -6,14 +6,14 @@ import { usePathname, useRouter } from "next/navigation";
 import { IoArrowBackCircleOutline } from "react-icons/io5";
 const imgURL = process.env.NEXT_PUBLIC_IMG_URL;
 
-const ItemList = ({ items, title }: { items: ItemData; title: string }) => {
+const ItemList = ({ items, slot, title }: { items: ItemData; slot: string; title: string }) => {
   const pathname = usePathname().split("/")[2];
   const router = useRouter();
   const clickBack = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     router.back();
   };
-
+//!!REFACTOR WITHOUT THIS STUPID TOOLTIP HOVER BS
   return (
     <div className="overflow-y-auto w-[90%] mt-10 flex flex-col">
       <div className="text-3xl w-[50%] mb-10 flex justify-start items-center">
@@ -30,11 +30,10 @@ const ItemList = ({ items, title }: { items: ItemData; title: string }) => {
         </div>
       </div>
       {items.map((item, i) => (
-        <ItemToolTip key={item.id} index={i} item={item}>
+        <ItemToolTip key={item.id} index={i} item={item} slot={slot}>
           <div className="flex justify-center">
             <Image
               src={`${imgURL}/item_icons/${pathname}/${item.img}.png`}
-              loading="lazy"
               alt="loading"
               width={75}
               height={75}
