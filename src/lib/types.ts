@@ -67,7 +67,6 @@ type SubClass = {
   level: number;
   name: string;
   description: string;
-  img: string;
 };
 type Cantrip = {
   id: number;

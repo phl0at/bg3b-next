@@ -2,80 +2,46 @@
 import React, { MouseEvent, useState } from "react";
 import { useStore } from "@/store/store";
 import SubClassComponent from "./subClasses";
-import DataMapper from "./dataMapper";
 import SubClassButton from "./subClassButton";
+import AddClassButton from "./addClassButton";
+import DataMapper from "./dataMapper";
+import Classes from "@/lib/classes";
+import SubClasses from "@/lib/subclasses";
 
-const Classes = ({
-  classes,
-  subClasses,
-  images,
-}: {
-  classes: Class[];
-  subClasses: SubClass[];
-  images: string[];
-}) => {
-  const { dispatch, selectedClass } = useStore((state) => state);
-  const { level } = useStore((state) => state.current);
+const ClassComponent = () => {
+  const {
+    dispatch,
+    selectedClass,
+    current: { level, classList },
+  } = useStore((state) => state);
+
+  const selectedClassInBuild = classList[selectedClass];
   const [display, setDisplay] = useState("class");
   const setter = (_class: any) =>
     dispatch({ type: "SET CLASS", payload: _class });
-  const selectedClassInBuild = useStore(
-    (state) => state.current.classList[selectedClass]
-  );
-
-  const handleClickAdd = (e: MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-    dispatch({ type: "ADD CLASS", payload: classes[selectedClass - 1] });
-  };
-
-  const handleClickReset = (e: MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-    dispatch({ type: "CLEAR CLASSES" });
-  };
 
   return (
     <>
       {display === "class" && (
         <>
           <DataMapper
-            data={classes}
+            data={Classes}
             selectedElement={selectedClass}
             setter={setter}
             width={105}
             height={105}
             button={
-              <div className="w-[78%] mt-12 gap-x-5 flex items-center justify-between text-amber-100 ">
-                <div className="gap-x-5 flex items-center justify-start text-amber-100 ">
-                  <button
-                    className="p-3 outline rounded-lg hover:text-amber-400"
-                    onClick={handleClickAdd}
-                  >
-                    Add Class
-                  </button>
-
-                  <div className="flex flex-col items-start justify-center">
-                    <p>
-                      {`${classes[selectedClass - 1].name}: ${
-                        selectedClassInBuild?.level || 0
-                      }`}
-                    </p>
-                    <p>{`Total: ${level} / 12`}</p>
-                  </div>
-                </div>
-                <button
-                  className="p-3 outline rounded-lg hover:text-red-400"
-                  onClick={handleClickReset}
-                >
-                  Reset Classes
-                </button>
-              </div>
+              <AddClassButton
+                level={level}
+                selectedClass={selectedClass}
+                selectedClassInBuild={selectedClassInBuild}
+              />
             }
             menu={"classes"}
-            images={images}
           />
           <SubClassButton
             selectedClassInBuild={selectedClassInBuild}
-            subClasses={subClasses}
+            subClasses={SubClasses}
             setDisplay={setDisplay}
           />
         </>
@@ -83,7 +49,7 @@ const Classes = ({
       {display === "subclass" && (
         <SubClassComponent
           selectedClassInBuild={selectedClassInBuild}
-          subClasses={subClasses}
+          subClasses={SubClasses}
           setDisplay={setDisplay}
         />
       )}
@@ -91,4 +57,4 @@ const Classes = ({
   );
 };
 
-export default Classes;
+export default ClassComponent;

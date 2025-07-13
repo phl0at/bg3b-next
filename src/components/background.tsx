@@ -12,7 +12,6 @@ const BackgroundComponent = () => {
   const setter = (background: Background) =>
     dispatch({ type: "SET BACKGROUND", payload: background });
 
-  console.log(Backgrounds)
   return (
     <DataMapper
       menu={"backgrounds"}
