@@ -1,14 +1,11 @@
 import React from "react";
 import { parseMods } from "@/lib/utils";
 
-
 const ItemToolTip = ({
   item,
 }: Readonly<{
-  item: SomeItem;
-  slot: string;
+  item: SomeItem | any;
 }>) => {
-
   const modifiers = parseMods(item);
   const spells = item.spell ? item.spell.split("&*&") : [];
   const des1 = item.description.split("&*&")[0];
@@ -38,7 +35,7 @@ const ItemToolTip = ({
         <p>
           <div className="text-amber-400">Spells:</div>
           <div>
-            {spells.map((spell) => (
+            {spells.map((spell: string) => (
               <p key={spell}>{spell}</p>
             ))}
           </div>

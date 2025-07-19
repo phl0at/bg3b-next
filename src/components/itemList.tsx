@@ -20,13 +20,15 @@ const ItemList = ({
   const pathname = usePathname().split("/")[2];
   const { dispatch } = useStore((state) => state);
   const equippedItem = useStore((state) => state.current[slot]);
-  const [display, setDisplay] = useState(true);
+  const [display, setDisplay] = useState(false);
+  const [selectedItem, setSelectedItem] = useState({})
   const router = useRouter();
   const clickBack = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     router.back();
   };
   const clickItem = (item: SomeItem) => {
+    setSelectedItem(item)
     setDisplay((prev) => !prev);
     dispatch({ type: "EQUIP ITEM", payload: { item, slot } });
   };
@@ -84,7 +86,7 @@ const ItemList = ({
           </section>
         ))}
       </div>
-      <div className="w-[30%]">HELLO</div>
+      {display && <ItemToolTip item={selectedItem} />}
     </>
   );
 };
