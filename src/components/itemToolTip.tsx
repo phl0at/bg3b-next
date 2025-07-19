@@ -1,18 +1,29 @@
 import React from "react";
 import { parseMods } from "@/lib/utils";
+import { useStore } from "@/store/store";
 
 const ItemToolTip = ({
   item,
+  slot,
 }: Readonly<{
   item: SomeItem | any;
+  slot: string;
 }>) => {
+  const { dispatch } = useStore((state) => state);
+  const equippedItem = useStore((state) => state.current[slot]);
   const modifiers = parseMods(item);
   const spells = item.spell ? item.spell.split("&*&") : [];
   const des1 = item.description.split("&*&")[0];
   const des2 = item.description.split("&*&")[1];
+  const clickEquip = (item: SomeItem) => {
+    dispatch({ type: "EQUIP ITEM", payload: { item, slot } });
+  };
+  const clickRemove = (slot: string) => {
+    dispatch({ type: "REMOVE ITEM", payload: slot });
+  };
 
   return (
-    <div className="absolute flex flex-col gap-y-2 right-[22%] top-[18%] text-xl w-[25%] min-h-[25%] p-5 bg-opacity-80 bg-stone-950 rounded-xl border-2 border-amber-400">
+    <div className="flex flex-col gap-y-2 p-5 bg-opacity-80 bg-stone-950 rounded-xl border-2 border-amber-400">
       <p>{`${item.rarity} ${item.type && item.type}`}</p>
       <p>
         <div className="w-[70%] py-6">
@@ -42,6 +53,25 @@ const ItemToolTip = ({
         </p>
       ) : (
         ""
+      )}
+      {item.id === equippedItem?.id ? (
+        <button
+          onClick={(e) => {
+            e.preventDefault();
+            clickRemove(slot);
+          }}
+        >
+          Remove Item
+        </button>
+      ) : (
+        <button
+          onClick={(e) => {
+            e.preventDefault();
+            clickEquip(item);
+          }}
+        >
+          Equip Item
+        </button>
       )}
     </div>
   );

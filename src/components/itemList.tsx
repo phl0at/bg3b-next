@@ -18,19 +18,15 @@ const ItemList = ({
   title: string;
 }) => {
   const pathname = usePathname().split("/")[2];
-  const { dispatch } = useStore((state) => state);
   const equippedItem = useStore((state) => state.current[slot]);
-  const [display, setDisplay] = useState(false);
-  const [selectedItem, setSelectedItem] = useState({})
+  const [selectedItem, setSelectedItem] = useState(items[0]);
   const router = useRouter();
   const clickBack = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     router.back();
   };
   const clickItem = (item: SomeItem) => {
-    setSelectedItem(item)
-    setDisplay((prev) => !prev);
-    dispatch({ type: "EQUIP ITEM", payload: { item, slot } });
+    setSelectedItem(item);
   };
 
   return (
@@ -55,7 +51,7 @@ const ItemList = ({
             onClick={() => clickItem(item)}
             className={`flex items-center gap-x-6 py-4 m-1 text-2xl cursor-pointer hover:outline ${
               i % 2 === 0 ? "bg-black" : ""
-            } ${item.id === equippedItem?.id && "bg-gray-800"}`}
+            } ${item.id === selectedItem?.id && "bg-gray-800"}`}
           >
             <div className="relative text-green-500 ml-4 w-[50px]">
               {item.id === equippedItem?.id && <FaCheckCircle size="47" />}
@@ -86,7 +82,9 @@ const ItemList = ({
           </section>
         ))}
       </div>
-      {display && <ItemToolTip item={selectedItem} />}
+      <div className="relative w-[30%]">
+        <ItemToolTip item={selectedItem} slot={slot} />
+      </div>
     </>
   );
 };
