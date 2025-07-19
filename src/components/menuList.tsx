@@ -30,9 +30,9 @@ const MenuList = () => {
   return (
     <>
       {pathname === "/browse" && (
-        <Link className={className} href="/build/new/origins">
+        <Link className={className} href="/new-build">
           <FaCirclePlus />
-          New
+          Create
         </Link>
       )}
       {pathname !== "/browse" && pathname !== "/" ? (
