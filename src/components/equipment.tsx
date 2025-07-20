@@ -83,7 +83,7 @@ const Equipment = () => {
         <ItemSlot
           key={6}
           slot="ring1"
-          path="rings"
+          path="rings/ring-1"
           defaultImg={<GiDiamondRing size="80" />}
         />
       </div>
@@ -97,7 +97,7 @@ const Equipment = () => {
         <ItemSlot
           key={8}
           slot="ring2"
-          path="rings"
+          path="rings/ring-2"
           defaultImg={<GiDiamondRing size="80" />}
         />
       </div>
@@ -106,13 +106,13 @@ const Equipment = () => {
           <ItemSlot
             key={9}
             slot="meleeMH"
-            path="melee"
+            path="melee-weapons/main-hand"
             defaultImg={<GiBroadsword size="80" />}
           />
           <ItemSlot
             key={10}
             slot="meleeOH"
-            path="melee"
+            path="melee-weapons/off-hand"
             defaultImg={<GiBroadDagger size="80" />}
           />
         </div>
@@ -120,13 +120,13 @@ const Equipment = () => {
           <ItemSlot
             key={11}
             slot="rangedMH"
-            path="ranged"
+            path="ranged-weapons/main-hand"
             defaultImg={<GiBowArrow size="80" />}
           />
           <ItemSlot
             key={12}
             slot="rangedOH"
-            path="ranged"
+            path="ranged-weapons/off-hand"
             defaultImg={<GiCrossbow size="80" />}
           />
         </div>

@@ -12,7 +12,7 @@ const Ranged = [
     range: 'Ranged',
     rarity: 'Rare',
     spell: null,
-    type: 'Long Bow'
+    type: 'Longbow'
   },
   {
     damage: '1d8',
