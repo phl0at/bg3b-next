@@ -78,7 +78,7 @@ const ItemList = ({
               </div>
               <div className="flex justify-center">
                 <Image
-                  src={`${imgURL}/item_icons/${pathname}/${item.img}.png`}
+                  src={`/items/${pathname}/${item.img}.png`}
                   alt="loading"
                   width={75}
                   height={75}

@@ -3,7 +3,6 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useStore } from "@/store/store";
-const imgURL = process.env.NEXT_PUBLIC_IMG_URL;
 
 const ItemSlot = ({
   slot,
@@ -23,7 +22,9 @@ const ItemSlot = ({
     >
       {item ? (
         <Image
-          src={`${imgURL}/item_icons/${path}/${item.img}.png`}
+          src={`/items/${path.split("/")[0]}/${item.img}.png`}
+          blurDataURL={`/items/${path.split("/")[0]}/${item.img}.png`}
+          placeholder="blur"
           alt="loading"
           width={75}
           height={75}

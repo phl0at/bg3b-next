@@ -36,6 +36,8 @@ const DataMapper = ({
               >
                 <Image
                   src={`/${menu}/${element.img}`}
+                  blurDataURL={`/${menu}/${element.img}`}
+                  placeholder="blur"
                   alt=""
                   width={width}
                   height={height}

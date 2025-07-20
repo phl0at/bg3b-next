@@ -56,6 +56,7 @@ const ItemToolTip = ({
       )}
       {item.id === equippedItem?.id ? (
         <button
+          className="p-3 outline rounded-lg hover:text-amber-400"
           onClick={(e) => {
             e.preventDefault();
             clickRemove(slot);
@@ -65,6 +66,7 @@ const ItemToolTip = ({
         </button>
       ) : (
         <button
+          className="p-3 outline rounded-lg hover:text-amber-400"
           onClick={(e) => {
             e.preventDefault();
             clickEquip(item);
