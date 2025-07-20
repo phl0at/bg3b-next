@@ -6,7 +6,6 @@ import { useStore } from "@/store/store";
 import { usePathname, useRouter } from "next/navigation";
 import { IoArrowBackCircleOutline } from "react-icons/io5";
 import { FaCheckCircle } from "react-icons/fa";
-const imgURL = process.env.NEXT_PUBLIC_IMG_URL;
 
 const ItemList = ({
   items,
@@ -79,6 +78,8 @@ const ItemList = ({
               <div className="flex justify-center">
                 <Image
                   src={`/items/${pathname}/${item.img}.png`}
+                  blurDataURL={`/items/${pathname}/${item.img}.png`}
+                  placeholder="blur"
                   alt="loading"
                   width={75}
                   height={75}
