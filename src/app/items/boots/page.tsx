@@ -4,11 +4,7 @@ import ItemsPage from "@/components/itemsPage";
 import Boots from "@/lib/boots";
 
 const BootsPage = () => {
-  return (
-    <ItemsPage>
-      <ItemList items={Boots} slot="boots" title="Boots" />
-    </ItemsPage>
-  );
+  return <ItemList items={Boots} slot="boots" title="Boots" />;
 };
 
 export default BootsPage;

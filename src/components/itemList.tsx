@@ -30,62 +30,83 @@ const ItemList = ({
   };
 
   return (
-    <>
-      <div className="overflow-y-auto w-[55%] flex flex-col">
-        <div className="text-3xl mb-10 flex justify-start items-center">
-          <div className="fixed pl-2">
-            <button onClick={clickBack}>
-              <IoArrowBackCircleOutline
-                size="60"
-                className="hover:text-amber-400"
-              />
-            </button>
-          </div>
-          <div className="w-full flex justify-center text-4xl text-amber-400">
-            {title}
-          </div>
-        </div>
-        {items.map((item, i) => (
-          <section
-            key={i}
-            onClick={() => clickItem(item)}
-            className={`flex items-center gap-x-6 py-4 m-1 text-2xl cursor-pointer hover:outline ${
-              i % 2 === 0 ? "bg-black" : ""
-            } ${item.id === selectedItem?.id && "bg-gray-800"}`}
-          >
-            <div className="relative text-green-500 ml-4 w-[50px]">
-              {item.id === equippedItem?.id && <FaCheckCircle size="47" />}
+    <main className="h-screen flex gap-4 items-center justify-center text-amber-100">
+      <div
+        className="
+        bg-opacity-80
+        bg-stone-950
+        outline-amber-400
+        outline
+        shadow-black
+        shadow-2xl
+        w-[90%]
+        max-w-[1536px]
+        min-w-[880px]
+        h-[93%]
+        max-h-[1080px]
+        min-h-[615px]
+        rounded-3xl
+        flex
+        justify-around
+        items-start
+        py-10"
+      >
+        <div className="overflow-y-auto w-[55%] flex flex-col">
+          <div className="text-3xl mb-10 flex justify-start items-center">
+            <div className="fixed pl-2">
+              <button onClick={clickBack}>
+                <IoArrowBackCircleOutline
+                  size="60"
+                  className="hover:text-amber-400"
+                />
+              </button>
             </div>
-            <div className="flex justify-center">
-              <Image
-                src={`${imgURL}/item_icons/${pathname}/${item.img}.png`}
-                alt="loading"
-                width={75}
-                height={75}
-              />
+            <div className="w-full flex justify-center text-4xl text-amber-400">
+              {title}
             </div>
-            <div
-              className={`${
-                item.rarity === "Uncommon"
-                  ? "text-green-500"
-                  : item.rarity === "Rare"
-                  ? "text-blue-500"
-                  : item.rarity === "Very Rare"
-                  ? "text-pink-600"
-                  : item.rarity === "Legendary"
-                  ? "text-yellow-700"
-                  : ""
-              }`}
+          </div>
+          {items.map((item, i) => (
+            <section
+              key={i}
+              onClick={() => clickItem(item)}
+              className={`flex items-center gap-x-6 py-4 m-1 text-2xl cursor-pointer hover:outline ${
+                i % 2 === 0 ? "bg-black" : ""
+              } ${item.id === selectedItem?.id && "bg-gray-800"}`}
             >
-              {item.name}
-            </div>
-          </section>
-        ))}
+              <div className="relative text-green-500 ml-4 w-[50px]">
+                {item.id === equippedItem?.id && <FaCheckCircle size="47" />}
+              </div>
+              <div className="flex justify-center">
+                <Image
+                  src={`${imgURL}/item_icons/${pathname}/${item.img}.png`}
+                  alt="loading"
+                  width={75}
+                  height={75}
+                />
+              </div>
+              <div
+                className={`${
+                  item.rarity === "Uncommon"
+                    ? "text-green-500"
+                    : item.rarity === "Rare"
+                    ? "text-blue-500"
+                    : item.rarity === "Very Rare"
+                    ? "text-pink-600"
+                    : item.rarity === "Legendary"
+                    ? "text-yellow-700"
+                    : ""
+                }`}
+              >
+                {item.name}
+              </div>
+            </section>
+          ))}
+        </div>
+        <div className="relative w-[30%]">
+          <ItemToolTip item={selectedItem} slot={slot} />
+        </div>
       </div>
-      <div className="relative w-[30%]">
-        <ItemToolTip item={selectedItem} slot={slot} />
-      </div>
-    </>
+    </main>
   );
 };
 
