@@ -20,7 +20,7 @@ const Rings = [
   {
     description: 'Executioner: When you kill a creature, your next Attack roll will be a Critical Hit. This can only happen once per long rest.',
     id: 3,
-    img: "Killer's Sweetheart",
+    img: "Gold Black Ring",
     modifiers: null,
     name: "Killer's Sweetheart",
     rarity: 'Very Rare',
