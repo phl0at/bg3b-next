@@ -22,8 +22,8 @@ const ItemSlot = ({
     >
       {item ? (
         <Image
-          src={`/items/${path.split("/")[0]}/${item.img}.png`}
-          blurDataURL={`/items/${path.split("/")[0]}/${item.img}.png`}
+          src={`/images/full/items/${path.split("/")[0]}/${item.img}.png`}
+          blurDataURL={`/images/loading/items/${path.split("/")[0]}/${item.img}.png`}
           placeholder="blur"
           alt="loading"
           width={75}

@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Backgrounds from "@/lib/backgrounds";
 
 const DataMapper = ({
   data,
@@ -51,8 +52,19 @@ const DataMapper = ({
       </div>
       {button}
       <div className="w-[78%] mt-12 text-left text-amber-100">
-        <p className="text-amber-400 my-1">{data[selectedElement - 1]?.name}</p>
-        <p>{data[selectedElement - 1]?.description}</p>
+        {selectedElement === 12 ? (
+          <>
+            <p>{Backgrounds[11].description}</p>
+            <p className="text-amber-400 my-1">{Backgrounds[11].name}</p>
+          </>
+        ) : (
+          <>
+            <p>{data[selectedElement - 1]?.description}</p>
+            <p className="text-amber-400 my-1">
+              {data[selectedElement - 1]?.name}
+            </p>
+          </>
+        )}
       </div>
     </>
   );
