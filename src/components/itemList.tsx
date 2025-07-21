@@ -77,8 +77,8 @@ const ItemList = ({
               </div>
               <div className="flex justify-center">
                 <Image
-                  src={`/items/${pathname}/${item.img}.png`}
-                  blurDataURL={`/items/${pathname}/${item.img}.png`}
+                  src={`/images/full/items/${pathname}/${item.img}.png`}
+                  blurDataURL={`/images/loading/items/${pathname}/${item.img}.png`}
                   placeholder="blur"
                   alt="loading"
                   width={75}

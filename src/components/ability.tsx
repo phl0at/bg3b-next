@@ -98,7 +98,9 @@ const AbilityComponent = ({ ability }: { ability: string }) => {
     <main className="flex flex-row justify-between text-2xl text-amber-100">
       <div className="flex items-center">
         <Image
-          src={`/stats/${ability}.png`}
+          src={`/images/full/stats/${ability}.png`}
+          blurDataURL={`/images/loading/stats/${ability}.png`}
+          placeholder="blur"
           alt=""
           width={120}
           height={120}
