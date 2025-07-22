@@ -1,5 +1,5 @@
 import React from "react";
-import ItemList from "@/components/itemList";
+import ItemList from "@/components/equipmentMenu/itemList";
 import Rings from "@/lib/rings";
 
 const RingsPage = () => {

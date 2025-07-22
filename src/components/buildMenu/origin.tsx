@@ -1,8 +1,9 @@
 "use client";
 import { useStore } from "@/store/store";
 import React from "react";
-import DataMapper from "./dataMapper";
 import Origins from "@/lib/origins";
+import MapSelections from "./mapSelections";
+import Description from "./description";
 
 const OriginComponent = () => {
   const {
@@ -13,15 +14,17 @@ const OriginComponent = () => {
     dispatch({ type: "SET ORIGIN", payload: origin });
 
   return (
-    <DataMapper
-      menu={"origins"}
-      data={Origins}
-      selectedElement={origin}
-      setter={setter}
-      width={155}
-      height={155}
-      button={<></>}
-    />
+    <>
+      <MapSelections
+        menu={"origins"}
+        data={Origins}
+        selectedElement={origin}
+        setter={setter}
+        width={155}
+        height={155}
+      />
+      <Description data={Origins} selectedElement={origin} />
+    </>
   );
 };
 

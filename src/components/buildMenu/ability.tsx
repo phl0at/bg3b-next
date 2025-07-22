@@ -13,9 +13,10 @@ const AbilityComponent = ({ ability }: { ability: string }) => {
   const [clicks, setClicks] = useState(val - 8);
 
   // An ability can only be clicked/increased 7 times.
-  // This will track the number of increases by setting the # of clicks
-  // to the ability's current value, minus its base value.
-  // The base value changes depending on whether a +1 or +2 bonus is applied to the ability.
+  // Each time the ability's + or - button is clicked, the "clicks" variable will
+  // be calculated as the difference between 8 (lowest possible value)
+  // and the current value. This calculation changes depending on whether
+  // a +1 or +2 bonus is applied to the ability.
   useEffect(() => {
     if (plus2 === ability) {
       setClicks(val - 10);

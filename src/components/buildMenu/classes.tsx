@@ -4,9 +4,10 @@ import { useStore } from "@/store/store";
 import SubClassComponent from "./subClasses";
 import SubClassButton from "./subClassButton";
 import AddClassButton from "./addClassButton";
-import DataMapper from "./dataMapper";
 import Classes from "@/lib/classes";
 import SubClasses from "@/lib/subclasses";
+import MapSelections from "./mapSelections";
+import Description from "./description";
 
 const ClassComponent = () => {
   const {
@@ -24,21 +25,20 @@ const ClassComponent = () => {
     <>
       {display === "class" && (
         <>
-          <DataMapper
+          <MapSelections
+            menu={"classes"}
             data={Classes}
             selectedElement={selectedClass}
             setter={setter}
-            width={105}
-            height={105}
-            button={
-              <AddClassButton
-                level={level}
-                selectedClass={selectedClass}
-                selectedClassInBuild={selectedClassInBuild}
-              />
-            }
-            menu={"classes"}
+            width={120}
+            height={120}
           />
+          <AddClassButton
+            level={level}
+            selectedClass={selectedClass}
+            selectedClassInBuild={selectedClassInBuild}
+          />
+          <Description data={Classes} selectedElement={selectedClass} />
           <SubClassButton
             selectedClassInBuild={selectedClassInBuild}
             subClasses={SubClasses}

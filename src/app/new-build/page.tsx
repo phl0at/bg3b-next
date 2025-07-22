@@ -1,6 +1,6 @@
-import BuildMenuList from "@/components/buildMenuList";
-import BuildComponent from "@/components/buildComponent";
-import Equipment from "@/components/equipment";
+import BuildMenuList from "@/components/buildMenu/buildMenuList";
+import BuildComponent from "@/components/buildMenu/buildComponent";
+import Equipment from "@/components/equipmentMenu/equipment";
 import React from "react";
 
 const BuildPage = () => {

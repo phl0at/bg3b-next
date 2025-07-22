@@ -1,4 +1,4 @@
-import MenuButton from "@/components/menuButton";
+import MenuButton from "@/components/overlayMenu/menuButton";
 import Link from "next/link";
 import { DiGithubBadge } from "react-icons/di";
 import { FaLinkedin } from "react-icons/fa";

@@ -6,21 +6,33 @@ import { useStore } from "@/store/store";
 
 const BuildComponent = () => {
   const buildMenu = useStore((state) => state.buildMenu);
-  const DynamicOrigins = dynamic(() => import("@/components/origin"), {
+  const DynamicOrigins = dynamic(
+    () => import("@/components/buildMenu/origin"),
+    {
+      loading: () => <PulseLoader className="my-80" color="#e4c274" />,
+    }
+  );
+  const DynamicRaces = dynamic(() => import("@/components/buildMenu/race"), {
     loading: () => <PulseLoader className="my-80" color="#e4c274" />,
   });
-  const DynamicRaces = dynamic(() => import("@/components/race"), {
-    loading: () => <PulseLoader className="my-80" color="#e4c274" />,
-  });
-  const DynamicBackgrounds = dynamic(() => import("@/components/background"), {
-    loading: () => <PulseLoader className="my-80" color="#e4c274" />,
-  });
-  const DynamicClasses = dynamic(() => import("@/components/classes"), {
-    loading: () => <PulseLoader className="my-80" color="#e4c274" />,
-  });
-  const DynamicAbilities = dynamic(() => import("@/components/abilities"), {
-    loading: () => <PulseLoader className="my-80" color="#e4c274" />,
-  });
+  const DynamicBackgrounds = dynamic(
+    () => import("@/components/buildMenu/background"),
+    {
+      loading: () => <PulseLoader className="my-80" color="#e4c274" />,
+    }
+  );
+  const DynamicClasses = dynamic(
+    () => import("@/components/buildMenu/classes"),
+    {
+      loading: () => <PulseLoader className="my-80" color="#e4c274" />,
+    }
+  );
+  const DynamicAbilities = dynamic(
+    () => import("@/components/buildMenu/abilities"),
+    {
+      loading: () => <PulseLoader className="my-80" color="#e4c274" />,
+    }
+  );
 
   return (
     <div

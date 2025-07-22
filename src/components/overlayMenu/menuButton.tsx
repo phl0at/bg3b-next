@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { FiAlignJustify } from "react-icons/fi";
-import MenuLayer from "@/components/menuLayer";
+import MenuLayer from "@/components/overlayMenu/menuLayer";
 import { useStore } from "@/store/store";
 
 const MenuButton = () => {

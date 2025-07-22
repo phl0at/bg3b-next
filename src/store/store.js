@@ -268,7 +268,13 @@ const reducer = (state, { type, payload }) => {
     //!-------------------------------------------------------------------
     //!-------------------------------------------------------------------
     case types.clearClasses: {
-      const newState = { ...state };
+      const newState = {
+        ...state,
+        current: {
+          ...state.current,
+          classList: { ...state.current.classList },
+        },
+      };
       newState.current.level = 0;
       newState.current.classList = {};
       newState.current.cantrips = {};
@@ -287,7 +293,7 @@ const reducer = (state, { type, payload }) => {
           classList: { ...state.current.classList },
         },
       };
-      newState.current.classList[payload.class] = payload.id;
+      newState.current.classList[payload.class].subClass = payload.id;
       return newState;
     }
     //!-------------------------------------------------------------------

@@ -1,6 +1,7 @@
 import React, { MouseEvent } from "react";
 import Image from "next/image";
 import { IoArrowBackCircleOutline } from "react-icons/io5";
+import { useStore } from "@/store/store";
 
 const SubClassComponent = ({
   selectedClassInBuild,
@@ -11,6 +12,7 @@ const SubClassComponent = ({
   subClasses: SubClass[];
   setDisplay: (str: string) => void;
 }) => {
+  const { dispatch } = useStore((state) => state);
   if (!selectedClassInBuild) return "";
 
   const availableSubClasses = subClasses.filter(
@@ -26,16 +28,21 @@ const SubClassComponent = ({
     setDisplay("class");
   };
 
-  // const handleClickSubClass = (e: MouseEvent<HTMLButtonElement>) => {
-  //   e.preventDefault();
-  //   setDisplay("class");
-  // };
+  const handleClickSubClass = (
+    e: MouseEvent<HTMLButtonElement>,
+    subClass: SubClass
+  ) => {
+    e.preventDefault();
+    dispatch({ type: "SET SUB CLASS", payload: subClass });
+    setDisplay("class");
+  };
+
 
   return (
     <>
       <div className="w-5/6">
         <button
-          onClick={handleClickBack}
+          onClick={(e) => handleClickBack(e)}
           className="text-amber-100 hover:text-amber-400"
         >
           <IoArrowBackCircleOutline size="60" />
@@ -44,9 +51,10 @@ const SubClassComponent = ({
       <div className="flex-col p-2 w-5/6 justify-evenly items-start overflow-y-auto">
         {availableSubClasses.map((subClass, i) => {
           return (
-            <div
+            <button
               key={i}
-              className="flex-col p-3 text-amber-100 hover:outline rounded-md cursor-pointer"
+              onClick={(e) => handleClickSubClass(e, subClass)}
+              className="flex-col p-3 text-amber-100 hover:text-amber-300 rounded-md cursor-pointer"
             >
               <div className="flex min-w-[100px] flex-col items-center justify-center">
                 <Image
@@ -64,7 +72,7 @@ const SubClassComponent = ({
               <div className="text-base text-center flex items-center">
                 {subClass.description}
               </div>
-            </div>
+            </button>
           );
         })}
       </div>

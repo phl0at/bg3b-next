@@ -1,6 +1,6 @@
 "use client";
 import React, { MouseEvent } from "react";
-import Ability from "./ability";
+import AbilityComponent from "./ability";
 import { useStore } from "@/store/store";
 import { CiUndo } from "react-icons/ci";
 
@@ -57,7 +57,7 @@ const AbilitiesComponent = () => {
           </div>
         </div>
         {abilities.map((ability) => (
-          <Ability key={ability} ability={ability} />
+          <AbilityComponent key={ability} ability={ability} />
         ))}
       </div>
     </>
