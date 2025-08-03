@@ -8,12 +8,13 @@ import Classes from "@/lib/classes";
 import SubClasses from "@/lib/subclasses";
 import MapSelections from "./mapSelections";
 import Description from "./description";
+import ClassInfo from "./classInfo";
 
 const ClassComponent = () => {
   const {
     dispatch,
     selectedClass,
-    current: { level, classList },
+    current: { classList, level },
   } = useStore((state) => state);
 
   const selectedClassInBuild = classList[selectedClass];
@@ -21,6 +22,7 @@ const ClassComponent = () => {
   const setter = (_class: any) =>
     dispatch({ type: "SET CLASS", payload: _class });
 
+  //! Implement UI for Class/Total level in this component and the stats component on the right
   return (
     <>
       {display === "class" && (
@@ -34,10 +36,10 @@ const ClassComponent = () => {
             height={120}
           />
           <AddClassButton
-            level={level}
             selectedClass={selectedClass}
             selectedClassInBuild={selectedClassInBuild}
           />
+          <ClassInfo selectedClass={selectedClassInBuild} level={level} />
           <Description data={Classes} selectedElement={selectedClass} />
           <SubClassButton
             selectedClassInBuild={selectedClassInBuild}

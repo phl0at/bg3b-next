@@ -8,9 +8,9 @@ const Description = ({
   selectedElement: number;
 }) => {
   return (
-    <div className="w-[80%] mt-12 text-center text-amber-100">
-      <p className="text-amber-400 my-1">{data[selectedElement - 1].name}</p>
-      <p>{data[selectedElement - 1].description}</p>
+    <div className="w-[80%] gap-y-3 flex flex-col mt-12 text-left text-amber-100">
+      <p className="text-amber-400 underline">Description</p>
+      <p className="text-sm">{data[selectedElement - 1].description}</p>
     </div>
   );
 };

@@ -4,18 +4,13 @@ import Classes from "@/lib/classes";
 import { useStore } from "@/store/store";
 
 const AddClassButton = ({
-  level,
   selectedClass,
   selectedClassInBuild,
 }: {
-  level: number;
   selectedClass: number;
   selectedClassInBuild: Class;
 }) => {
-  const {
-    dispatch,
-    current: { classList },
-  } = useStore((state) => state);
+  const { dispatch } = useStore((state) => state);
 
   const handleClickAdd = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
@@ -24,10 +19,7 @@ const AddClassButton = ({
 
   const handleClickReset = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    if (classList) {
-      for (const key in classList) delete classList[key].subClass;
-      dispatch({ type: "CLEAR CLASSES" });
-    }
+    dispatch({ type: "CLEAR CLASSES" });
   };
 
   return (

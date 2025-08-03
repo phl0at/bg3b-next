@@ -275,6 +275,10 @@ const reducer = (state, { type, payload }) => {
           classList: { ...state.current.classList },
         },
       };
+      if (newState.current.classList) {
+        for (const key in newState.current.classList)
+          delete newState.current.classList[key].subClass;
+      }
       newState.current.level = 0;
       newState.current.classList = {};
       newState.current.cantrips = {};
