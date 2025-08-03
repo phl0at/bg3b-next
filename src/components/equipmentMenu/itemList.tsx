@@ -7,11 +7,8 @@ import { usePathname, useRouter } from "next/navigation";
 import { IoArrowBackCircleOutline } from "react-icons/io5";
 import { FaCheckCircle } from "react-icons/fa";
 
-const ItemList = ({ slot, title }: { slot: string; title: string }) => {
+const ItemList = ({ items, slot, title }: { items: ItemData; slot: string; title: string }) => {
   const pathname = usePathname().split("/")[2];
-  console.log(pathname)
-  const itemsObj = useStore((state) => state[slot]);
-  const items: ItemData = Object.values(itemsObj);
   const equippedItem = useStore((state) => state.current[slot]);
   const [selectedItem, setSelectedItem] = useState(items[0]);
   const router = useRouter();
