@@ -5,23 +5,15 @@ import { useStore } from "@/store/store";
 
 const SubClassComponent = ({
   selectedClassInBuild,
-  subClasses,
+  availableSubClasses,
   setDisplay,
 }: {
   selectedClassInBuild: Class;
-  subClasses: SubClass[];
+  availableSubClasses: SubClass[]
   setDisplay: (str: string) => void;
 }) => {
   const { dispatch } = useStore((state) => state);
   if (!selectedClassInBuild) return "";
-
-  const availableSubClasses = subClasses.filter(
-    (subClass) =>
-      selectedClassInBuild.id === subClass.class &&
-      selectedClassInBuild.level >= subClass.level
-  );
-
-  if (!availableSubClasses.length) return "";
 
   const handleClickBack = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();

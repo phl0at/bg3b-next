@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 import { useStore } from "@/store/store";
 import SubClassComponent from "./subClasses";
-import SubClassButton from "./subClassButton";
 import AddClassButton from "./addClassButton";
 import Classes from "@/lib/classes";
 import SubClasses from "@/lib/subclasses";
@@ -22,6 +21,12 @@ const ClassComponent = () => {
   const setter = (_class: any) =>
     dispatch({ type: "SET CLASS", payload: _class });
 
+  const availableSubClasses = SubClasses.filter(
+    (subClass) =>
+      selectedClassInBuild?.id === subClass.class &&
+      selectedClassInBuild?.level >= subClass.level
+  );
+
   //! Implement UI for Class/Total level in this component and the stats component on the right
   return (
     <>
@@ -38,20 +43,17 @@ const ClassComponent = () => {
           <AddClassButton
             selectedClass={selectedClass}
             selectedClassInBuild={selectedClassInBuild}
+            availableSubClasses={availableSubClasses}
+            setDisplay={setDisplay}
           />
           <ClassInfo selectedClass={selectedClassInBuild} level={level} />
           <Description data={Classes} selectedElement={selectedClass} />
-          <SubClassButton
-            selectedClassInBuild={selectedClassInBuild}
-            subClasses={SubClasses}
-            setDisplay={setDisplay}
-          />
         </>
       )}
       {display === "subclass" && (
         <SubClassComponent
           selectedClassInBuild={selectedClassInBuild}
-          subClasses={SubClasses}
+          availableSubClasses={availableSubClasses}
           setDisplay={setDisplay}
         />
       )}

@@ -2,13 +2,18 @@
 import React, { MouseEvent } from "react";
 import Classes from "@/lib/classes";
 import { useStore } from "@/store/store";
+import SubClassButton from "./subClassButton";
 
 const AddClassButton = ({
   selectedClass,
   selectedClassInBuild,
+  availableSubClasses,
+  setDisplay,
 }: {
   selectedClass: number;
   selectedClassInBuild: Class;
+  availableSubClasses: SubClass[];
+  setDisplay: React.Dispatch<React.SetStateAction<string>>;
 }) => {
   const { dispatch } = useStore((state) => state);
 
@@ -30,6 +35,11 @@ const AddClassButton = ({
       >
         {selectedClassInBuild ? "Add Level" : "Add Class"}
       </button>
+        <SubClassButton
+          selectedClassInBuild={selectedClassInBuild}
+          availableSubClasses={availableSubClasses}
+          setDisplay={setDisplay}
+        />
       <button
         className="p-3 outline rounded-lg hover:text-red-400"
         onClick={handleClickReset}

@@ -9,7 +9,7 @@ const ClassInfo = ({
   level: number;
 }) => {
   return (
-    <div className="w-[80%] mb-20 mt-5 text-amber-100">
+    <div className="w-[80%] mb-10 mt-5 text-amber-100">
       <div>Total Level: {level}</div>
       {selectedClass && (
         <div className="fixed flex">
