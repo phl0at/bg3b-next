@@ -10,7 +10,7 @@ const SubClassComponent = ({
 }: {
   selectedClassInBuild: Class;
   availableSubClasses: SubClass[]
-  setDisplay: (str: string) => void;
+  setDisplay: React.Dispatch<React.SetStateAction<string>>;
 }) => {
   const { dispatch } = useStore((state) => state);
   if (!selectedClassInBuild) return "";

@@ -10,7 +10,7 @@ const Description = ({
   return (
     <div className="w-[80%] gap-y-3 flex flex-col mt-12 text-left text-amber-100">
       <p className="text-amber-400 underline">Description</p>
-      <p className="text-sm">{data[selectedElement - 1].description}</p>
+      <p className="text-md">{data[selectedElement - 1].description}</p>
     </div>
   );
 };

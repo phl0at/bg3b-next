@@ -15,8 +15,8 @@ const BuildMenuList = () => {
     },
     {
       title: "Races",
-      translateHover: "group-hover:-translate-x-[147px]",
-      translate: "-translate-x-[147px]",
+      translateHover: "group-hover:-translate-x-[150px]",
+      translate: "-translate-x-[150px]",
     },
     {
       title: "Backgrounds",
@@ -25,8 +25,8 @@ const BuildMenuList = () => {
     },
     {
       title: "Classes",
-      translateHover: "group-hover:-translate-x-[167px]",
-      translate: "-translate-x-[167px]",
+      translateHover: "group-hover:-translate-x-[172px]",
+      translate: "-translate-x-[172px]",
     },
     {
       title: "Abilities",
