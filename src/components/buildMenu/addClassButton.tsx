@@ -19,7 +19,7 @@ const AddClassButton = ({
 
   const handleClickAdd = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    dispatch({ type: "ADD CLASS", payload: Classes[selectedClass - 1] });
+    dispatch({ type: "ADD CLASS", payload: Classes[selectedClass] });
   };
 
   const handleClickReset = (e: MouseEvent<HTMLButtonElement>) => {

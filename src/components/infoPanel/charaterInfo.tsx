@@ -10,18 +10,34 @@ const CharacterInfo = () => {
 
     return (
         <div className='flex flex-col gap-1'>
-            <p className='text-xl underline text-amber-300'>
+            <p className='text-xl flex justify-center underline text-amber-300'>
                 Character
             </p>
-            <p>
-                Origin: {Origins[current?.origin]?.name}
-            </p>
-            <p>
-                Race: {Races[current?.race]?.name}
-            </p>
-            <p>
-                Background: {Backgrounds[current?.background]?.name}
-            </p>
+            <ul className='grid grid-cols-2'>
+                <li className='flex justify-center'>
+                    Origin:
+                </li>
+                <li className='flex justify-center'>
+                    {Origins[current?.origin]?.name}
+                </li>
+            </ul>
+            <ul className='grid grid-cols-2'>
+                <li className='flex justify-center'>
+                    Race:
+                </li>
+                <li className='flex justify-center'>
+                    {Races[current?.race]?.name}
+                </li>
+            </ul>
+            <ul className='grid grid-cols-2'>
+                <li className='flex justify-center'>
+                    Background:
+                </li>
+                <li className='flex justify-center'>
+                    {Backgrounds[current?.background]?.name}
+                </li>
+
+            </ul>
         </div>
     )
 }

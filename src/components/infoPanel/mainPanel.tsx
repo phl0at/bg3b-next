@@ -1,5 +1,6 @@
 import React from 'react'
 import CharacterInfo from './charaterInfo'
+import AbilityInfo from './abilityInfo'
 
 const InfoPanel = () => {
     return (
@@ -16,6 +17,7 @@ const InfoPanel = () => {
         rounded-3xl
         flex
         flex-col
+        gap-8
         p-10
         max-h-[1080px]
         min-h-[900px]
@@ -23,6 +25,7 @@ const InfoPanel = () => {
         min-w-[350px]'
         >
             <CharacterInfo />
+            <AbilityInfo />
         </div>
     )
 }
