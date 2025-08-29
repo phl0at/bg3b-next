@@ -23,6 +23,7 @@ const Equipment = () => {
   return (
     <div
       className="
+      text-amber-100
       bg-opacity-80
       bg-stone-950
       outline-amber-400
@@ -31,10 +32,10 @@ const Equipment = () => {
       shadow-2xl
       w-[40%]
       max-w-[760px]
-      min-w-[440px]
+      min-w-[540px]
       h-[93%]
       max-h-[1080px]
-      min-h-[615px]
+      min-h-[900px]
       rounded-3xl
       flex
       flex-col

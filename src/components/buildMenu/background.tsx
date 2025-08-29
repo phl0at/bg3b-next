@@ -11,7 +11,7 @@ const BackgroundComponent = () => {
     current: { background, origin },
   } = useStore((state) => state);
   const setter = (background: Background) => {
-    if (origin != 8) {
+    if (origin != 7) {
       alert(
         "Cannot change the Background of Origin Characters. Select the Custom Origin to edit your Background."
       );

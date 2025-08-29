@@ -5,10 +5,10 @@ import { addCantripPoints } from "@/lib/utils";
 const defaultBuild = {
   id: "new",
   characterName: "Tav",
-  origin: 8,
-  race: 1,
+  origin: 7,
+  race: 0,
   subRace: 0,
-  background: 1,
+  background: 0,
   strength: 8,
   dexterity: 8,
   constitution: 8,
@@ -102,43 +102,43 @@ const reducer = (state, { type, payload }) => {
       newState.current.name = payload.name;
 
       if (payload.name === "Custom") {
-        newState.current.race = 1;
-        newState.current.background = 1;
+        newState.current.race = 0;
+        newState.current.background = 0;
       }
 
       if (payload.name === "Shadowheart") {
-        newState.current.race = 7;
-        newState.current.background = 1;
+        newState.current.race = 6;
+        newState.current.background = 0;
       }
 
       if (payload.name === "Gale") {
+        newState.current.race = 3;
+        newState.current.background = 8;
+      }
+
+      if (payload.name === "Lae'zel") {
         newState.current.race = 4;
         newState.current.background = 9;
       }
 
-      if (payload.name === "Lae'zel") {
-        newState.current.race = 5;
-        newState.current.background = 10;
-      }
-
       if (payload.name === "Astarion") {
-        newState.current.race = 1;
-        newState.current.background = 2;
+        newState.current.race = 0;
+        newState.current.background = 1;
       }
 
       if (payload.name === "Wyll") {
-        newState.current.race = 4;
-        newState.current.background = 5;
+        newState.current.race = 3;
+        newState.current.background = 4;
       }
 
       if (payload.name === "Karlach") {
-        newState.current.race = 2;
-        newState.current.background = 8;
+        newState.current.race = 1;
+        newState.current.background = 7;
       }
 
       if (payload.name === "The Dark Urge") {
-        newState.current.race = 10;
-        newState.current.background = 12;
+        newState.current.race = 9;
+        newState.current.background = 11;
       }
 
       return newState;
@@ -350,7 +350,7 @@ export const useStore = create((set) => ({
   },
   showMenu: false,
   showEquipment: "current",
-  selectedClass: 1,
+  selectedClass: 0,
   buildMenu: "Origins",
   builds: new Set(),
   dispatch: (args) => set((state) => reducer(state, args)),

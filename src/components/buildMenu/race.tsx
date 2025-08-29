@@ -11,7 +11,7 @@ const RaceComponent = () => {
     current: { race, origin },
   } = useStore((state) => state);
   const setter = (race: Race) => {
-    if (origin != 8) {
+    if (origin != 7) {
       alert(
         "Cannot change the Race of Origin Characters. Select the Custom Origin to edit your Race."
       );
@@ -32,15 +32,6 @@ const RaceComponent = () => {
       />
       <Description data={Races} selectedElement={race} />
     </>
-    // <DataMapper
-    //   menu={"races"}
-    //   data={Races}
-    //   selectedElement={race}
-    //   setter={setter}
-    //   width={120}
-    //   height={120}
-    //   button={<></>}
-    // />
   );
 };
 
