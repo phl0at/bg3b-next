@@ -29,25 +29,50 @@ export function addCantripPoints(_class: string, level: number) {
       }
     }
     default: {
-      break;
+      return 0;
     }
   }
 }
 
 export function parseMods(item: SomeItem) {
+  if (!item) return ""
   const set = item.modifiers?.includes("=");
   const add = item.modifiers?.includes("+");
 
   if (set) {
-    return `Sets ${item.modifiers?.split("=")[0]} to ${
-      item.modifiers?.split("=")[1]
-    }`;
+    return `Sets ${item.modifiers?.split("=")[0]} to ${item.modifiers?.split("=")[1]
+      }`;
   } else if (add) {
     const type = item.modifiers?.split("&*&")[1];
-    return `Adds ${item.modifiers?.split("&*&")[0].split("+")[1]} ${
-      type || "Physical"
-    } damage`;
+    return `Adds ${item.modifiers?.split("&*&")[0].split("+")[1]} ${type || "Physical"
+      } damage`;
   } else {
-    return null;
+    return '';
   }
+}
+
+
+export function mergeSequences(arr: number[]) {
+  const numbers = [...arr];
+  const result = [];
+  let start = 0;
+
+  while (start < numbers.length) {
+    let end = start;
+
+    while (end + 1 < numbers.length && numbers[end + 1] === numbers[end] + 1) {
+      end++;
+    }
+
+    if (end - start >= 2) {
+      result.push(`${numbers[start]}-${numbers[end]}`);
+    } else {
+      for (let i = start; i <= end; i++) {
+        result.push(numbers[i].toString());
+      }
+    }
+    start = end + 1;
+  }
+
+  return result.join(', ');
 }

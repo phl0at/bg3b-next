@@ -59,6 +59,7 @@ type Class = {
   subClass: SubClass | null;
   order: number;
   level: number;
+  levelsAddedToBuild: number[]
   img: string;
 };
 type SubClass = {

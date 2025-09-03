@@ -257,8 +257,10 @@ const reducer = (state, { type, payload }) => {
         payload.level = 1;
         payload.order = Object.values(newState.current.classList).length;
         newState.current.classList[payload.id] = payload;
+        newState.current.classList[payload.id].levelsAddedToBuild = [];
       }
       newState.current.level++;
+      newState.current.classList[payload.id].levelsAddedToBuild.push(newState.current.level);
 
       // adds the proper amount of cantrip points
       // to the build based on the new class/level

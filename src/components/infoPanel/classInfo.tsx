@@ -1,6 +1,7 @@
 "use client"
 import React from 'react'
 import { useStore } from '@/store/store'
+import { mergeSequences } from '@/lib/utils'
 
 const ClassInfo = () => {
     const { current } = useStore(state => state)
@@ -10,14 +11,17 @@ const ClassInfo = () => {
             <p className='flex justify-center text-xl underline text-amber-300'>
                 Classes
             </p>
-            <ul className='items-start justify-center gap-2'>
-                {Object.values(current.classList as Class[]).map((_class: Class) => {
+            <ul className='flex flex-col justify-center gap-y-4'>
+                {current.classList && Object.values(current.classList as Class[]).map((_class: Class) => {
                     return (
                         <li key={_class.id} className='grid grid-cols-3'>
-                            <div title={_class.name} className='flex justify-start col-span-2'>
+                            <div title={_class.name} className='flex justify-start items-center col-span-2'>
                                 {_class.subClass ? _class.subClass.name + ' ' + _class.name : _class.name}
                             </div>
-                            <div className='flex justify-center items-center'>{_class.level}</div>
+                            <div className='flex flex-col gap-1 justify-center items-center'>
+                                <div>Levels: </div>
+                                <div>{mergeSequences(_class.levelsAddedToBuild) || []}</div>
+                            </div>
                         </li>
                     )
                 })}
