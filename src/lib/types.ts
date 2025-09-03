@@ -56,7 +56,7 @@ type Class = {
   name: string;
   description: string;
   modifier: string;
-  subClass: number;
+  subClass: SubClass | null;
   order: number;
   level: number;
   img: string;

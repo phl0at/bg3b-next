@@ -247,6 +247,8 @@ const reducer = (state, { type, payload }) => {
           classList: { ...state.current.classList },
         },
       };
+      if (state.current.level > 11) return state;
+
       if (newState.current.classList[payload.id]) {
         //If the build has this class, simply increment the classes level
         newState.current.classList[payload.id].level++;
@@ -298,7 +300,7 @@ const reducer = (state, { type, payload }) => {
           classList: { ...state.current.classList },
         },
       };
-      newState.current.classList[payload.class].subClass = payload.id;
+      newState.current.classList[payload.class].subClass = payload;
       return newState;
     }
     //!-------------------------------------------------------------------

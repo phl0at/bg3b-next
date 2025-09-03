@@ -25,8 +25,7 @@ const InfoPanel = () => {
             p-10
             max-h-[1080px]
             min-h-[900px]
-            max-w-[400px]
-            min-w-[350px]'
+            w-[350px]'
         >
             <div className='flex flex-col gap-8'>
                 <CharacterInfo />
