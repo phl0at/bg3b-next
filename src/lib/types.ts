@@ -1,11 +1,7 @@
 /* eslint-disable */
-type User = {
-  id: number;
-  username: string;
-};
 type Build = {
   id: number | string;
-  authorId?: string;
+  authorId: string;
   abilityPoints: number;
   armourClass: number;
   availableCantrips?: Set<Cantrip>;
@@ -18,15 +14,27 @@ type Build = {
   constitution: number;
   dexterity: number;
   intelligence: number;
+  strength: number;
+  wisdom: number;
   level: number;
   origin: number;
   plus1: string;
   plus2: string;
   race: number;
   subRace: number;
-  strength: number;
-  wisdom: number;
   magSec?: number;
+  helmet: Helmet;
+  cloak: Cloak;
+  amulet: Amulet;
+  armour: Armour;
+  gloves: Glove;
+  ring1: Ring;
+  ring2: Ring;
+  boots: Boot;
+  meleeMH: Weapon;
+  meleeOH?: Weapon;
+  rangedMH: Weapon;
+  rangedOH?: Weapon;
 };
 type Origin = {
   id: number;

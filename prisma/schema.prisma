@@ -20,19 +20,23 @@ model Favorite {
 model Build {
   id            Int            @id @default(autoincrement())
   authorId      String
+  armourClass   Int
+  background    Int
+  classList     AddedClass[]
+  cantrips      AddedCantrip[]
   characterName String
+  charisma      Int
+  constitution  Int
+  dexterity     Int
+  intelligence  Int
+  strength      Int
+  wisdom        Int
   level         Int
   origin        Int
+  plus1         String
+  plus2         String
   race          Int
   subRace       Int
-  background    Int
-  strength      Int
-  dexterity     Int
-  constitution  Int
-  wisdom        Int
-  charisma      Int
-  plus2         String
-  plus1         String
   helmet        Int
   cloak         Int
   armour        Int
@@ -45,9 +49,6 @@ model Build {
   meleeOH       Int?
   rangedMH      Int
   rangedOH      Int?
-  armourClass   Int
-  classList     AddedClass[]
-  cantrips      AddedCantrip[]
   spells        AddedSpell[]
   favorites     Favorite[]
 }
