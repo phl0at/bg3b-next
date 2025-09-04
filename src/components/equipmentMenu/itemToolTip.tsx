@@ -43,14 +43,14 @@ const ItemToolTip = ({
       {modifiers && <p>{modifiers}</p>}
 
       {spells.length > 0 ? (
-        <p>
+        <div>
           <div className="text-amber-400">Spells:</div>
           <div>
             {spells.map((spell: string) => (
               <p key={spell}>{spell}</p>
             ))}
           </div>
-        </p>
+        </div>
       ) : (
         ""
       )}

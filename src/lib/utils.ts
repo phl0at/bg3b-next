@@ -76,3 +76,19 @@ export function mergeSequences(arr: number[]) {
 
   return result.join(', ');
 }
+
+
+export function sortClasses(classes: Class[]): Class[] {
+
+  if (classes.length <= 1) return classes;
+
+  const pivot = classes.pop() as Class;
+  const left = [] as Class[];
+  const right = [] as Class[];
+
+  for (const _class of classes) {
+    _class.order < pivot.order ? left.push(_class) : right.push(_class);
+  }
+
+  return [...sortClasses(left), pivot, ...sortClasses(right)];
+}
