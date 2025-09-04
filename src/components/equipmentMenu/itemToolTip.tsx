@@ -25,7 +25,7 @@ const ItemToolTip = ({
   return (
     <div className="flex flex-col gap-y-2 p-5 bg-opacity-80 bg-stone-950 rounded-xl border-2 border-amber-400">
       <p>{`${item.rarity} ${item.type && item.type}`}</p>
-      <p>
+      <div>
         <div className="w-[70%] py-6">
           <div className="pr-2">
             <div className="text-amber-400">{des1.split(":")[0]}:</div>
@@ -38,7 +38,7 @@ const ItemToolTip = ({
             </div>
           )}
         </div>
-      </p>
+      </div>
 
       {modifiers && <p>{modifiers}</p>}
 

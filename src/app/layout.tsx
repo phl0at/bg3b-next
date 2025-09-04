@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Header from "@/app/header";
-
+import { AuthProvider } from "./AuthProvider";
 import "./globals.css";
+
 
 export const metadata: Metadata = {
   title: "BG3Builds",
@@ -14,11 +15,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`antialiased bg-zinc-900 flex flex-col justify-between backdrop-blur-sm`}>
-        <Header />
-        {children}
-      </body>
-    </html>
+    <AuthProvider>
+      <html lang="en">
+        <body className={`antialiased bg-zinc-900 flex flex-col justify-between backdrop-blur-sm`}>
+          <Header />
+          {children}
+        </body>
+      </html>
+    </AuthProvider>
   );
 }

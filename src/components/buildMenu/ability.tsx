@@ -115,7 +115,7 @@ const AbilityComponent = ({ ability }: { ability: string }) => {
             disabled={clicks < 1 || abilityPoints > 26}
             className={`hover:text-amber-400 ${
               clicks < 1 || abilityPoints > 26
-                ? "text-gray-600 cursor-default"
+                ? "opacity-50 cursor-not-allowed text-gray-600"
                 : ""
             }`}
             onClick={(e) => clickLower(e, ability)}
@@ -127,7 +127,7 @@ const AbilityComponent = ({ ability }: { ability: string }) => {
             disabled={clicks > 6 || abilityPoints < 1}
             className={`hover:text-amber-400 ${
               clicks > 6 || abilityPoints < 1
-                ? "text-gray-600 cursor-default"
+                ? "opacity-50 cursor-not-allowed text-gray-600"
                 : ""
             }`}
             onClick={(e) => clickRaise(e, ability)}

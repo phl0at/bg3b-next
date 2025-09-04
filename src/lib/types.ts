@@ -5,6 +5,7 @@ type User = {
 };
 type Build = {
   id: number | string;
+  authorId?: string;
   abilityPoints: number;
   armourClass: number;
   availableCantrips?: Set<Cantrip>;
