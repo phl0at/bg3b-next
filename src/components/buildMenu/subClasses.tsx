@@ -1,5 +1,6 @@
 import React, { MouseEvent } from "react";
 import Image from "next/image";
+import { Class, SubClass } from "@/lib/types";
 import { IoArrowBackCircleOutline } from "react-icons/io5";
 import { useStore } from "@/store/store";
 
@@ -50,8 +51,7 @@ const SubClassComponent = ({
             >
               <div className="flex min-w-[100px] flex-col items-center justify-center">
                 <Image
-                  src={`/images/full/classes/subclasses/${selectedClassInBuild.name}/${subClass.name}.png`}
-                  blurDataURL={`/images/loading/classes/subclasses/${selectedClassInBuild.name}/${subClass.name}.png`}
+                  src={subClass.img}
                   placeholder="blur"
                   alt=""
                   width={90}

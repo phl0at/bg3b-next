@@ -1,5 +1,7 @@
+import { StaticImageData } from "next/image";
+
 /* eslint-disable */
-type Build = {
+export type Build = {
   id: number | string;
   authorId: string;
   abilityPoints: number;
@@ -36,49 +38,57 @@ type Build = {
   rangedMH: Weapon;
   rangedOH?: Weapon;
 };
-type Origin = {
+export type Origin = {
   id: number;
   name: string;
   description: string;
-  img: string;
+  img: StaticImageData;
 };
-type Race = {
+export type Race = {
   id: number;
   name: string;
   description: string;
-  img: string;
+  img: StaticImageData;
 };
-type SubRace = {
+export type SubRace = {
   id: number;
   name: string;
   description: string;
-  img: string;
+  img: StaticImageData;
 };
-type Background = {
+export type Background = {
   id: number;
   name: string;
   description: string;
-  img: string;
+  img: StaticImageData;
 };
-type Class = {
+export type Class = {
   id: number;
   name: string;
   description: string;
   modifier: string;
-  subClass: SubClass | null;
-  order: number;
-  level: number;
-  levelsAddedToBuild: number[]
-  img: string;
+  img: StaticImageData;
 };
-type SubClass = {
+export type AddedClass = {
+  id: number;
+  buildId: number;
+  classId: number;
+  name: string;
+  subClass: SubClass | null;
+  level: number;
+  levelsAdded: string
+  modifier: string;
+  order: number;
+};
+export type SubClass = {
   class: number;
   id: number;
   level: number;
   name: string;
   description: string;
+  img: StaticImageData;
 };
-type Cantrip = {
+export type Cantrip = {
   id: number;
   attackSave?: string;
   concentration?: boolean;
@@ -90,12 +100,11 @@ type Cantrip = {
   radius?: number;
   range?: number;
   school: string;
-  img: string;
+  img: StaticImageData;
 };
-type Helmet = {
+export type Helmet = {
   id: number;
   description: string;
-  img: string;
   modifiers: string | null;
   name: string;
   rarity: string;
@@ -106,11 +115,11 @@ type Helmet = {
   damage_mod?: string;
   damage_type?: string;
   range?: string;
+  img: StaticImageData;
 };
-type Cloak = {
+export type Cloak = {
   id: number;
   description: string;
-  img: string;
   modifiers: string | null;
   name: string;
   rarity: string;
@@ -121,11 +130,11 @@ type Cloak = {
   damage_mod?: string;
   damage_type?: string;
   range?: string;
+  img: StaticImageData;
 };
-type Amulet = {
+export type Amulet = {
   id: number;
   description: string;
-  img: string;
   modifiers: string | null;
   name: string;
   rarity: string;
@@ -136,12 +145,12 @@ type Amulet = {
   damage_mod?: string;
   damage_type?: string;
   range?: string;
+  img: StaticImageData;
 };
-type Armour = {
+export type Armour = {
   id: number;
   description: string;
   armour_class: number;
-  img: string;
   modifiers: string | null;
   name: string;
   rarity: string;
@@ -152,11 +161,11 @@ type Armour = {
   damage_mod?: string;
   damage_type?: string;
   range?: string;
+  img: StaticImageData;
 };
-type Glove = {
+export type Glove = {
   id: number;
   description: string;
-  img: string;
   modifiers: string | null;
   name: string;
   rarity: string;
@@ -167,11 +176,11 @@ type Glove = {
   damage_mod?: string;
   damage_type?: string;
   range?: string;
+  img: StaticImageData;
 };
-type Ring = {
+export type Ring = {
   id: number;
   description: string;
-  img: string;
   modifiers: string | null;
   name: string;
   rarity: string;
@@ -182,11 +191,11 @@ type Ring = {
   damage_mod?: string;
   damage_type?: string;
   range?: string;
+  img: StaticImageData;
 };
-type Boot = {
+export type Boot = {
   id: number;
   description: string;
-  img: string;
   modifiers: string | null;
   name: string;
   rarity: string;
@@ -197,8 +206,9 @@ type Boot = {
   damage_mod?: string;
   damage_type?: string;
   range?: string;
+  img: StaticImageData;
 };
-type Weapon = {
+export type Weapon = {
   id: number;
   description: string;
   damage: string;
@@ -206,14 +216,14 @@ type Weapon = {
   damage_mod: string;
   damage_type: string;
   range: string;
-  img: string;
   modifiers: string;
   name: string;
   rarity: string;
   spell: string;
   type: string;
+  img: StaticImageData;
 };
-type ItemData =
+export type ItemData =
   | Helmet[]
   | Cloak[]
   | Amulet[]
@@ -223,5 +233,5 @@ type ItemData =
   | Boot[]
   | Weapon[];
 
-type SomeItem = Helmet | Cloak | Amulet | Armour | Glove | Ring | Boot | Weapon;
+export type SomeItem = Helmet | Cloak | Amulet | Armour | Glove | Ring | Boot | Weapon;
 /* eslint-disable */

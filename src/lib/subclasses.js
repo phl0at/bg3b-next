@@ -1,3 +1,74 @@
+// Barbarian
+import Berserker from "../../public/images/classes/subclasses/Barbarian/Berserker.png";
+import WildMagicBarbarian from "../../public/images/classes/subclasses/Barbarian/Wild Magic.png";
+import Giant from "../../public/images/classes/subclasses/Barbarian/Giant.png";
+import Wildheart from "../../public/images/classes/subclasses/Barbarian/Wildheart.png";
+// Bard
+import CollegeOfLore from "../../public/images/classes/subclasses/Bard/College of Lore.png";
+import CollegeOfSwords from "../../public/images/classes/subclasses/Bard/College of Swords.png";
+import CollegeOfValour from "../../public/images/classes/subclasses/Bard/College of Valour.png";
+import CollegeOfGlamour from "../../public/images/classes/subclasses/Bard/College of Glamour.png";
+// Cleric
+import KnowledgeDomain from "../../public/images/classes/subclasses/Cleric/Knowledge Domain.png";
+import LifeDomain from "../../public/images/classes/subclasses/Cleric/Life Domain.png";
+import LightDomain from "../../public/images/classes/subclasses/Cleric/Light Domain.png";
+import NatureDomain from "../../public/images/classes/subclasses/Cleric/Nature Domain.png";
+import TempestDomain from "../../public/images/classes/subclasses/Cleric/Tempest Domain.png";
+import TrickeryDomain from "../../public/images/classes/subclasses/Cleric/Trickery Domain.png";
+import WarDomain from "../../public/images/classes/subclasses/Cleric/War Domain.png";
+import DeathDomain from "../../public/images/classes/subclasses/Cleric/Death Domain.png";
+// Druid
+import CircleOfTheLand from "../../public/images/classes/subclasses/Druid/Circle of the Land.png";
+import CircleOfTheMoon from "../../public/images/classes/subclasses/Druid/Circle of the Moon.png";
+import CircleOfTheSpores from "../../public/images/classes/subclasses/Druid/Circle of the Spores.png";
+import CircleOfTheStars from "../../public/images/classes/subclasses/Druid/Circle of the Stars.png";
+// Fighter
+import ArcaneArcher from "../../public/images/classes/subclasses/Fighter/Arcane Archer.png";
+import BattleMaster from "../../public/images/classes/subclasses/Fighter/Battle Master.png";
+import Champion from "../../public/images/classes/subclasses/Fighter/Champion.png";
+import EldritchKnight from "../../public/images/classes/subclasses/Fighter/Eldritch Knight.png";
+// Monk
+import WayOfTheDrunkenMaster from "../../public/images/classes/subclasses/Monk/Way of the Drunken Master.png";
+import WayOfShadow from "../../public/images/classes/subclasses/Monk/Way of Shadow.png";
+import WayOfTheFourElements from "../../public/images/classes/subclasses/Monk/Way of the Four Elements.png";
+import WayOfTheOpenHand from "../../public/images/classes/subclasses/Monk/Way of the Open Hand.png";
+// Paladin
+import OathOfDevotion from "../../public/images/classes/subclasses/Paladin/Oath of Devotion.png";
+import OathOfTheAncients from "../../public/images/classes/subclasses/Paladin/Oath of the Ancients.png";
+import OathOfVengeance from "../../public/images/classes/subclasses/Paladin/Oath of Vengeance.png";
+import Oathbreaker from "../../public/images/classes/subclasses/Paladin/Oathbreaker.png";
+import OathOfTheCrown from "../../public/images/classes/subclasses/Paladin/Oath of the Crown.png";
+// Ranger
+import Swarmkeeper from "../../public/images/classes/subclasses/Ranger/Swarmkeeper.png";
+import BeastMaster from "../../public/images/classes/subclasses/Ranger/Beast Master.png";
+import Gloomstalker from "../../public/images/classes/subclasses/Ranger/Gloomstalker.png";
+import Hunter from "../../public/images/classes/subclasses/Ranger/Hunter.png";
+// Rogue
+import Thief from "../../public/images/classes/subclasses/Rogue/Thief.png";
+import Assassin from "../../public/images/classes/subclasses/Rogue/Assassin.png";
+import ArcaneTrickster from "../../public/images/classes/subclasses/Rogue/Arcane Trickster.png";
+import Swashbuckler from "../../public/images/classes/subclasses/Rogue/Swashbuckler.png";
+// Sorcerer
+import ShadowMagic from "../../public/images/classes/subclasses/Sorcerer/Shadow Magic.png";
+import DraconicBloodline from "../../public/images/classes/subclasses/Sorcerer/Draconic Bloodline.png";
+import StormSorcery from "../../public/images/classes/subclasses/Sorcerer/Storm Sorcery.png";
+import WildMagicSorcerer from "../../public/images/classes/subclasses/Sorcerer/Wild Magic.png";
+// Warlock
+import Hexblade from "../../public/images/classes/subclasses/Warlock/The Hexblade.png";
+import TheArchfey from "../../public/images/classes/subclasses/Warlock/The Archfey.png";
+import TheFiend from "../../public/images/classes/subclasses/Warlock/The Fiend.png";
+import TheGreatOldOne from "../../public/images/classes/subclasses/Warlock/The Great Old One.png";
+// Wizard
+import Abjuration from "../../public/images/classes/subclasses/Wizard/Abjuration.png";
+import Bladesinging from "../../public/images/classes/subclasses/Wizard/Bladesinging.png";
+import Conjuration from "../../public/images/classes/subclasses/Wizard/Conjuration.png";
+import Divination from "../../public/images/classes/subclasses/Wizard/Divination.png";
+import Enchantment from "../../public/images/classes/subclasses/Wizard/Enchantment.png";
+import Evocation from "../../public/images/classes/subclasses/Wizard/Evocation.png";
+import Illusion from "../../public/images/classes/subclasses/Wizard/Illusion.png";
+import Transmutation from "../../public/images/classes/subclasses/Wizard/Transmutation.png";
+import Necromancy from "../../public/images/classes/subclasses/Wizard/Necromancy.png";
+
 const SubClasses = [
   {
     class: 2,
@@ -6,6 +77,7 @@ const SubClasses = [
     id: 0,
     level: 1,
     name: "Knowledge Domain",
+    img: KnowledgeDomain
   },
   {
     class: 2,
@@ -14,6 +86,7 @@ const SubClasses = [
     id: 1,
     level: 1,
     name: "Life Domain",
+    img: LifeDomain
   },
   {
     class: 2,
@@ -22,6 +95,7 @@ const SubClasses = [
     id: 2,
     level: 1,
     name: "Light Domain",
+    img: LightDomain,
   },
   {
     class: 2,
@@ -30,6 +104,7 @@ const SubClasses = [
     id: 3,
     level: 1,
     name: "Nature Domain",
+    img: NatureDomain
   },
   {
     class: 2,
@@ -38,6 +113,7 @@ const SubClasses = [
     id: 4,
     level: 1,
     name: "Tempest Domain",
+    img: TempestDomain
   },
   {
     class: 2,
@@ -46,6 +122,7 @@ const SubClasses = [
     id: 5,
     level: 1,
     name: "Trickery Domain",
+    img: TrickeryDomain
   },
   {
     class: 2,
@@ -54,6 +131,7 @@ const SubClasses = [
     id: 6,
     level: 1,
     name: "War Domain",
+    img: WarDomain
   },
   {
     class: 9,
@@ -62,6 +140,7 @@ const SubClasses = [
     id: 7,
     level: 1,
     name: "Draconic Bloodline",
+    img: DraconicBloodline
   },
   {
     class: 9,
@@ -70,6 +149,7 @@ const SubClasses = [
     id: 8,
     level: 1,
     name: "Storm Sorcery",
+    img: StormSorcery
   },
   {
     class: 9,
@@ -78,6 +158,7 @@ const SubClasses = [
     id: 9,
     level: 1,
     name: "Wild Magic",
+    img: WildMagicSorcerer
   },
   {
     class: 10,
@@ -86,6 +167,7 @@ const SubClasses = [
     id: 10,
     level: 1,
     name: "The Archfey",
+    img: TheArchfey
   },
   {
     class: 10,
@@ -94,6 +176,7 @@ const SubClasses = [
     id: 11,
     level: 1,
     name: "The Fiend",
+    img: TheFiend
   },
   {
     class: 10,
@@ -102,6 +185,7 @@ const SubClasses = [
     id: 12,
     level: 1,
     name: "The Great Old One",
+    img: TheGreatOldOne
   },
   {
     class: 6,
@@ -110,6 +194,7 @@ const SubClasses = [
     id: 13,
     level: 1,
     name: "Oath of Devotion",
+    img: OathOfDevotion
   },
   {
     class: 6,
@@ -118,6 +203,7 @@ const SubClasses = [
     id: 14,
     level: 1,
     name: "Oath of the Ancients",
+    img: OathOfTheAncients
   },
   {
     class: 6,
@@ -126,6 +212,7 @@ const SubClasses = [
     id: 15,
     level: 1,
     name: "Oath of Vengeance",
+    img: OathOfVengeance
   },
   {
     class: 6,
@@ -134,6 +221,7 @@ const SubClasses = [
     id: 16,
     level: 1,
     name: "Oathbreaker",
+    img: Oathbreaker
   },
   {
     class: 3,
@@ -142,6 +230,7 @@ const SubClasses = [
     id: 17,
     level: 2,
     name: "Circle of the Land",
+    img: CircleOfTheLand
   },
   {
     class: 3,
@@ -150,6 +239,7 @@ const SubClasses = [
     id: 18,
     level: 2,
     name: "Circle of the Moon",
+    img: CircleOfTheMoon
   },
   {
     class: 3,
@@ -158,6 +248,7 @@ const SubClasses = [
     id: 19,
     level: 2,
     name: "Circle of the Spores",
+    img: CircleOfTheSpores
   },
   {
     class: 11,
@@ -166,6 +257,7 @@ const SubClasses = [
     id: 20,
     level: 2,
     name: "Abjuration",
+    img: Abjuration
   },
   {
     class: 11,
@@ -174,6 +266,7 @@ const SubClasses = [
     id: 21,
     level: 2,
     name: "Conjuration",
+    img: Conjuration
   },
   {
     class: 11,
@@ -182,6 +275,7 @@ const SubClasses = [
     id: 22,
     level: 2,
     name: "Divination",
+    img: Divination
   },
   {
     class: 11,
@@ -190,6 +284,7 @@ const SubClasses = [
     id: 23,
     level: 2,
     name: "Enchantment",
+    img: Enchantment
   },
   {
     class: 11,
@@ -198,6 +293,7 @@ const SubClasses = [
     id: 24,
     level: 2,
     name: "Evocation",
+    img: Evocation
   },
   {
     class: 11,
@@ -206,6 +302,7 @@ const SubClasses = [
     id: 25,
     level: 2,
     name: "Illusion",
+    img: Illusion
   },
   {
     class: 11,
@@ -214,6 +311,7 @@ const SubClasses = [
     id: 26,
     level: 2,
     name: "Necromancy",
+    img: Necromancy
   },
   {
     class: 11,
@@ -222,6 +320,7 @@ const SubClasses = [
     id: 27,
     level: 2,
     name: "Transmutation",
+    img: Transmutation
   },
   {
     class: 4,
@@ -230,6 +329,7 @@ const SubClasses = [
     id: 28,
     level: 3,
     name: "Battle Master",
+    img: BattleMaster
   },
   {
     class: 4,
@@ -238,6 +338,7 @@ const SubClasses = [
     id: 29,
     level: 3,
     name: "Champion",
+    img: Champion
   },
   {
     class: 4,
@@ -246,6 +347,7 @@ const SubClasses = [
     id: 30,
     level: 3,
     name: "Eldritch Knight",
+    img: EldritchKnight
   },
   {
     class: 5,
@@ -254,6 +356,7 @@ const SubClasses = [
     id: 31,
     level: 3,
     name: "Way of Shadow",
+    img: WayOfShadow
   },
   {
     class: 5,
@@ -262,6 +365,7 @@ const SubClasses = [
     id: 32,
     level: 3,
     name: "Way of the Four Elements",
+    img: WayOfTheFourElements
   },
   {
     class: 5,
@@ -270,6 +374,7 @@ const SubClasses = [
     id: 33,
     level: 3,
     name: "Way of the Open Hand",
+    img: WayOfTheOpenHand
   },
   {
     class: 0,
@@ -278,6 +383,7 @@ const SubClasses = [
     id: 34,
     level: 3,
     name: "Berserker",
+    img: Berserker
   },
   {
     class: 0,
@@ -286,6 +392,7 @@ const SubClasses = [
     id: 35,
     level: 3,
     name: "Wild Magic",
+    img: WildMagicBarbarian
   },
   {
     class: 0,
@@ -294,6 +401,7 @@ const SubClasses = [
     id: 36,
     level: 3,
     name: "Wildheart",
+    img: Wildheart
   },
   {
     class: 1,
@@ -302,6 +410,7 @@ const SubClasses = [
     id: 37,
     level: 3,
     name: "College of Lore",
+    img: CollegeOfLore
   },
   {
     class: 1,
@@ -310,6 +419,7 @@ const SubClasses = [
     id: 38,
     level: 3,
     name: "College of Swords",
+    img: CollegeOfSwords
   },
   {
     class: 1,
@@ -318,6 +428,7 @@ const SubClasses = [
     id: 39,
     level: 3,
     name: "College of Valour",
+    img: CollegeOfValour
   },
   {
     class: 7,
@@ -326,6 +437,7 @@ const SubClasses = [
     id: 40,
     level: 3,
     name: "Beast Master",
+    img: BeastMaster
   },
   {
     class: 7,
@@ -334,6 +446,7 @@ const SubClasses = [
     id: 41,
     level: 3,
     name: "Gloomstalker",
+    img: Gloomstalker
   },
   {
     class: 7,
@@ -342,6 +455,7 @@ const SubClasses = [
     id: 42,
     level: 3,
     name: "Hunter",
+    img: Hunter
   },
   {
     class: 8,
@@ -350,6 +464,7 @@ const SubClasses = [
     id: 43,
     level: 3,
     name: "Arcane Trickster",
+    img: ArcaneTrickster
   },
   {
     class: 8,
@@ -358,6 +473,7 @@ const SubClasses = [
     id: 44,
     level: 3,
     name: "Assassin",
+    img: Assassin
   },
   {
     class: 8,
@@ -366,6 +482,7 @@ const SubClasses = [
     id: 45,
     level: 3,
     name: "Thief",
+    img: Thief
   },
   {
     class: 0,
@@ -374,6 +491,7 @@ const SubClasses = [
     id: 46,
     level: 3,
     name: "Giant",
+    img: Giant
   },
   {
     class: 1,
@@ -382,6 +500,7 @@ const SubClasses = [
     id: 47,
     level: 3,
     name: "College of Glamour",
+    img: CollegeOfGlamour
   },
   {
     class: 2,
@@ -390,6 +509,7 @@ const SubClasses = [
     id: 48,
     level: 1,
     name: "Death Domain",
+    img: DeathDomain
   },
   {
     class: 3,
@@ -398,6 +518,7 @@ const SubClasses = [
     id: 49,
     level: 2,
     name: "Circle of the Stars",
+    img: CircleOfTheStars
   },
   {
     class: 4,
@@ -406,6 +527,7 @@ const SubClasses = [
     id: 50,
     level: 3,
     name: "Arcane Archer",
+    img: ArcaneArcher
   },
   {
     class: 5,
@@ -414,6 +536,7 @@ const SubClasses = [
     id: 51,
     level: 3,
     name: "Way of the Drunken Master",
+    img: WayOfTheDrunkenMaster
   },
   {
     class: 6,
@@ -422,6 +545,7 @@ const SubClasses = [
     id: 52,
     level: 1,
     name: "Oath of the Crown",
+    img: OathOfTheCrown
   },
   {
     class: 7,
@@ -430,6 +554,7 @@ const SubClasses = [
     id: 53,
     level: 3,
     name: "Swarmkeeper",
+    img: Swarmkeeper
   },
   {
     class: 8,
@@ -438,6 +563,7 @@ const SubClasses = [
     id: 54,
     level: 3,
     name: "Swashbuckler",
+    img: Swashbuckler
   },
   {
     class: 9,
@@ -446,6 +572,7 @@ const SubClasses = [
     id: 55,
     level: 1,
     name: "Shadow Magic",
+    img: ShadowMagic
   },
   {
     class: 10,
@@ -454,6 +581,7 @@ const SubClasses = [
     id: 56,
     level: 1,
     name: "The Hexblade",
+    img: Hexblade,
   },
   {
     class: 11,
@@ -462,6 +590,7 @@ const SubClasses = [
     id: 57,
     level: 2,
     name: "Bladesinging",
+    img: Bladesinging
   },
 ];
 export default SubClasses;

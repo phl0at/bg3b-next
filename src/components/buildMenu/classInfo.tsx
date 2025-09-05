@@ -1,11 +1,14 @@
 import React from "react";
 import Image from "next/image";
+import { Class, AddedClass } from "@/lib/types";
 
 const ClassInfo = ({
   selectedClass,
+  addedClass,
   level,
 }: {
   selectedClass: Class;
+  addedClass: AddedClass;
   level: number;
 }) => {
   return (
@@ -15,13 +18,13 @@ const ClassInfo = ({
         <div className="fixed flex">
           <Image
             title={`${selectedClass.name}`}
-            src={`/images/full/classes/${selectedClass.img}.png`}
+            src={selectedClass.img}
             alt=""
             width={35}
             height={35}
             className="rounded-md object-cover"
           />
-          <div>: {selectedClass.level}</div>
+          <div>: {addedClass.level}</div>
         </div>
       )}
     </div>

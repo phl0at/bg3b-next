@@ -1,9 +1,11 @@
 "use client";
-import { useStore } from "@/store/store";
 import React from "react";
+import Image from "next/image";
+import { useStore } from "@/store/store";
+import { Race } from "@/lib/types";
 import Races from "@/lib/races";
-import MapSelections from "./mapSelections";
 import Description from "./description";
+
 
 const RaceComponent = () => {
   const {
@@ -11,25 +13,46 @@ const RaceComponent = () => {
     current: { race, origin },
   } = useStore((state) => state);
   const setter = (race: Race) => {
-    if (origin != 7) {
+    if (origin != 7 && origin != 6) {
       alert(
-        "Cannot change the Race of Origin Characters. Select the Custom Origin to edit your Race."
+        "Cannot change the Race of your current Character. Select either Custom or The Dark Urge Origin to edit your Race."
       );
     } else {
       dispatch({ type: "SET RACE", payload: race });
     }
   };
 
+
   return (
     <>
-      <MapSelections
-        menu={"races"}
-        data={Races}
-        selectedElement={race}
-        setter={setter}
-        width={155}
-        height={155}
-      />
+      <div className="grid grid-cols-4 gap-x-3 gap-y-5 w-[90%] text-amber-100">
+        {Races.map((element: Race, i: number) => {
+          return (
+            <div
+              className="flex flex-col gap-y-1 justify-center items-center cursor-pointer w-fill h-fill hover:text-amber-400"
+              key={element.name}
+              onClick={() => setter(element)}
+            >
+              <div
+                style={{
+                  outline: element.id === race ? "solid" : "none",
+                }}
+                className="rounded-md"
+              >
+                <Image
+                  src={element.img}
+                  placeholder="blur"
+                  alt=""
+                  width={120}
+                  height={120}
+                  className="rounded-md object-cover"
+                />
+              </div>
+              {element.name}
+            </div>
+          );
+        })}
+      </div>
       <Description data={Races} selectedElement={race} />
     </>
   );

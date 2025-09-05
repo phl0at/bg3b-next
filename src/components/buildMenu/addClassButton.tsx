@@ -3,6 +3,7 @@ import React, { MouseEvent } from "react";
 import Classes from "@/lib/classes";
 import { useStore } from "@/store/store";
 import SubClassButton from "./subClassButton";
+import { AddedClass, SubClass } from "@/lib/types";
 
 const AddClassButton = ({
   selectedClass,
@@ -11,7 +12,7 @@ const AddClassButton = ({
   setDisplay,
 }: {
   selectedClass: number;
-  selectedClassInBuild: Class;
+  selectedClassInBuild: AddedClass;
   availableSubClasses: SubClass[];
   setDisplay: React.Dispatch<React.SetStateAction<string>>;
 }) => {

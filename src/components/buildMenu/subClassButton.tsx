@@ -1,11 +1,12 @@
 import React, { MouseEvent } from "react";
+import { AddedClass, SubClass } from "../../lib/types";
 
 const SubClassButton = ({
   selectedClassInBuild,
   availableSubClasses,
   setDisplay,
 }: {
-  selectedClassInBuild: Class;
+  selectedClassInBuild: AddedClass;
   availableSubClasses: SubClass[]
   setDisplay: React.Dispatch<React.SetStateAction<string>>;
 }) => {

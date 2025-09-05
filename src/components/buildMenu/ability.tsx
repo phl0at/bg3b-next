@@ -1,9 +1,9 @@
 import React, { useState, useEffect, MouseEvent } from "react";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import { CiCircleMinus, CiCirclePlus } from "react-icons/ci";
 import { useStore } from "@/store/store";
 
-const AbilityComponent = ({ ability }: { ability: string }) => {
+const AbilityComponent = ({ ability, img }: { ability: string, img: StaticImageData }) => {
   const titleCaseStat = ability[0].toUpperCase() + ability.slice(1);
   const {
     dispatch,
@@ -99,8 +99,7 @@ const AbilityComponent = ({ ability }: { ability: string }) => {
     <main className="flex flex-row justify-between text-2xl text-amber-100">
       <div className="flex items-center">
         <Image
-          src={`/images/full/stats/${ability}.png`}
-          blurDataURL={`/images/loading/stats/${ability}.png`}
+          src={img}
           placeholder="blur"
           alt=""
           width={120}
