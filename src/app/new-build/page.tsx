@@ -4,7 +4,7 @@ import Equipment from "@/components/equipmentMenu/equipment";
 import InfoPanel from "@/components/infoPanel/mainPanel";
 import React from "react";
 
-const BuildPage = () => {
+const NewBuildPage = () => {
   return (
     <main className="h-screen flex gap-4 items-center justify-center">
       <BuildMenuList />
@@ -15,4 +15,4 @@ const BuildPage = () => {
   );
 };
 
-export default BuildPage;
+export default NewBuildPage;
