@@ -76,7 +76,7 @@ export type AddedClass = {
   name: string;
   subClass: SubClass | null;
   level: number;
-  levelsAdded: string
+  levelsAdded: number[];
   modifier: string;
   order: number;
 };

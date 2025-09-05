@@ -2,6 +2,7 @@
 import prisma from './client';
 import { redirect } from 'next/navigation';
 import { getKindeServerSession } from '@kinde-oss/kinde-auth-nextjs/server';
+import { Build } from './types';
 
 export const saveBuild = async (build: Build) => {
     const { isAuthenticated, getUser } = getKindeServerSession();

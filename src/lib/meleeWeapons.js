@@ -1,3 +1,9 @@
+import Club_1 from "../../public/images/items/melee-weapons/Club_1.png"
+import Dagger_1 from "../../public/images/items/melee-weapons/Dagger_1.png"
+import Dagger_2 from "../../public/images/items/melee-weapons/Dagger_2.png"
+import Giantslayer from "../../public/images/items/melee-weapons/Giantslayer.png"
+import KnifeOfTheUndermountainKing from "../../public/images/items/melee-weapons/Knife of the Undermountain King.png"
+
 const Melee = [
   {
     damage: '1d4',
@@ -6,7 +12,7 @@ const Melee = [
     damage_type: 'Bludgeoning',
     description: "Splinters of a Giant's Might: Increase Strength to 19.",
     id: 1,
-    img: 'Club_1',
+    img: Club_1,
     modifiers: 'strength=19',
     name: 'Club of Hill Giant Strength',
     range: 'Melee',
@@ -21,7 +27,7 @@ const Melee = [
     damage_type: 'Piercing',
     description: 'Deathly Slumber: Deals an additional 1d4 Necrotic damage to creatures that are Knocked out or Sleeping.',
     id: 2,
-    img: 'Dagger_1',
+    img: Dagger_1,
     modifiers: null,
     name: "Assassin's Touch",
     range: 'Melee',
@@ -36,7 +42,7 @@ const Melee = [
     damage_type: 'Piercing',
     description: 'Description: Snatched from the realm of the mad wizard Halaster Blackoak, this knife became a prized keepsake of a duergar king.&*&        Organ Rearranger: Reduce the number you need to roll a Critical Hit while attacking by 1. When you roll 2 damage or less, reroll the dice, taking the highest result &*& Shadow Blade: You have Advantage on Attack rolls against Lightly or Heavily Obscured targets when using this blade.',
     id: 4,
-    img: 'Knife of the Undermountain King',
+    img: KnifeOfTheUndermountainKing,
     modifiers: null,
     name: 'Knife of the Undermountain King',
     range: 'Melee',
@@ -51,7 +57,7 @@ const Melee = [
     damage_type: 'Slashing',
     description: "Description: Wielded by Balduran, the founder of Baldur's Gate and friend to his guardian dragon, a great glittering wyrm called Ansur. Fellowship can be undone, though, as easily as you or I might unlace the strings of our shoes, and it was in a time of skullduggery and hardship that Balduran killed Ansur, carrying out the deed with this sword.&*&        Giantslayer: On a hit, double the damage from your Strength modifier. This weapon grants you Advantage on Attack rolls against Large, Huge or Gargantuan creatures.",
     id: 5,
-    img: "Giantslayer",
+    img: Giantslayer,
     modifiers: null,
     name: "Balduran's Giantslayer",
     range: 'Melee',
@@ -66,7 +72,7 @@ const Melee = [
     damage_type: 'Piercing',
     description: 'Description: Fecund and revolting, the Abyss is not the worst place this has been.',
     id: 6,
-    img: 'Dagger_2',
+    img: Dagger_2,
     modifiers: null,
     name: 'Poo Scraper',
     range: 'Melee',

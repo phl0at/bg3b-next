@@ -1,8 +1,14 @@
+import CindermothCloak from "../../public/images/items/cloaks/Cindermoth Cloak.png"
+import CloakOfProtection from "../../public/images/items/cloaks/Cloak of Protection.png"
+import ReverseRainCloak from "../../public/images/items/cloaks/Reverse Rain Cloak.png"
+import ShadeSlayerCloak from "../../public/images/items/cloaks/Shade Slayer Cloak.png"
+import DeathstalkerMantle from "../../public/images/items/cloaks/The Deathstalker Mantle.png"
+
 const Cloaks = [
   {
     description: 'Description: Grants a +1 bonus to Armor Class and Saving Throw.',
     id: 1,
-    img: 'Cloak of Protection',
+    img: CloakOfProtection,
     modifiers: 'armour_class+1',
     name: 'Cloak of Protection',
     rarity: 'Uncommon',
@@ -12,7 +18,7 @@ const Cloaks = [
   {
     description: 'The Shadow Itself: Once per turn when you kill an enemy, shroud yourself in primaeval darkness to become Invisible for 2 turns.',
     id: 2,
-    img: 'The Deathstalker Mantle',
+    img: DeathstalkerMantle,
     modifiers: null,
     name: 'The Deathstalker Mantle',
     rarity: 'Rare',
@@ -22,7 +28,7 @@ const Cloaks = [
   {
     description: 'Stealthy Critical: While Hiding, the number you need to roll a Critical Hit while attacking is reduced by 1. This effect can stack.',
     id: 3,
-    img: 'Shade Slayer Cloak',
+    img: ShadeSlayerCloak,
     modifiers: null,
     name: 'Shade Slayer Cloak',
     rarity: 'Very Rare',
@@ -32,7 +38,7 @@ const Cloaks = [
   {
     description: 'Flaming Shroud: A creature that damages the wearer within 2m / 7ft receives Burning.',
     id: 4,
-    img: 'Cindermoth Cloak',
+    img: CindermothCloak,
     modifiers: null,
     name: 'Cindermoth Cloak',
     rarity: 'Uncommon',
@@ -42,7 +48,7 @@ const Cloaks = [
   {
     description: 'Description: The wearer is perpetually just a little bit damp.',
     id: 5,
-    img: 'Reverse Rain Cloak',
+    img: ReverseRainCloak,
     modifiers: null,
     name: 'Reverse Rain Cloak',
     rarity: 'Uncommon',

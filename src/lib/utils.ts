@@ -1,3 +1,4 @@
+import { AddedClass, SomeItem } from "./types";
 
 export function addCantripPoints(_class: string, level: number) {
   switch (_class) {
@@ -78,13 +79,13 @@ export function mergeSequences(arr: number[]) {
 }
 
 
-export function sortClasses(classes: Class[]): Class[] {
+export function sortClasses(classes: AddedClass[]): AddedClass[] {
 
   if (classes.length <= 1) return classes;
 
-  const pivot = classes.pop() as Class;
-  const left = [] as Class[];
-  const right = [] as Class[];
+  const pivot = classes.pop() as AddedClass;
+  const left = [] as AddedClass[];
+  const right = [] as AddedClass[];
 
   for (const _class of classes) {
     if (_class.order < pivot.order) {

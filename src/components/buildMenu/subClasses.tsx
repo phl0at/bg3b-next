@@ -1,19 +1,23 @@
+"use client";
 import React, { MouseEvent } from "react";
 import Image from "next/image";
-import { Class, SubClass } from "@/lib/types";
+import { SubClass } from "@/lib/types";
 import { IoArrowBackCircleOutline } from "react-icons/io5";
 import { useStore } from "@/store/store";
+import SubClasses from "@/lib/subclasses";
 
 const SubClassComponent = ({
-  selectedClassInBuild,
-  availableSubClasses,
   setDisplay,
 }: {
-  selectedClassInBuild: Class;
-  availableSubClasses: SubClass[]
   setDisplay: React.Dispatch<React.SetStateAction<string>>;
 }) => {
-  const { dispatch } = useStore((state) => state);
+  const { dispatch, selectedClass, current: { classList } } = useStore((state) => state);
+  const selectedClassInBuild = classList[selectedClass];
+  const availableSubClasses = SubClasses.filter(
+    (subClass) =>
+      selectedClassInBuild?.id === subClass.class &&
+      selectedClassInBuild?.level >= subClass.level
+  );
   if (!selectedClassInBuild) return "";
 
   const handleClickBack = (e: MouseEvent<HTMLButtonElement>) => {

@@ -1,6 +1,7 @@
 import React from "react";
 import { parseMods } from "@/lib/utils";
 import { useStore } from "@/store/store";
+import { SomeItem } from "@/lib/types";
 
 const ItemToolTip = ({
   item,

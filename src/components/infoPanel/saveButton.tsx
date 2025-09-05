@@ -3,6 +3,7 @@ import React from 'react'
 import { FaRegSave } from "react-icons/fa";
 import { useStore } from '@/store/store';
 import { saveBuild } from '@/lib/actions';
+import { Build } from '@/lib/types';
 
 const SaveButton = () => {
   const { current } = useStore(state => state)

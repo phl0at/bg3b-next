@@ -3,12 +3,12 @@ import React, { useState } from "react";
 import Image from "next/image";
 import ItemToolTip from "./itemToolTip";
 import { useStore } from "@/store/store";
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { IoArrowBackCircleOutline } from "react-icons/io5";
 import { FaCheckCircle } from "react-icons/fa";
+import { ItemData, SomeItem } from "@/lib/types";
 
 const ItemList = ({ items, slot, title }: { items: ItemData; slot: string; title: string }) => {
-  const pathname = usePathname().split("/")[2];
   const equippedItem = useStore((state) => state.current[slot]);
   const [selectedItem, setSelectedItem] = useState(items[0]);
   const router = useRouter();
@@ -60,17 +60,15 @@ const ItemList = ({ items, slot, title }: { items: ItemData; slot: string; title
             <section
               key={i}
               onClick={() => clickItem(item)}
-              className={`flex items-center gap-x-6 py-4 m-1 text-2xl cursor-pointer hover:outline ${
-                i % 2 === 0 ? "bg-black" : ""
-              } ${item.id === selectedItem?.id && "bg-gray-800"}`}
+              className={`flex items-center gap-x-6 py-4 m-1 text-2xl cursor-pointer hover:outline ${i % 2 === 0 ? "bg-black" : ""
+                } ${item.id === selectedItem?.id && "bg-gray-800"}`}
             >
               <div className="relative text-green-500 ml-4 w-[50px]">
                 {item.id === equippedItem?.id && <FaCheckCircle size="47" />}
               </div>
               <div className="flex justify-center">
                 <Image
-                  src={`/images/full/items/${pathname}/${item.img}.png`}
-                  blurDataURL={`/images/loading/items/${pathname}/${item.img}.png`}
+                  src={item.img}
                   placeholder="blur"
                   alt="loading"
                   width={75}
@@ -78,17 +76,16 @@ const ItemList = ({ items, slot, title }: { items: ItemData; slot: string; title
                 />
               </div>
               <div
-                className={`${
-                  item.rarity === "Uncommon"
-                    ? "text-green-500"
-                    : item.rarity === "Rare"
+                className={`${item.rarity === "Uncommon"
+                  ? "text-green-500"
+                  : item.rarity === "Rare"
                     ? "text-blue-500"
                     : item.rarity === "Very Rare"
-                    ? "text-pink-600"
-                    : item.rarity === "Legendary"
-                    ? "text-yellow-700"
-                    : ""
-                }`}
+                      ? "text-pink-600"
+                      : item.rarity === "Legendary"
+                        ? "text-yellow-700"
+                        : ""
+                  }`}
               >
                 {item.name}
               </div>

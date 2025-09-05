@@ -1,15 +1,19 @@
 import React, { MouseEvent } from "react";
-import { AddedClass, SubClass } from "../../lib/types";
+import SubClasses from "@/lib/subclasses";
+import { useStore } from "@/store/store";
 
 const SubClassButton = ({
-  selectedClassInBuild,
-  availableSubClasses,
   setDisplay,
 }: {
-  selectedClassInBuild: AddedClass;
-  availableSubClasses: SubClass[]
   setDisplay: React.Dispatch<React.SetStateAction<string>>;
 }) => {
+  const { current, selectedClass } = useStore((state) => state);
+  const selectedClassInBuild = current.classList[selectedClass];
+  const availableSubClasses = SubClasses.filter(
+    (subClass) =>
+      selectedClassInBuild?.id === subClass.class &&
+      selectedClassInBuild?.level >= subClass.level
+  );
   if (!selectedClassInBuild || !availableSubClasses.length) return "";
 
   const handleClick = (e: MouseEvent<HTMLButtonElement>) => {

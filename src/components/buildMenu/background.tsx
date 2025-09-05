@@ -3,7 +3,6 @@ import { useStore } from "@/store/store";
 import React from "react";
 import Backgrounds from "@/lib/backgrounds";
 import Image from "next/image";
-import Description from "./description";
 import { Background } from "@/lib/types";
 
 const BackgroundComponent = () => {
@@ -24,7 +23,7 @@ const BackgroundComponent = () => {
   return (
     <>
       <div className="grid grid-cols-4 gap-x-3 gap-y-5 w-[90%] text-amber-100">
-        {Backgrounds.slice(0, Backgrounds.length - 1).map((element: Background, i: number) => {
+        {Backgrounds.slice(0, Backgrounds.length - 1).map((element: Background) => {
           return (
             <div
               className="flex flex-col gap-y-1 justify-center items-center cursor-pointer w-fill h-fill hover:text-amber-400"
@@ -51,7 +50,10 @@ const BackgroundComponent = () => {
           );
         })}
       </div>
-      <Description data={Backgrounds} selectedElement={background} />
+      <div className="w-[80%] gap-y-3 flex flex-col mt-12 text-left text-amber-100">
+        <p className="text-amber-400 underline">Description</p>
+        <p className="text-md">{Backgrounds[background].description}</p>
+      </div>
     </>
   );
 };
