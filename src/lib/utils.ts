@@ -87,7 +87,11 @@ export function sortClasses(classes: Class[]): Class[] {
   const right = [] as Class[];
 
   for (const _class of classes) {
-    _class.order < pivot.order ? left.push(_class) : right.push(_class);
+    if (_class.order < pivot.order) {
+      left.push(_class)
+    } else {
+      right.push(_class)
+    }
   }
 
   return [...sortClasses(left), pivot, ...sortClasses(right)];

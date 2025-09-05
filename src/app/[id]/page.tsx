@@ -4,7 +4,7 @@ import BuildComponent from "@/components/buildMenu/buildComponent";
 import Equipment from "@/components/equipmentMenu/equipment";
 import InfoPanel from "@/components/infoPanel/mainPanel";
 
-const ExistingBuildPage = ({ params }: { params: { id: string } }) => {
+const ExistingBuildPage = () => {
     return (
         <main className="h-screen flex gap-4 items-center justify-center">
             <BuildMenuList />
