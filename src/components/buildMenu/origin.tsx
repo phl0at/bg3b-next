@@ -34,8 +34,6 @@ const OriginComponent = () => {
                   src={element.img}
                   placeholder="blur"
                   alt=""
-                  width={155}
-                  height={155}
                   className="rounded-md object-cover"
                 />
               </div>

@@ -10,20 +10,13 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Favorite {
-  id      Int   @id @default(autoincrement())
-  userId  String
-  build   Build @relation(fields: [buildId], references: [id])
-  buildId Int
-}
-
 model Build {
-  id            Int            @id @default(autoincrement())
+  id            Int       @id @default(autoincrement())
   authorId      String
   armourClass   Int
   background    Int
-  classList     AddedClass[]
-  cantrips      AddedCantrip[]
+  classList     Class[]
+  cantrips      Cantrip[]
   characterName String
   charisma      Int
   constitution  Int
@@ -46,65 +39,33 @@ model Build {
   ring1         Int
   ring2         Int
   meleeMH       Int
-  meleeOH       Int?
+  meleeOH       Int
   rangedMH      Int
-  rangedOH      Int?
-  spells        AddedSpell[]
-  favorites     Favorite[]
+  rangedOH      Int
+
+  @@index([id, authorId])
 }
 
 model Class {
-  id       Int          @id @default(autoincrement())
-  builds   AddedClass[]
-  classId  Int
-  name     String
-  modifier String
-}
-
-model AddedClass {
-  id          Int     @id @default(autoincrement())
-  build       Build   @relation(fields: [buildId], references: [id])
-  class       Class   @relation(fields: [classId], references: [id])
-  buildId     Int
-  classId     Int
-  name        String
-  subClass    String?
-  level       Int
-  levelsAdded String
-  modifier    String
-  order       Int
+  id           Int    @id @default(autoincrement())
+  build        Build  @relation(fields: [buildId], references: [id])
+  buildId      Int
+  classId      Int
+  name         String
+  subClassName String
+  level        Int
+  levelsAdded  String
+  modifier     String
+  order        Int
 
   @@index([buildId, classId])
 }
 
 model Cantrip {
-  id        Int            @id @default(autoincrement())
-  builds    AddedCantrip[]
-  cantripId Int
-}
-
-model AddedCantrip {
-  id        Int     @id @default(autoincrement())
-  build     Build   @relation(fields: [buildId], references: [id])
-  cantrip   Cantrip @relation(fields: [cantripId], references: [id])
+  id        Int   @id @default(autoincrement())
+  build     Build @relation(fields: [buildId], references: [id])
   buildId   Int
   cantripId Int
 
   @@index([buildId, cantripId])
-}
-
-model Spell {
-  id      Int          @id @default(autoincrement())
-  builds  AddedSpell[]
-  spellId Int
-}
-
-model AddedSpell {
-  id      Int   @id @default(autoincrement())
-  build   Build @relation(fields: [buildId], references: [id])
-  spell   Spell @relation(fields: [spellId], references: [id])
-  buildId Int
-  spellId Int
-
-  @@index([buildId, spellId])
 }

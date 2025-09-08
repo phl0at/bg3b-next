@@ -24,6 +24,18 @@ const defaultBuild = {
   level: 0,
   armourClass: 10,
   classList: {},
+  helmet: { id: 0 },
+  cloak: { id: 0 },
+  armour: { id: 0 },
+  gloves: { id: 0 },
+  boots: { id: 0 },
+  amulet: { id: 0 },
+  ring1: { id: 0 },
+  ring2: { id: 0 },
+  meleeMH: { id: 0 },
+  meleeOH: { id: 0 },
+  rangedMH: { id: 0 },
+  rangedOH: { id: 0 },
 };
 
 const types = {
@@ -87,7 +99,14 @@ const reducer = (state, { type, payload }) => {
     }
     //!-------------------------------------------------------------------
     //!-------------------------------------------------------------------
-    // case types.getBuild:{}
+    case types.getBuild:{
+      const newState = {
+        ...state,
+      }
+      newState.current = payload
+      console.log(newState)
+      // return newState
+    }
     //!-------------------------------------------------------------------
     //!-------------------------------------------------------------------
     // case types.getAllBuilds:{}

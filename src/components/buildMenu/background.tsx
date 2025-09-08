@@ -40,8 +40,8 @@ const BackgroundComponent = () => {
                   src={element.img}
                   placeholder="blur"
                   alt=""
-                  width={120}
-                  height={120}
+                  width={130}
+                  height={130}
                   className="rounded-md object-cover"
                 />
               </div>

@@ -20,7 +20,7 @@ const ItemSlot = ({
       href={`/items/${path}`}
       className="cursor-pointer outline p-3 rounded-md text-amber-100 hover:text-amber-400"
     >
-      {item ? (
+      {item.id > 0 ? (
         <Image
           src={item.img}
           placeholder="blur"

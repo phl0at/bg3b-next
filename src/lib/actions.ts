@@ -2,9 +2,9 @@
 import prisma from './client';
 import { redirect } from 'next/navigation';
 import { getKindeServerSession } from '@kinde-oss/kinde-auth-nextjs/server';
-import { Build } from './types';
+import { FrontEndBuild } from './types';
 
-export const saveBuild = async (build: Build) => {
+export const saveBuild = async (build: FrontEndBuild) => {
     const { isAuthenticated, getUser } = getKindeServerSession();
     const isUserAuthenticated = await isAuthenticated();
     const user = await getUser();
@@ -27,7 +27,7 @@ export const saveBuild = async (build: Build) => {
     } else if (!build.helmet || !build.cloak || !build.armour || !build.gloves || !build.amulet || !build.ring1 || !build.ring2 || !build.boots || !build.meleeMH || !build.rangedMH) {
         throw new Error("Please equip all required gear before saving your build!")
     } else {
-        const newBuild = prisma.build.create({
+        const newBuild = await prisma.build.create({
             data: {
                 authorId: user.id,
                 armourClass: build.armourClass,
@@ -54,13 +54,13 @@ export const saveBuild = async (build: Build) => {
                 ring2: build.ring2.id,
                 boots: build.boots.id,
                 meleeMH: build.meleeMH.id,
-                meleeOH: build.meleeOH?.id || null,
+                meleeOH: build.meleeOH.id,
                 rangedMH: build.rangedMH.id,
-                rangedOH: build.rangedOH?.id || null,
+                rangedOH: build.rangedOH.id,
             }
         })
         if (newBuild != undefined) {
-            redirect(`/${(await newBuild).id}`)
+            redirect(`/${(newBuild).id}`)
         }
         return newBuild
     }

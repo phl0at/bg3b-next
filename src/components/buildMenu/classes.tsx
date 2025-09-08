@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { useStore } from "@/store/store";
-import { Class } from "@/lib/types";
+import { StaticClass } from "@/lib/types";
 import SubClassComponent from "./subClasses";
 import AddClassButton from "./addClassButton";
 import Classes from "@/lib/classes";
@@ -23,7 +23,7 @@ const ClassComponent = () => {
       {display === "class" && (
         <>
           <div className="grid grid-cols-4 gap-x-3 gap-y-5 w-[90%] text-amber-100">
-            {Classes.map((element: Class) => {
+            {Classes.map((element: StaticClass) => {
               return (
                 <div
                   className="flex flex-col gap-y-1 justify-center items-center cursor-pointer w-fill h-fill hover:text-amber-400"

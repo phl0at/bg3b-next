@@ -3,12 +3,12 @@ import React from 'react'
 import { FaRegSave } from "react-icons/fa";
 import { useStore } from '@/store/store';
 import { saveBuild } from '@/lib/actions';
-import { Build } from '@/lib/types';
+import { FrontEndBuild } from '@/lib/types';
 
 const SaveButton = () => {
   const { current } = useStore(state => state)
 
-  const handleClick = async ({ e, build }: { e: React.MouseEvent, build: Build }) => {
+  const handleClick = async ({ e, build }: { e: React.MouseEvent, build: FrontEndBuild }) => {
     e.preventDefault();
     try {
       const newBuild = await saveBuild(build);
