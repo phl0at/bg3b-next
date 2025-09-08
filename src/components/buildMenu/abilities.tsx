@@ -3,12 +3,12 @@ import React, { MouseEvent } from "react";
 import AbilityComponent from "./ability";
 import { useStore } from "@/store/store";
 import { CiUndo } from "react-icons/ci";
-import Strength from "../../../public/images/stats/Strength.png";
-import Dexterity from "../../../public/images/stats/Dexterity.png"
-import Constitution from "../../../public/images/stats/Constitution.png"
-import Intelligence from "../../../public/images/stats/Intelligence.png"
-import Wisdom from "../../../public/images/stats/Wisdom.png"
-import Charisma from "../../../public/images/stats/Charisma.png"
+import Strength from "../../../public/images/stats/strength.png";
+import Dexterity from "../../../public/images/stats/dexterity.png"
+import Constitution from "../../../public/images/stats/constitution.png"
+import Intelligence from "../../../public/images/stats/intelligence.png"
+import Wisdom from "../../../public/images/stats/wisdom.png"
+import Charisma from "../../../public/images/stats/charisma.png"
 
 const AbilitiesComponent = () => {
   const {
