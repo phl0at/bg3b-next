@@ -2,6 +2,7 @@
 import { create } from "zustand";
 import { addCantripPoints } from "@/lib/utils";
 
+
 const defaultBuild = {
   id: "new",
   characterName: "Tav",
@@ -16,14 +17,14 @@ const defaultBuild = {
   wisdom: 8,
   charisma: 8,
   abilityPoints: 27,
-  cantrips: {},
-  availableCantrips: new Set(),
-  cantripPoints: 0,
   plus1: "",
   plus2: "",
   level: 0,
-  armourClass: 10,
+  availableCantrips: new Set(),
+  cantripPoints: 0,
+  cantrips: {},
   classList: {},
+  armourClass: 10,
   helmet: { id: 0 },
   cloak: { id: 0 },
   armour: { id: 0 },
@@ -99,13 +100,13 @@ const reducer = (state, { type, payload }) => {
     }
     //!-------------------------------------------------------------------
     //!-------------------------------------------------------------------
-    case types.getBuild:{
+    case types.getBuild: {
       const newState = {
         ...state,
       }
+      console.log(payload)
       newState.current = payload
-      console.log(newState)
-      // return newState
+      return newState
     }
     //!-------------------------------------------------------------------
     //!-------------------------------------------------------------------
@@ -118,7 +119,7 @@ const reducer = (state, { type, payload }) => {
     case types.setOrigin: {
       const newState = { ...state, current: { ...state.current } };
       newState.current.origin = payload.id;
-      newState.current.name = payload.name;
+      newState.current.characterName = payload.name;
 
       if (payload.name === "Custom") {
         newState.current.race = 0;
@@ -246,6 +247,30 @@ const reducer = (state, { type, payload }) => {
     //!-------------------------------------------------------------------
     case types.equipItem: {
       const newState = { ...state, current: { ...state.current } };
+
+      // When equipping a ring, check if the other ring slot already has the
+      // chosen ring equipped. If it does, unequip it from the other slot first
+      if (payload.slot === "ring1" && payload.item.id === newState.current.ring2.id) {
+        newState.current.ring2 = { id: 0 }
+      }
+      if (payload.slot === "ring2" && payload.item.id === newState.current.ring1.id) {
+        newState.current.ring1 = { id: 0 }
+      }
+
+      // When equipping a two-handed weapon to the mainhand, set the offhand as well
+      if (payload.slot === "meleeMH") {
+        if (payload.item.type === "Greatsword") newState.current.meleeOH = payload.item
+
+        // When equipping an offhand weapon, remove the mainhand if it is two-handed
+      } else if (payload.slot === "meleeOH") {
+        if (newState.current.meleeMH.type === "Greatsword") newState.current.meleeMH = { id: 0 }
+
+        // Same logic as above but for ranged weapons instead of melee
+      } else if (payload.slot === "rangedMH") {
+        if (payload.item.type != "Hand Crossbow") newState.current.rangedOH = payload.item
+      } else if (payload.slot === "rangedOH") {
+        if (newState.current.rangedMH.type != "Hand Crossbow") newState.current.rangedMH = { id: 0 }
+      }
       newState.current[payload.slot] = payload.item;
       return newState;
     }
@@ -253,7 +278,7 @@ const reducer = (state, { type, payload }) => {
     //!-------------------------------------------------------------------
     case types.removeItem: {
       const newState = { ...state, current: { ...state.current } };
-      delete newState.current[payload];
+      newState.current[payload] = { id: 0 };
       return newState;
     }
     //!-------------------------------------------------------------------

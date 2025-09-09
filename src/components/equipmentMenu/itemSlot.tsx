@@ -13,12 +13,19 @@ const ItemSlot = ({
   path: string;
   defaultImg: React.ReactNode;
 }) => {
-  const item = useStore((state) => state.current[slot]);
+  const current = useStore(state => state.current)
+  const item = current[slot]
+  const twoHandedRanged = slot === "rangedOH" && current.rangedMH === item
+  const twoHandedMelee = slot === "meleeOH" && current.meleeMH === item
 
   return (
     <Link
       href={`/items/${path}`}
-      className="cursor-pointer outline p-3 rounded-md text-amber-100 hover:text-amber-400"
+      className={`
+        ${twoHandedRanged && item.type != "Hand Crossbow" && "opacity-50"}
+        ${twoHandedMelee && item.type === "Greatsword" && "opacity-50"}
+        outline p-3 rounded-md text-amber-100 hover:text-amber-400
+        `}
     >
       {item.id > 0 ? (
         <Image

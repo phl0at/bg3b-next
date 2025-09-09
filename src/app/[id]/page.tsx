@@ -17,8 +17,7 @@ const ExistingBuildPage = async ({ params: { id } }: { params: { id: string } })
             cantrips: true
         }
     })
-    console.log(res)
-    if (!res) return "Loading"
+    if (!res) return "Loading..."
 
     return (
         <main className="h-screen flex gap-4 items-center justify-center">
