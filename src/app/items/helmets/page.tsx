@@ -1,6 +1,6 @@
 import React from "react";
 import ItemList from "@/components/equipmentMenu/itemList";
-import Helmets from "@/lib/helmets";
+import Helmets from "@/lib/equipment/helmets";
 
 const HelmetsPage = () => {
   return <ItemList items={Helmets} slot="helmet" title="Helmets" />;

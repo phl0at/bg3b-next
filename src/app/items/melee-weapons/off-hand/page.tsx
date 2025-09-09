@@ -1,9 +1,9 @@
 import React from "react";
 import ItemList from "@/components/equipmentMenu/itemList";
-import Melee from "@/lib/meleeWeapons";
+import Melee from "@/lib/equipment/meleeWeapons";
 
 const MeleePage = () => {
-  const OffHandWeapons = Melee.filter(
+  const OffHandWeapons = Object.values(Melee).filter(
     (item) => item.type != "Greatsword" && item.type != "Trident"
   );
   return (

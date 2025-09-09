@@ -3,7 +3,7 @@ import React from "react";
 import Image from "next/image";
 import { useStore } from "@/store/store";
 import { Race } from "@/lib/types";
-import Races from "@/lib/races";
+import Races from "@/lib//character/races";
 
 
 const RaceComponent = () => {
@@ -11,7 +11,7 @@ const RaceComponent = () => {
     dispatch,
     current: { race, origin },
   } = useStore((state) => state);
-  const setter = (race: Race) => {
+  const handleClick = (race: Race) => {
     if (origin != 7 && origin != 6) {
       alert(
         "Cannot change the Race of your current Character. Select either Custom or The Dark Urge Origin to edit your Race."
@@ -25,12 +25,12 @@ const RaceComponent = () => {
   return (
     <>
       <div className="grid grid-cols-4 gap-x-3 gap-y-5 w-[90%] text-amber-100">
-        {Races.map((element: Race) => {
+        {Object.values(Races).map((element: Race) => {
           return (
             <div
               className="flex flex-col gap-y-1 justify-center items-center cursor-pointer w-fill h-fill hover:text-amber-400"
               key={element.name}
-              onClick={() => setter(element)}
+              onClick={() => handleClick(element)}
             >
               <div
                 style={{
@@ -54,7 +54,7 @@ const RaceComponent = () => {
       </div>
       <div className="w-[80%] gap-y-3 flex flex-col mt-12 text-left text-amber-100">
         <p className="text-amber-400 underline">Description</p>
-        <p className="text-md">{Races[race].description}</p>
+        <p className="text-md">{Races[race as keyof typeof Races].description}</p>
       </div>
     </>
   );

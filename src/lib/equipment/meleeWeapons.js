@@ -1,11 +1,11 @@
-import Club_1 from "../../public/images/items/melee-weapons/Club_1.png"
-import Dagger_1 from "../../public/images/items/melee-weapons/Dagger_1.png"
-import Dagger_2 from "../../public/images/items/melee-weapons/Dagger_2.png"
-import Giantslayer from "../../public/images/items/melee-weapons/Giantslayer.png"
-import KnifeOfTheUndermountainKing from "../../public/images/items/melee-weapons/Knife of the Undermountain King.png"
+import Club_1 from "../../../public/images/items/melee-weapons/Club_1.png"
+import Dagger_1 from "../../../public/images/items/melee-weapons/Dagger_1.png"
+import Dagger_2 from "../../../public/images/items/melee-weapons/Dagger_2.png"
+import Giantslayer from "../../../public/images/items/melee-weapons/Giantslayer.png"
+import KnifeOfTheUndermountainKing from "../../../public/images/items/melee-weapons/Knife of the Undermountain King.png"
 
-const Melee = [
-  {
+const Melee = {
+  1: {
     damage: '1d4',
     damage_bonus: 0,
     damage_mod: 'Strength',
@@ -20,7 +20,7 @@ const Melee = [
     spell: null,
     type: 'Club'
   },
-  {
+  2: {
     damage: '1d4',
     damage_bonus: 1,
     damage_mod: 'Dexterity',
@@ -35,7 +35,7 @@ const Melee = [
     spell: null,
     type: 'Dagger'
   },
-  {
+  4: {
     damage: '1d6',
     damage_bonus: 2,
     damage_mod: 'Dexterity***Strength',
@@ -50,7 +50,7 @@ const Melee = [
     spell: null,
     type: 'Shortsword'
   },
-  {
+  5: {
     damage: '2d6',
     damage_bonus: 3,
     damage_mod: 'Strength',
@@ -65,7 +65,7 @@ const Melee = [
     spell: null,
     type: 'Greatsword'
   },
-  {
+  6: {
     damage: '1d4',
     damage_bonus: 0,
     damage_mod: 'Dexterity***Strength',
@@ -80,6 +80,6 @@ const Melee = [
     spell: null,
     type: 'Dagger'
   }
-]
+}
 
 export default Melee

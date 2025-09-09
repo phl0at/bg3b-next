@@ -1,5 +1,5 @@
 import React, { MouseEvent } from "react";
-import SubClasses from "@/lib/subclasses";
+import SubClasses from "@/lib//character/subclasses";
 import { useStore } from "@/store/store";
 
 const SubClassButton = ({
@@ -9,7 +9,7 @@ const SubClassButton = ({
 }) => {
   const { current, selectedClass } = useStore((state) => state);
   const selectedClassInBuild = current.classList[selectedClass];
-  const availableSubClasses = SubClasses.filter(
+  const availableSubClasses = Object.values(SubClasses).filter(
     (subClass) =>
       selectedClassInBuild?.id === subClass.class &&
       selectedClassInBuild?.level >= subClass.level

@@ -1,20 +1,21 @@
 "use client";
 import React, { MouseEvent } from "react";
 import { useStore } from "@/store/store";
-import Classes from "@/lib/classes";
+import Classes from "@/lib//character/classes";
 import SubClassButton from "./subClassButton";
+import { FrontEndBuild, FrontEndClass, StaticClass } from "@/lib/types";
 
 const AddClassButton = ({
   setDisplay,
 }: {
   setDisplay: React.Dispatch<React.SetStateAction<string>>;
 }) => {
-  const { dispatch, current, selectedClass } = useStore((state) => state);
-  const selectedClassInBuild = current.classList[selectedClass];
+  const { dispatch, current, selectedClass }: { dispatch: ({ }) => void; current: FrontEndBuild; selectedClass: number; } = useStore((state) => state);
+  const selectedClassInBuild: FrontEndClass = current.classList[selectedClass];
   const handleClickAdd = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     if (current.level > 11) alert("Max level reached");
-    dispatch({ type: "ADD CLASS", payload: Classes[selectedClass] });
+    dispatch({ type: "ADD CLASS", payload: Classes[selectedClass as keyof typeof Classes] as StaticClass });
   };
   const handleClickReset = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();

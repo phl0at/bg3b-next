@@ -1,8 +1,8 @@
 "use client"
 import React from 'react'
-import Origins from '@/lib/origins'
-import Backgrounds from '@/lib/backgrounds'
-import Races from '@/lib/races'
+import Origins from '@/lib/character/origins'
+import Backgrounds from '@/lib/character/backgrounds'
+import Races from '@/lib/character/races'
 import { useStore } from '@/store/store'
 
 const CharacterInfo = () => {
@@ -18,7 +18,7 @@ const CharacterInfo = () => {
                     Origin:
                 </li>
                 <li className='flex justify-center'>
-                    {Origins[current?.origin]?.name}
+                    {Origins[current?.origin as keyof typeof Origins]?.name}
                 </li>
             </ul>
             <ul className='grid grid-cols-2'>
@@ -26,7 +26,7 @@ const CharacterInfo = () => {
                     Race:
                 </li>
                 <li className='flex justify-center'>
-                    {Races[current?.race]?.name}
+                    {Races[current?.race as keyof typeof Races]?.name}
                 </li>
             </ul>
             <ul className='grid grid-cols-2'>
@@ -34,7 +34,7 @@ const CharacterInfo = () => {
                     Background:
                 </li>
                 <li className='flex justify-center'>
-                    {Backgrounds[current?.background]?.name}
+                    {Backgrounds[current?.background as keyof typeof Backgrounds]?.name}
                 </li>
 
             </ul>

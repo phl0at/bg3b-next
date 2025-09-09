@@ -249,17 +249,11 @@ export type Weapon = {
   img: StaticImageData;
 };
 //==================================================
-export type ItemData =
-  | Helmet[]
-  | Cloak[]
-  | Amulet[]
-  | Armour[]
-  | Glove[]
-  | Ring[]
-  | Boot[]
-  | Weapon[];
-//==================================================
 export type SomeItem = Helmet | Cloak | Amulet | Armour | Glove | Ring | Boot | Weapon;
+//==================================================
+export type ItemData = {
+  [key: number]: SomeItem
+};
 //==================================================
 
 

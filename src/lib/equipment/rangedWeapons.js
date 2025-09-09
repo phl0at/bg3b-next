@@ -1,10 +1,10 @@
-import GontrMael from "../../public/images/items/ranged-weapons/Gontr Mael.png"
-import HandCrossbow_1 from "../../public/images/items/ranged-weapons/Hand Crossbow_1.png"
-import Longbow_1 from "../../public/images/items/ranged-weapons/Longbow_1.png"
-import Shortbow_1 from "../../public/images/items/ranged-weapons/Shortbow_1.png"
+import GontrMael from "../../../public/images/items/ranged-weapons/Gontr Mael.png"
+import HandCrossbow_1 from "../../../public/images/items/ranged-weapons/Hand Crossbow_1.png"
+import Longbow_1 from "../../../public/images/items/ranged-weapons/Longbow_1.png"
+import Shortbow_1 from "../../../public/images/items/ranged-weapons/Shortbow_1.png"
 
-const Ranged = [
-  {
+const Ranged = {
+  3: {
     damage: '1d8',
     damage_bonus: 1,
     damage_mod: 'Dexterity&*&Strength',
@@ -19,7 +19,7 @@ const Ranged = [
     spell: null,
     type: 'Longbow'
   },
-  {
+  7: {
     damage: '1d8',
     damage_bonus: 3,
     damage_mod: 'Dexterity',
@@ -34,7 +34,7 @@ const Ranged = [
     spell: 'Haste',
     type: 'Longbow'
   },
-  {
+  8: {
     damage: '1d6',
     damage_bonus: 2,
     damage_mod: 'Dexterity',
@@ -49,7 +49,7 @@ const Ranged = [
     spell: 'Scorching Ray',
     type: 'Hand Crossbow'
   },
-  {
+  9: {
     damage: '1d6',
     damage_bonus: 1,
     damage_mod: 'Dexterity',
@@ -64,7 +64,7 @@ const Ranged = [
     spell: 'Magic Missile',
     type: 'Hand Crossbow'
   },
-  {
+  10: {
     damage: '1d6',
     damage_bonus: 1,
     damage_mod: 'Dexterity',
@@ -79,6 +79,6 @@ const Ranged = [
     spell: 'Prey Decelerator',
     type: 'Shortbow'
   }
-]
+}
 
 export default Ranged

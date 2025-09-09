@@ -10,7 +10,7 @@ import { ItemData, SomeItem } from "@/lib/types";
 
 const ItemList = ({ items, slot, title }: { items: ItemData; slot: string; title: string }) => {
   const equippedItem = useStore((state) => state.current[slot]);
-  const [selectedItem, setSelectedItem] = useState(items[0]);
+  const [selectedItem, setSelectedItem] = useState(items[0] || items[1]);
   const router = useRouter();
   const clickBack = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
@@ -56,7 +56,7 @@ const ItemList = ({ items, slot, title }: { items: ItemData; slot: string; title
               {title}
             </div>
           </div>
-          {items.map((item, i) => (
+          {Object.values(items).map((item, i) => (
             <section
               key={i}
               onClick={() => clickItem(item)}

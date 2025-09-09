@@ -4,7 +4,7 @@ import Image from "next/image";
 import { SubClass } from "@/lib/types";
 import { IoArrowBackCircleOutline } from "react-icons/io5";
 import { useStore } from "@/store/store";
-import SubClasses from "@/lib/subclasses";
+import SubClasses from "@/lib/character/subclasses";
 
 const SubClassComponent = ({
   setDisplay,
@@ -13,7 +13,7 @@ const SubClassComponent = ({
 }) => {
   const { dispatch, selectedClass, current: { classList } } = useStore((state) => state);
   const selectedClassInBuild = classList[selectedClass];
-  const availableSubClasses = SubClasses.filter(
+  const availableSubClasses = Object.values(SubClasses).filter(
     (subClass) =>
       selectedClassInBuild?.id === subClass.class &&
       selectedClassInBuild?.level >= subClass.level

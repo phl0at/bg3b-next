@@ -1,12 +1,12 @@
-import AmuletOfBhaal from "../../public/images/items/amulets/Amulet of Bhaal.png"
-import AmuletOfGreaterHealth from "../../public/images/items/amulets/Amulet of Greater Health.png"
-import AmuletOfTheDevout from "../../public/images/items/amulets/Amulet of the Devout.png"
-import AmuletOfTheHarpers from "../../public/images/items/amulets/Amulet of the Harpers.png"
-import PeriaptOfWoundClosure from "../../public/images/items/amulets/Periapt of Wound Closure.png"
+import AmuletOfBhaal from "../../../public/images/items/amulets/Amulet of Bhaal.png"
+import AmuletOfGreaterHealth from "../../../public/images/items/amulets/Amulet of Greater Health.png"
+import AmuletOfTheDevout from "../../../public/images/items/amulets/Amulet of the Devout.png"
+import AmuletOfTheHarpers from "../../../public/images/items/amulets/Amulet of the Harpers.png"
+import PeriaptOfWoundClosure from "../../../public/images/items/amulets/Periapt of Wound Closure.png"
 
 
-const Amulets = [
-  {
+const Amulets = {
+  1: {
     description: 'First Blood: On a hit, inflict Bleeding upon targets that have maximum Hit Points.',
     id: 1,
     img: AmuletOfBhaal,
@@ -15,7 +15,7 @@ const Amulets = [
     rarity: 'Legendary',
     spell: null,
   },
-  {
+  2: {
     description: 'Description: Gives the wearer advantage with Wisdom Saving Throws. &*& Grants Ability: Shield',
     id: 2,
     img: AmuletOfTheHarpers,
@@ -24,7 +24,7 @@ const Amulets = [
     rarity: 'Rare',
     spell: 'Shield',
   },
-  {
+  3: {
     description: 'Wound Closure: When Downed, automatically stabilize at the start of the turn &*& Potent Healing: Maximize the number of Hit Points restored.',
     id: 3,
     img: PeriaptOfWoundClosure,
@@ -33,7 +33,7 @@ const Amulets = [
     rarity: 'Rare',
     spell: null,
   },
-  {
+  4: {
     description: "Description: Set the wearer's Constitution score to 23. The enchantment has no effect if their Constitution score is higher without it. Additionally, gain Advantage on Constitution Saving Throws.",
     id: 4,
     img: AmuletOfGreaterHealth,
@@ -42,7 +42,7 @@ const Amulets = [
     rarity: 'Very Rare',
     spell: null
   },
-  {
+  5: {
     description: 'High Spellcasting: You gain a 2 bonus to Spell Save DC &*& Godswill: You gain an additional use of Channel Divinity.',
     id: 5,
     img: AmuletOfTheDevout,
@@ -51,6 +51,6 @@ const Amulets = [
     rarity: 'Very Rare',
     spell: 'Godswill'
   }
-]
+}
 
 export default Amulets
