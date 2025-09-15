@@ -7,27 +7,21 @@ import Equipment from "@/components/equipmentMenu/equipment";
 import InfoPanel from "@/components/infoPanel/mainPanel";
 import prisma from '@/lib/client';
 
-const ExistingBuildPage = async ({ params: { id } }: { params: { id: string } }) => {
-    const res = await prisma.build.findUnique({
-        where: {
-            id: Number(id)
-        },
-        include: {
-            classList: true,
-            cantrips: true
-        }
+const ExistingBuildPage = async ({ params }: { params: Promise<{ id: number }> }) => {
+    const { id } = await params
+    const build = await prisma.build.findUnique({
+        where: { id }
     })
-    if (!res) return "Loading..."
 
     return (
-        <main className="h-screen flex gap-4 items-center justify-center">
-            <BuildWrapper build={res} id={id}>
+        <BuildWrapper build={build} >
+            <main className="h-screen flex gap-4 items-center justify-center">
                 <BuildMenuList />
                 <BuildComponent />
                 <Equipment />
                 <InfoPanel />
-            </BuildWrapper>
-        </main>
+            </main>
+        </BuildWrapper>
     )
 }
 

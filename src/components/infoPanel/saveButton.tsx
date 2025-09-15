@@ -4,6 +4,7 @@ import { FaRegSave } from "react-icons/fa";
 import { useStore } from '@/store/store';
 import { saveBuild } from '@/lib/actions';
 import { FrontEndBuild } from '@/lib/types';
+import { navigateToBuild } from '@/lib/actions';
 
 const SaveButton = () => {
   const { current } = useStore(state => state)
@@ -12,8 +13,8 @@ const SaveButton = () => {
     e.preventDefault();
     try {
       const newBuild = await saveBuild(build);
-      if (newBuild) {
-        alert("Build saved successfully!")
+      if (newBuild != undefined) {
+        navigateToBuild(newBuild.id)
       }
     } catch (error: any) {
       alert(error.message)

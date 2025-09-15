@@ -13,7 +13,7 @@ const ItemSlot = ({
   path: string;
   defaultImg: React.ReactNode;
 }) => {
-  const current = useStore(state => state.current)
+  const { current } = useStore(state => state)
   const item = current[slot]
   const twoHandedRanged = slot === "rangedOH" && current.rangedMH === item
   const twoHandedMelee = slot === "meleeOH" && current.meleeMH === item

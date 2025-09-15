@@ -1,6 +1,7 @@
 /* eslint-disable */
 import { create } from "zustand";
 import { addCantripPoints } from "@/lib/utils";
+import { formatBuild } from "@/lib/actions";
 
 
 const defaultBuild = {
@@ -104,8 +105,8 @@ const reducer = (state, { type, payload }) => {
       const newState = {
         ...state,
       }
-      console.log(payload)
-      newState.current = payload
+      const newBuild = formatBuild(payload)
+      newState.current = newBuild
       return newState
     }
     //!-------------------------------------------------------------------
