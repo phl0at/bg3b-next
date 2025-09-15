@@ -1,8 +1,8 @@
+import React from "react";
 import BuildMenuList from "@/components/buildMenu/buildMenuList";
 import BuildComponent from "@/components/buildMenu/buildComponent";
 import Equipment from "@/components/equipmentMenu/equipment";
 import InfoPanel from "@/components/infoPanel/mainPanel";
-import React from "react";
 
 const NewBuildPage = () => {
   return (

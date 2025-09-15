@@ -1,17 +1,9 @@
 "use server"
 import prisma from './client';
-import { getKindeServerSession } from '@kinde-oss/kinde-auth-nextjs/server';
-import { BackEndBuild, FrontEndBuild } from './types';
-import Amulets from "@/lib/equipment/amulets"
-import Armours from "@/lib/equipment/armours";
-import Boots from "@/lib/equipment/boots";
-import Cloaks from "@/lib/equipment/cloaks";
-import Gloves from "@/lib/equipment/gloves";
-import Helmets from "@/lib/equipment/helmets";
-import Rings from "@/lib/equipment/rings";
-import Melee from "@/lib/equipment/meleeWeapons";
-import Ranged from "@/lib/equipment/rangedWeapons";
 import { redirect } from 'next/navigation';
+import { getKindeServerSession } from '@kinde-oss/kinde-auth-nextjs/server';
+import { FrontEndBuild } from './types';
+
 
 export const saveBuild = async (build: FrontEndBuild) => {
     const { isAuthenticated, getUser } = getKindeServerSession();
@@ -92,7 +84,7 @@ export const saveBuild = async (build: FrontEndBuild) => {
 export const getBuildByID = async (id: number) => {
     const build = await prisma.build.findUnique({
         where: {
-            id: id
+            id
         }
     })
     return build
@@ -100,24 +92,4 @@ export const getBuildByID = async (id: number) => {
 
 export const navigateToBuild = async (id: number) => {
     return redirect(`/build/${id}`)
-}
-
-export const formatBuild = (build: BackEndBuild) => {
-    const formattedBuild: any = { ...build }
-    formattedBuild.abilityPoints = 0;
-    formattedBuild.cantripPoints = 0;
-    formattedBuild.amulet = Amulets[build.amulet as keyof typeof Amulets]
-    formattedBuild.armour = Armours[build.armour as keyof typeof Armours]
-    formattedBuild.boots = Boots[build.boots as keyof typeof Boots]
-    formattedBuild.cloak = Cloaks[build.cloak as keyof typeof Cloaks]
-    formattedBuild.gloves = Gloves[build.gloves as keyof typeof Gloves]
-    formattedBuild.helmet = Helmets[build.helmet as keyof typeof Helmets]
-    formattedBuild.ring1 = Rings[build.ring1 as keyof typeof Rings]
-    formattedBuild.ring2 = Rings[build.ring2 as keyof typeof Rings]
-    formattedBuild.meleeMH = Melee[build.meleeMH as keyof typeof Melee]
-    formattedBuild.meleeOH = Melee[build.meleeOH as keyof typeof Melee]
-    formattedBuild.rangedMH = Ranged[build.rangedMH as keyof typeof Ranged]
-    formattedBuild.rangedOH = Ranged[build.rangedOH as keyof typeof Ranged]
-
-    return formattedBuild
 }

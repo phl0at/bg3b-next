@@ -6,7 +6,9 @@ import { FrontEndClass } from '@/lib/types'
 
 const ClassInfo = () => {
     const { classList } = useStore(state => state.current)
+    if(!classList) return "Loading..."
     const classes = Object.values(classList as FrontEndClass[])
+
 
     return (
         <div className='flex flex-col gap-1'>

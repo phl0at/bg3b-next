@@ -1,7 +1,6 @@
 /* eslint-disable */
 import { create } from "zustand";
-import { addCantripPoints } from "@/lib/utils";
-import { formatBuild } from "@/lib/actions";
+import { addCantripPoints, formatBuild } from "@/lib/utils";
 
 
 const defaultBuild = {
