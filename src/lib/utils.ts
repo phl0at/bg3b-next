@@ -8,6 +8,8 @@ import Helmets from "@/lib/equipment/helmets";
 import Rings from "@/lib/equipment/rings";
 import Melee from "@/lib/equipment/meleeWeapons";
 import Ranged from "@/lib/equipment/rangedWeapons";
+import Classes from "@/lib/character/classes"
+import SubClasses from "@/lib/character/subclasses"
 
 
 export function addCantripPoints(_class: string, level: number) {
@@ -63,7 +65,7 @@ export function parseMods(item: SomeItem) {
 }
 
 
-export function mergeSequences(arr: number[]) {
+export function mergeSequences(arr: string[]) {
   const numbers = [...arr];
   const result = [];
   let start = 0;
@@ -71,7 +73,7 @@ export function mergeSequences(arr: number[]) {
   while (start < numbers.length) {
     let end = start;
 
-    while (end + 1 < numbers.length && numbers[end + 1] === numbers[end] + 1) {
+    while (end + 1 < numbers.length && parseInt(numbers[end + 1]) === parseInt(numbers[end]) + 1) {
       end++;
     }
 
@@ -79,7 +81,7 @@ export function mergeSequences(arr: number[]) {
       result.push(`${numbers[start]}-${numbers[end]}`);
     } else {
       for (let i = start; i <= end; i++) {
-        result.push(numbers[i].toString());
+        result.push(numbers[i]);
       }
     }
     start = end + 1;
@@ -110,7 +112,8 @@ export function sortClasses(classes: FrontEndClass[]): FrontEndClass[] {
 
 
 export const formatBuild = (build: BackEndBuild) => {
-  const formattedBuild: any = { ...build }
+  const copyClassList = [...build.classList]
+  const formattedBuild: any = { ...build, classList: {} }
   formattedBuild.abilityPoints = 0;
   formattedBuild.cantripPoints = 0;
   formattedBuild.amulet = Amulets[build.amulet as keyof typeof Amulets]
@@ -125,5 +128,19 @@ export const formatBuild = (build: BackEndBuild) => {
   formattedBuild.meleeOH = Melee[build.meleeOH as keyof typeof Melee]
   formattedBuild.rangedMH = Ranged[build.rangedMH as keyof typeof Ranged]
   formattedBuild.rangedOH = Ranged[build.rangedOH as keyof typeof Ranged]
+  copyClassList.forEach(_class => {
+    formattedBuild.classList[_class.classId] = {
+      id: _class.id,
+      name: _class.name,
+      level: _class.level,
+      order: _class.order,
+      buildId: _class.buildId,
+      classId: _class.classId,
+      modifier: _class.modifier,
+      subClass: SubClasses[_class.subClassId as keyof typeof SubClasses],
+      levelsAdded: _class.levelsAdded.split(","),
+      img: Classes[_class.classId as keyof typeof Classes].img
+    }
+  })
   return formattedBuild
 }

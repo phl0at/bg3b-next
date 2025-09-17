@@ -12,9 +12,9 @@ const SaveButton = () => {
   const handleClick = async ({ e, build }: { e: React.MouseEvent, build: FrontEndBuild }) => {
     e.preventDefault();
     try {
-      const newBuild = await saveBuild(build);
-      if (newBuild != undefined) {
-        navigateToBuild(newBuild.id)
+      const buildId = await saveBuild(build);
+      if (buildId != undefined) {
+        navigateToBuild(buildId)
       }
     } catch (error: any) {
       alert(error.message)

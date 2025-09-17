@@ -76,7 +76,22 @@ export const saveBuild = async (build: FrontEndBuild) => {
                 rangedOH: build.rangedOH.id,
             }
         })
-        return newBuild
+
+        Object.values(build.classList).forEach(async (_class) => {
+            await prisma.class.create({
+                data: {
+                    level: _class.level,
+                    name: _class.name,
+                    classId: _class.id,
+                    order: _class.order,
+                    levelsAdded: _class.levelsAdded.join(","),
+                    subClassId: _class.subClass?.id || 0,
+                    modifier: _class.modifier,
+                    buildId: newBuild.id
+                }
+            })
+        })
+        return newBuild.id
     }
 };
 
@@ -85,10 +100,15 @@ export const getBuildByID = async (id: number) => {
     const build = await prisma.build.findUnique({
         where: {
             id
+        },
+        include: {
+            classList: true,
+            cantrips: true
         }
     })
     return build
 }
+
 
 export const navigateToBuild = async (id: number) => {
     return redirect(`/build/${id}`)

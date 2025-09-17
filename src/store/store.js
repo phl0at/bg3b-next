@@ -304,7 +304,7 @@ const reducer = (state, { type, payload }) => {
         newState.current.classList[payload.id].levelsAdded = [];
       }
       newState.current.level++;
-      newState.current.classList[payload.id].levelsAdded.push(newState.current.level);
+      newState.current.classList[payload.id].levelsAdded.push(newState.current.level.toString());
 
       // adds the proper amount of cantrip points
       // to the build based on the new class/level
@@ -384,7 +384,7 @@ const reducer = (state, { type, payload }) => {
       const newState = { ...state };
       newState.showEquipment = payload;
       return newState;
-    }
+    }  
     //!-------------------------------------------------------------------
     //!-------------------------------------------------------------------
     default:

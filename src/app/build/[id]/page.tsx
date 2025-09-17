@@ -6,12 +6,13 @@ import BuildMenuList from "@/components/buildMenu/buildMenuList";
 import BuildComponent from "@/components/buildMenu/buildComponent";
 import Equipment from "@/components/equipmentMenu/equipment";
 import InfoPanel from "@/components/infoPanel/mainPanel";
-
 import { getBuildByID } from '@/lib/actions';
 
 
 const ExistingBuildPage = () => {
-    const [isPending, startTransition] = useTransition()
+    /* eslint-disable */
+    const [_isPending, startTransition] = useTransition()
+    /* eslint-disable */
     const { dispatch, current: { id } } = useStore(state => state)
     const pathname = usePathname()
     const pathId = parseInt(pathname.split("/")[2])
@@ -23,7 +24,6 @@ const ExistingBuildPage = () => {
                 dispatch({ type: "GET BUILD", payload: build })
             }
         })
-
     }, [pathId])
 
     return (

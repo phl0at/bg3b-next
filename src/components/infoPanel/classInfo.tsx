@@ -16,14 +16,14 @@ const ClassInfo = () => {
                 Classes
             </p>
             <ul className='flex flex-col justify-center gap-y-4'>
-                {sortClasses(classes).map((_class: FrontEndClass) =>
-                    <li key={_class.id} className='grid grid-cols-3'>
+                {sortClasses(classes).map((_class: FrontEndClass, i) =>
+                    <li key={i} className='grid grid-cols-3'>
                         <div title={_class.name} className='flex justify-start items-center col-span-2'>
                             {_class.subClass ? _class.subClass.name + ' ' + _class.name : _class.name}
                         </div>
                         <div className='flex flex-col gap-1 justify-center items-center'>
                             <div>Levels: </div>
-                            <div>{mergeSequences(_class.levelsAdded) || ""}</div>
+                            <div>{mergeSequences(_class.levelsAdded) || [""]}</div>
                         </div>
                     </li>
                 )}

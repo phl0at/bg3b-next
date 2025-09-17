@@ -50,7 +50,7 @@ export type FrontEndClass = {
   name: string;
   subClass?: SubClass;
   level: number;
-  levelsAdded: number[];
+  levelsAdded: string[];
   modifier: string;
   order: number;
 };
@@ -301,7 +301,7 @@ export type BackEndClass = {
   buildId: number;
   classId: number;
   name: string;
-  subClassName: string;
+  subClassId: number;
   level: number;
   levelsAdded: string;
   modifier: string;

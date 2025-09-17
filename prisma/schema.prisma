@@ -47,16 +47,16 @@ model Build {
 }
 
 model Class {
-  id           Int    @id @default(autoincrement())
-  build        Build  @relation(fields: [buildId], references: [id])
-  buildId      Int
-  classId      Int
-  name         String
-  subClassName String
-  level        Int
-  levelsAdded  String
-  modifier     String
-  order        Int
+  id          Int    @id @default(autoincrement())
+  build       Build  @relation(fields: [buildId], references: [id])
+  buildId     Int
+  classId     Int
+  name        String
+  subClassId  Int
+  level       Int
+  levelsAdded String
+  modifier    String
+  order       Int
 
   @@index([buildId, classId])
 }
