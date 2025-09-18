@@ -85,7 +85,7 @@ export const saveBuild = async (build: FrontEndBuild) => {
                     classId: _class.id,
                     order: _class.order,
                     levelsAdded: _class.levelsAdded.join(","),
-                    subClassId: _class.subClass?.id || 0,
+                    subClassId: _class.subClass?.id || -1,
                     modifier: _class.modifier,
                     buildId: newBuild.id
                 }
@@ -94,6 +94,18 @@ export const saveBuild = async (build: FrontEndBuild) => {
         return newBuild.id
     }
 };
+
+
+export const deleteBuildById = async (userId: string, buildId: number) => {
+    const build = await prisma.build.findUnique({ where: { id: buildId } })
+    if (build?.authorId === userId) {
+        await prisma.class.deleteMany({ where: { buildId } })
+        await prisma.build.delete({ where: { id: buildId } })
+        return true
+    } else {
+        return false
+    }
+}
 
 
 export const getBuildByID = async (id: number) => {
@@ -112,4 +124,8 @@ export const getBuildByID = async (id: number) => {
 
 export const navigateToBuild = async (id: number) => {
     return redirect(`/build/${id}`)
+}
+
+export const navigateToHome = async () => {
+    return redirect("/")
 }

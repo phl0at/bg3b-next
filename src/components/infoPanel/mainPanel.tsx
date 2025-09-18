@@ -1,10 +1,16 @@
+"use client"
 import React from 'react'
 import CharacterInfo from './charaterInfo'
 import AbilityInfo from './abilityInfo'
 import ClassInfo from './classInfo'
 import SaveButton from './saveButton'
+import { useKindeBrowserClient } from '@kinde-oss/kinde-auth-nextjs'
+import { useStore } from '@/store/store'
+import DeleteButton from './deleteButton'
 
 const InfoPanel = () => {
+    const { user } = useKindeBrowserClient()
+    const { current: { authorId } } = useStore(state => state)
 
     return (
 
@@ -32,8 +38,9 @@ const InfoPanel = () => {
                 <AbilityInfo />
                 <ClassInfo />
             </div>
-            <div className='flex justify-end'>
+            <div className='flex justify-between'>
                 <SaveButton />
+                {user?.id === authorId && <DeleteButton />}
             </div>
         </div>
 

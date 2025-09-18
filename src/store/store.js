@@ -40,12 +40,11 @@ const defaultBuild = {
 };
 
 const types = {
+  setDefault: "SET DEFAULT",
   getBuild: "GET BUILD",
   getAllBuilds: "GET ALL BUILDS",
-  setBuildMenu: "SET BUILD MENU",
-  setDefault: "SET DEFAULT",
-  deleteBuild: "DELETE BUILD",
   importBuild: "IMPORT BUILD",
+  setBuildMenu: "SET BUILD MENU",
   setOrigin: "SET ORIGIN",
   setRace: "SET RACE",
   setBackground: "SET BACKGROUND",
@@ -77,6 +76,7 @@ const reducer = (state, { type, payload }) => {
         current: {
           ...defaultBuild,
         },
+        buildMenu: "Origins"
       };
       return newState;
     }
